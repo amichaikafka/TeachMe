@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">TeachMe</string>
-    <string name="txtUser">ששם משתשמ</string>
+    <string name="txtUser">שם משתמש</string>
     <string name="txtPass">סיסמא</string>
     <string name="txtLog">התחבר</string>
     <string name="txtReg">הרשמה</string>

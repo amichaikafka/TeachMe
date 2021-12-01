@@ -26,11 +26,7 @@ public class OpenScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         load();
         setContentView(R.layout.open_screen);
-//        txtName=(EditText)findViewById(R.id.txtName);
-//        name=txtName.getText().toString();
-//        System.out.println("____________"+name);
         ActionBar actionBar=getSupportActionBar();
-        assert actionBar != null;
         actionBar.setTitle(getResources().getString(R.string.app_name));
         txtPass=(EditText)findViewById(R.id.TextPassword);
         String pass=txtPass.getText().toString();
@@ -55,23 +51,32 @@ public class OpenScreen extends AppCompatActivity {
     }
 
     public void onChangeLan(View view) {
+//        ActionBar actionBar=getSupportActionBar();
+//        actionBar.setTitle(getResources().getString(R.string.app_name));
+        ActionBar actionBar=getSupportActionBar();
+        actionBar.setTitle(getResources().getString(R.string.app_name));
         final String[] lang={"English","עברית"};
         flag=!flag;
         System.out.println("asfffffffffffffffffffffffffffffffffffffff");
         AlertDialog.Builder myBuilder=new AlertDialog.Builder(OpenScreen.this);
+        myBuilder.setTitle("Choose language");
         myBuilder.setSingleChoiceItems(lang, -1, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 if(which==0) {
-                    setLocal("iw");
+                    setLocal("");
                     recreate();
-                }if(which==1){
+                }else if(which==1){
                     setLocal("iw");
                     recreate();
 
                 }
+               dialog.dismiss();
             }
         });
+//        AlertDialog mDialog=myBuilder.create();
+//        mDialog.show();
+        myBuilder.create().show();
 
 
     }
@@ -82,8 +87,7 @@ public class OpenScreen extends AppCompatActivity {
     }
 
     private void setLocal(String lang) {
-        flag=!flag;
-        if(flag) {
+
             Locale l = new Locale(lang);
             Locale.setDefault(l);
             Configuration config=new Configuration();
@@ -92,6 +96,6 @@ public class OpenScreen extends AppCompatActivity {
             SharedPreferences.Editor editor=getSharedPreferences("Settings",MODE_PRIVATE).edit();
             editor.putString("My_lang",lang);
             editor.apply();
-        }
+
     }
 }

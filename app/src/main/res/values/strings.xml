@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">TeachMe</string>
+    <string name="txtUser">User Name</string>
+    <string name="txtPass">Password</string>
+    <string name="txtLog">Log in</string>
+    <string name="txtReg">Sign up</string>
+    <string name="student">Student</string>
+    <string name="teacher">Teacher</string>
+    <string name="Backbtn">Back</string>
+    <string name="language">language</string>
+</resources>

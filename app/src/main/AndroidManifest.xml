@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication2">
         <activity
-            android:name=".TeacherOrStufent"
+            android:name=".TeacherOrStudent"
             android:exported="false" />
         <activity
             android:name=".MainActivity2"

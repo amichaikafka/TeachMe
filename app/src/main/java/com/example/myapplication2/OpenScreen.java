@@ -34,7 +34,7 @@ public class OpenScreen extends AppCompatActivity {
     }
 
     public void onClickReg(View view) {
-        Intent intent=new Intent(OpenScreen.this,TeacherOrStufent.class);
+        Intent intent=new Intent(OpenScreen.this, TeacherOrStudent.class);
         startActivity(intent);
         finish();
     }

@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">TeachMe</string>
-    <string name="txtUser">שם משתמש</string>
-    <string name="txtPass">סיסמא</string>
     <string name="txtLog">התחבר</string>
     <string name="txtReg">הרשמה</string>
     <string name="student">תלמיד</string>
     <string name="teacher">מורה</string>
     <string name="Backbtn">חזור</string>
     <string name="language">שפה</string>
+    <string name="back_btn1">חזור</string>
+    <string name="user_name_open">שם משתמש</string>
+    <string name="password_open">סיסמא</string>
 </resources>

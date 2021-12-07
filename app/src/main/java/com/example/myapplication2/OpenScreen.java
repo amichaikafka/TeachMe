@@ -9,6 +9,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -28,7 +29,7 @@ public class OpenScreen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mAuth = FirebaseAuth.getInstance();
-        load();
+//        load();
         setContentView(R.layout.open_screen);
         ActionBar actionBar=getSupportActionBar();
         actionBar.setTitle(getResources().getString(R.string.app_name));
@@ -73,20 +74,19 @@ public class OpenScreen extends AppCompatActivity {
     }
 
     public void onChangeLan(View view) {
-//        ActionBar actionBar=getSupportActionBar();
-//        actionBar.setTitle(getResources().getString(R.string.app_name));
+
         ActionBar actionBar=getSupportActionBar();
         actionBar.setTitle(getResources().getString(R.string.app_name));
         final String[] lang={"English","עברית"};
         flag=!flag;
-        System.out.println("asfffffffffffffffffffffffffffffffffffffff");
         AlertDialog.Builder myBuilder=new AlertDialog.Builder(OpenScreen.this);
         myBuilder.setTitle("Choose language");
         myBuilder.setSingleChoiceItems(lang, -1, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 if(which==0) {
-                    setLocal("");
+                    setLocal("en");
+//                    startActivity(new Intent(t));
                     recreate();
                 }else if(which==1){
                     setLocal("iw");
@@ -111,6 +111,11 @@ public class OpenScreen extends AppCompatActivity {
     private void setLocal(String lang) {
 
             Locale l = new Locale(lang);
+//        Resources resources=activity.getResources();
+//        Configuration configuration=resources.getConfiguration();
+//        configuration.setLocale(l);
+//        resources.updateConfiguration(configuration,resources.getDisplayMetrics());
+//        System.out.println("asdsafsf");
             Locale.setDefault(l);
             Configuration config=new Configuration();
             config.locale=l;

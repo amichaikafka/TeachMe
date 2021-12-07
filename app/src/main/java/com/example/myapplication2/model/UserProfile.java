@@ -1,5 +1,5 @@
 package com.example.myapplication2.model;
-import java.awt.geom.*;
+
 import java.util.Date;
 
 import android.graphics.Point;

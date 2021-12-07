@@ -13,17 +13,21 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 import java.util.Locale;
 
 public class OpenScreen extends AppCompatActivity {
    public EditText txtName;
    public String name;
    boolean flag=false;
+    private FirebaseAuth mAuth;
 
     public EditText txtPass;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        mAuth = FirebaseAuth.getInstance();
         load();
         setContentView(R.layout.open_screen);
         ActionBar actionBar=getSupportActionBar();
@@ -34,6 +38,24 @@ public class OpenScreen extends AppCompatActivity {
     }
 
     public void onClickReg(View view) {
+//        mAuth.createUserWithEmailAndPassword(email,password)
+//                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+//                    @Override
+//                    public void onComplete(@NonNull Task<AuthResult> task) {
+//                        if (task.isSuccessful()) {
+//                            // Sign in success, update UI with the signed-in user's information
+//                            Log.d(TAG, "createUserWithEmail:success");
+//                            FirebaseUser user = mAuth.getCurrentUser();
+//                            updateUI(user);
+//                        } else {
+//                            // If sign in fails, display a message to the user.
+//                            Log.w(TAG, "createUserWithEmail:failure", task.getException());
+//                            Toast.makeText(EmailPasswordActivity.this, "Authentication failed.",
+//                                    Toast.LENGTH_SHORT).show();
+//                            updateUI(null);
+//                        }
+//                    }
+//                });
         Intent intent=new Intent(OpenScreen.this, TeacherOrStudent.class);
         startActivity(intent);
         finish();

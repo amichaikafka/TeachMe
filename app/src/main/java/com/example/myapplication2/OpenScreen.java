@@ -29,7 +29,6 @@ public class OpenScreen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mAuth = FirebaseAuth.getInstance();
-//        load();
         setContentView(R.layout.open_screen);
         ActionBar actionBar=getSupportActionBar();
         actionBar.setTitle(getResources().getString(R.string.app_name));
@@ -86,7 +85,7 @@ public class OpenScreen extends AppCompatActivity {
             public void onClick(DialogInterface dialog, int which) {
                 if(which==0) {
                     setLocal("en");
-//                    startActivity(new Intent(t));
+
                     recreate();
                 }else if(which==1){
                     setLocal("iw");
@@ -96,8 +95,7 @@ public class OpenScreen extends AppCompatActivity {
                dialog.dismiss();
             }
         });
-//        AlertDialog mDialog=myBuilder.create();
-//        mDialog.show();
+
         myBuilder.create().show();
 
 
@@ -111,11 +109,6 @@ public class OpenScreen extends AppCompatActivity {
     private void setLocal(String lang) {
 
             Locale l = new Locale(lang);
-//        Resources resources=activity.getResources();
-//        Configuration configuration=resources.getConfiguration();
-//        configuration.setLocale(l);
-//        resources.updateConfiguration(configuration,resources.getDisplayMetrics());
-//        System.out.println("asdsafsf");
             Locale.setDefault(l);
             Configuration config=new Configuration();
             config.locale=l;

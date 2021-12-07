@@ -10,13 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication2">
         <activity
-            android:name=".TeacherOrStudent"
+            android:name=".view.TeacherOrStudent"
             android:exported="false" />
         <activity
-            android:name=".MainActivity2"
+            android:name=".view.MainActivity2"
             android:exported="false" />
         <activity
-            android:name=".OpenScreen"
+            android:name=".view.OpenScreen"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

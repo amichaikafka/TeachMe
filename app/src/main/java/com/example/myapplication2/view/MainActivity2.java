@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import com.example.myapplication2.R;
+
 public class MainActivity2 extends AppCompatActivity {
     public String name;
     public String txtName;

@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.example.myapplication2.R;
+
 public class TeacherOrStudent extends AppCompatActivity {
 
     @Override

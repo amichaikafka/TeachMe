@@ -14,6 +14,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 
+import com.example.myapplication2.R;
 import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.Locale;

@@ -1,4 +1,4 @@
-package com.example.myapplication2;
+package com.example.myapplication2.view;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,7 +9,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
-import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -63,7 +62,7 @@ public class OpenScreen extends AppCompatActivity {
     }
 
     public void onClickLog(View view) {
-        Intent intent=new Intent(OpenScreen.this,MainActivity2.class);
+        Intent intent=new Intent(OpenScreen.this, MainActivity2.class);
         Bundle b=new Bundle();
         txtName=(EditText)findViewById(R.id.txtName);
         name=txtName.getText().toString();

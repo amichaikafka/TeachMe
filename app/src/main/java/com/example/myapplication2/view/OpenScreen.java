@@ -37,6 +37,9 @@ public class OpenScreen extends AppCompatActivity {
 
     }
 
+    //TODO need to check how to connecet between email user and user profile
+
+
     public void onClickReg(View view) {
 //        mAuth.createUserWithEmailAndPassword(email,password)
 //                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {

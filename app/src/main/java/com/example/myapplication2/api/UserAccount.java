@@ -1,4 +1,4 @@
-package com.example.myapplication2.model;
+package com.example.myapplication2.api;
 
 import java.util.LinkedList;
 
@@ -29,5 +29,6 @@ public  class UserAccount {
 
     }
     public void recoveryPassword(){}
+
     public void changePassword(){}
 }

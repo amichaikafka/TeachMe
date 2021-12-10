@@ -1,4 +1,4 @@
-package com.example.myapplication2.model;
+package com.example.myapplication2.api;
 
 import java.net.MalformedURLException;
 import java.net.URL;

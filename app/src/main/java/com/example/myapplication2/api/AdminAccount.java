@@ -1,4 +1,4 @@
-package com.example.myapplication2.model;
+package com.example.myapplication2.api;
 
 public class AdminAccount {
     private String adminID;

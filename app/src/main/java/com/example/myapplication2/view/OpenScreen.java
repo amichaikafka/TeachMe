@@ -1,5 +1,6 @@
 package com.example.myapplication2.view;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -10,6 +11,8 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 
@@ -38,8 +41,6 @@ public class OpenScreen extends AppCompatActivity {
     }
 
     //TODO need to check how to connecet between email user and user profile
-
-
     public void onClickReg(View view) {
 //        mAuth.createUserWithEmailAndPassword(email,password)
 //                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/menu_home"
+        android:title="Home"
+
+        />
+    <item
+        android:id="@+id/menu_myProfile"
+        android:title="My profile" />
+    <item
+        android:id="@+id/menu_myLesson"
+        android:title="My lesson" />
+    <item
+        android:id="@+id/menu_contact"
+        android:title="Contact us" />
+    <item
+        android:id="@+id/menu_setting"
+        android:title="Setting" />
+    <item
+        android:id="@+id/menu_switch"
+        android:title="Switch Teacher/Student" />
+</menu>

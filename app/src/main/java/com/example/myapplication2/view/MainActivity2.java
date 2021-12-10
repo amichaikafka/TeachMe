@@ -1,9 +1,12 @@
 package com.example.myapplication2.view;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
@@ -27,6 +30,30 @@ public class MainActivity2 extends AppCompatActivity {
 
 
 
+    }
+
+    //the Menu Bar create
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        getMenuInflater().inflate(R.menu.menu_activity, menu);
+
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    //TODO: need to add case for every items.
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch(item.getItemId()) {
+            case R.id.menu_home:
+                Intent intent = new Intent(MainActivity2.this, HomePage.class);
+                Bundle b = new Bundle();
+                intent.putExtras(b);
+                startActivity(intent);
+                finish();
+        }
+
+        return super.onContextItemSelected(item);
     }
 
     public void onClickBack(View view) {

@@ -10,6 +10,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication2">
         <activity
+            android:name=".view.ContactUs"
+            android:exported="false" />
+        <activity
+            android:name=".view.Setting"
+            android:exported="false" />
+        <activity
+            android:name=".view.MyLessons"
+            android:exported="false" />
+        <activity
             android:name=".view.HomePage"
             android:exported="false" />
         <activity

@@ -66,7 +66,7 @@ public class OpenScreen extends AppCompatActivity {
     }
 
     public void onClickLog(View view) {
-        Intent intent=new Intent(OpenScreen.this, MainActivity2.class);
+        Intent intent=new Intent(OpenScreen.this, HomePage.class);
         Bundle b=new Bundle();
         txtName=(EditText)findViewById(R.id.txtName);
         name=txtName.getText().toString();

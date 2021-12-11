@@ -3,7 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/TeachMe/app/src/main/res/layout/activity_contact_us.xml" value="0.2056159420289855" />
         <entry key="..\:/TeachMe/app/src/main/res/layout/activity_home_page.xml" value="0.22447916666666667" />
+        <entry key="..\:/TeachMe/app/src/main/res/layout/activity_my_lessons.xml" value="0.2056159420289855" />
+        <entry key="..\:/TeachMe/app/src/main/res/layout/activity_setting.xml" value="0.2056159420289855" />
         <entry key="..\:/TeachMe/app/src/main/res/layout/activity_teacher_or_student.xml" value="0.23505434782608695" />
         <entry key="..\:/TeachMe/app/src/main/res/layout/open_screen.xml" value="0.23854166666666668" />
         <entry key="..\:/TeachMe/app/src/main/res/menu/menu_activity.xml" value="0.23854166666666668" />

@@ -12,6 +12,9 @@ import android.widget.TextView;
 
 import com.example.myapplication2.R;
 
+
+
+ /// class not uses.
 public class MainActivity2 extends AppCompatActivity {
     public String name;
     public String txtName;
@@ -41,20 +44,7 @@ public class MainActivity2 extends AppCompatActivity {
         return super.onCreateOptionsMenu(menu);
     }
 
-    //TODO: need to add case for every items.
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch(item.getItemId()) {
-            case R.id.menu_home:
-                Intent intent = new Intent(MainActivity2.this, HomePage.class);
-                Bundle b = new Bundle();
-                intent.putExtras(b);
-                startActivity(intent);
-                finish();
-        }
 
-        return super.onContextItemSelected(item);
-    }
 
     public void onClickBack(View view) {
         Intent intent=new Intent(MainActivity2.this, OpenScreen.class);

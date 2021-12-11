@@ -9,4 +9,10 @@
     <string name="back_btn1">Back</string>
     <string name="user_name_open">User name</string>
     <string name="password_open">Password</string>
+    <string name="home">Home</string>
+    <string name="myProfile">my Profile</string>
+    <string name="MyLesson">My lesson</string>
+    <string name="ContactUs">Contact us</string>
+    <string name="Setting">Setting</string>
+    <string name="SwitchTeacherStudent">Switch teacher Student</string>
 </resources>

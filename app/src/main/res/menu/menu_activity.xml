@@ -4,22 +4,23 @@
 
     <item
         android:id="@+id/menu_home"
-        android:title="Home"
-
+        android:title="@string/home"
         />
     <item
         android:id="@+id/menu_myProfile"
-        android:title="My profile" />
+        android:title="@string/myProfile"
+        />
     <item
         android:id="@+id/menu_myLesson"
-        android:title="My lesson" />
+        android:title="@string/MyLesson"
+        />
     <item
         android:id="@+id/menu_contact"
-        android:title="Contact us" />
+        android:title="@string/ContactUs" />
     <item
         android:id="@+id/menu_setting"
-        android:title="Setting" />
+        android:title="@string/Setting" />
     <item
         android:id="@+id/menu_switch"
-        android:title="Switch Teacher/Student" />
+        android:title="@string/SwitchTeacherStudent" />
 </menu>

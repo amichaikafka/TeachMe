@@ -10,4 +10,10 @@
     <string name="back_btn1">חזור</string>
     <string name="user_name_open">שם משתמש</string>
     <string name="password_open">סיסמא</string>
+    <string name="home">בית</string>
+    <string name="myProfile">הפרופיל שלי</string>
+    <string name="MyLesson">השיעורים שלי</string>
+    <string name="ContactUs">צור קשר</string>
+    <string name="Setting">הגדרות</string>
+    <string name="SwitchTeacherStudent">החלף מורה/תלמיד</string>
 </resources>

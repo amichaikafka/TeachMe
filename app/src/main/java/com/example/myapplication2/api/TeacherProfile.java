@@ -16,10 +16,18 @@ public class TeacherProfile extends UserProfile{
     private int numOfReviews;
     private List<String> reviews;           //TODO class Review
     private String profilePicture;
+
+    public TeacherProfile() {
+    }
+
+    public TeacherProfile(String firstName, String lastName, String emailAddress, String gender) {
+        super(firstName, lastName, emailAddress, gender);
+    }
+
     public TeacherProfile(String userId, String firstName, String lastName, Date dateOfBirth,
                           String emailAddress, String gender, String aboutMe, Point location,
                           List<String> fieldsOfTeaching, String phoneNumber,
-                        double price, String iconPath) {
+                          double price, String iconPath) {
         super(userId, firstName, lastName, dateOfBirth, emailAddress, gender, aboutMe, location);
         this.fieldsOfTeaching = fieldsOfTeaching;
         this.listOfStudents = new ArrayList<>();

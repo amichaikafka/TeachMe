@@ -3,8 +3,7 @@
     <string name="app_name">TeachMe</string>
     <string name="txtLog">התחבר</string>
     <string name="txtReg">הרשמה</string>
-    <string name="student">תלמיד</string>
-    <string name="teacher">מורה</string>
+    <string name="registration_reg">הרשמה</string>
     <string name="Backbtn">חזור</string>
     <string name="language">שפה</string>
     <string name="back_btn1">חזור</string>
@@ -16,5 +15,17 @@
     <string name="ContactUs">צור קשר</string>
     <string name="Settings">הגדרות</string>
     <string name="SwitchTeacherStudent">החלף מורה/תלמיד</string>
+    <string name="email">מייל</string>
+    <string name="name">שם פרטי</string>
+    <string name="family_name">שם משפחה</string>
+    <string name="password">סיסמא</string>
+    <string name="verify_password">וידוא סיסמא</string>
+    <string name="email_reg">אימייל</string>
+    <string name="registration">הרשמה</string>
+    <string name="student_choice_reg">תלמיד</string>
+    <string name="teacher_chice_reg">מורה</string>
+    <string name="male_choice_reg">זכר</string>
+    <string name="female_choice_reg">נקבה</string>
+    <string name="decline_to_specify_chice_reg">מסרב להזדהות</string>
     <string name="reviews">חוות דעת</string>
 </resources>

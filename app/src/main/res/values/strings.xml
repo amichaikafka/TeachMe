@@ -2,8 +2,7 @@
     <string name="app_name">TeachMe</string>
     <string name="txtLog">Log in</string>
     <string name="txtReg">Sign up</string>
-    <string name="student">Student</string>
-    <string name="teacher">Teacher</string>
+    <string name="registration_reg">Registration</string>
     <string name="Backbtn">Back</string>
     <string name="language">language</string>
     <string name="back_btn1">Back</string>
@@ -15,5 +14,17 @@
     <string name="ContactUs">Contact us</string>
     <string name="Settings">Setting</string>
     <string name="SwitchTeacherStudent">Switch Teacher Student</string>
+    <string name="email">Email</string>
+    <string name="name">Name</string>
+    <string name="family_name">Family name</string>
+    <string name="password">Password</string>
+    <string name="verify_password">Verify password</string>
+    <string name="email_reg">Email</string>
+    <string name="registration">Registration</string>
+    <string name="student_choice_reg">Student</string>
+    <string name="teacher_chice_reg">Teacher</string>
+    <string name="male_choice_reg">Male</string>
+    <string name="female_choice_reg">Female</string>
+    <string name="decline_to_specify_chice_reg">Decline to specify</string>
     <string name="reviews">reviews</string>
 </resources>

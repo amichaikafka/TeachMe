@@ -14,6 +14,16 @@ public abstract class UserProfile {
     protected String aboutMe;
     protected Point location;
 
+    public UserProfile() {
+    }
+
+    public UserProfile(String firstName, String lastName, String emailAddress, String gender) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.emailAddress = emailAddress;
+        this.gender = gender;
+    }
+
     public UserProfile(String userID, String firstName, String lastName, Date dateOfBirth, String emailAddress, String gender, String aboutMe, Point location) {
         this.userID = userID;
         this.firstName = firstName;

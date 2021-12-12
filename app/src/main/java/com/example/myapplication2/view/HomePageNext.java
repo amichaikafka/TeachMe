@@ -27,6 +27,13 @@ public class HomePageNext extends AppCompatActivity {
         setContentView(R.layout.activity_home_page_next);
 
         ArrayList<TeacherProfile> teachers= new ArrayList<>();
+        TeacherProfile itai = new TeacherProfile("111", "Itai","Lashover",
+                new Date(1,1,1),1+"@gmail.com",
+                "male", "Private tutur in Java, Python, JavaScript and more...\nPrice:100 NIS per hour ", new Point(0,0), new ArrayList<String>(),
+                "052-4810824",100, "empty_profile_pic");
+        itai.setNumOfReviews(52);
+        itai.setRating(5);
+        teachers.add(itai);
         for(int i=1 ; i<20 ; i++){
             teachers.add(new TeacherProfile("111", "first"+i, "last"+i,
                     new Date(1,1,i),i+"@gmail.com",

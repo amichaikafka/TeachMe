@@ -13,6 +13,8 @@ public class TeacherProfile extends UserProfile{
     private String phoneNumber;
     private double price;
     private int rating;
+    private int numOfReviews;
+    private List<String> reviews;           //TODO class Review
     private String profilePicture;
     public TeacherProfile(String userId, String firstName, String lastName, Date dateOfBirth,
                           String emailAddress, String gender, String aboutMe, Point location,
@@ -20,12 +22,14 @@ public class TeacherProfile extends UserProfile{
                         double price, String iconPath) {
         super(userId, firstName, lastName, dateOfBirth, emailAddress, gender, aboutMe, location);
         this.fieldsOfTeaching = fieldsOfTeaching;
-        this.listOfStudents = listOfStudents;
+        this.listOfStudents = new ArrayList<>();
         this.phoneNumber = phoneNumber;
         this.price = price;
         this.listOfStudents = new ArrayList<>();
         this.rating = 0;
         this.profilePicture = iconPath;
+        this.numOfReviews = 0;
+        this.reviews = new ArrayList<>();
     }
     public String getStats(){ return "";}
     public void scheduleLesson(){}
@@ -85,5 +89,21 @@ public class TeacherProfile extends UserProfile{
 
     public void setProfilePicture(String profilePicture) {
         this.profilePicture = profilePicture;
+    }
+
+    public int getNumOfReviews() {
+        return numOfReviews;
+    }
+
+    public void setNumOfReviews(int numOfReviews) {
+        this.numOfReviews = numOfReviews;
+    }
+
+    public List<String> getReviews() {
+        return reviews;
+    }
+
+    public void setReviews(List<String> reviews) {
+        this.reviews = reviews;
     }
 }

@@ -19,7 +19,7 @@
         android:title="@string/ContactUs" />
     <item
         android:id="@+id/menu_setting"
-        android:title="@string/Setting" />
+        android:title="@string/Settings" />
     <item
         android:id="@+id/menu_switch"
         android:title="@string/SwitchTeacherStudent" />

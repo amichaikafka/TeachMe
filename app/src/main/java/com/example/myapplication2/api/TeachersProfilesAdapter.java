@@ -35,7 +35,9 @@ public class TeachersProfilesAdapter extends RecyclerView.Adapter<TeachersProfil
         TeacherProfile currentProfile = teachers.get(position);
         holder.nameTextView.setText(currentProfile.getFirstName() + " " + currentProfile.getLastName());
         holder.aboutMeTextView.setText(currentProfile.getAboutMe());
-        holder.ratingBar.setRating(3);          //TODO: add ratings to teacher profile
+        holder.ratingBar.setRating(currentProfile.getRating());          //TODO: add ratings to teacher profile
+        holder.numOfReviews.setText(String.valueOf(currentProfile.getNumOfReviews()));
+        holder.reviewsWord.setText("Reviews");
         holder.phoneNumberBtn.setText(currentProfile.getPhoneNumber());
         holder.profileImageView.setImageResource(holder.nameTextView.getResources()
                 .getIdentifier(currentProfile.getProfilePicture(), "drawable",
@@ -52,6 +54,8 @@ public class TeachersProfilesAdapter extends RecyclerView.Adapter<TeachersProfil
         public TextView aboutMeTextView;
         public RatingBar ratingBar;
         public Button phoneNumberBtn;
+        public TextView numOfReviews;
+        public TextView reviewsWord;
         public ImageView profileImageView;
         public TeachersViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -60,7 +64,8 @@ public class TeachersProfilesAdapter extends RecyclerView.Adapter<TeachersProfil
             ratingBar = itemView.findViewById(R.id.ratingbar_box);
             phoneNumberBtn = itemView.findViewById(R.id.btn_box_phone);
             profileImageView = itemView.findViewById(R.id.imageview_box_teacher_pic);
-
+            numOfReviews = itemView.findViewById(R.id.num_of_reviews);
+            reviewsWord = itemView.findViewById(R.id.review_word);
         }
     }
 

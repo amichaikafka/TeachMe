@@ -13,6 +13,7 @@
     <string name="myProfile">my Profile</string>
     <string name="MyLesson">My lesson</string>
     <string name="ContactUs">Contact us</string>
-    <string name="Setting">Setting</string>
+    <string name="Settings">Setting</string>
     <string name="SwitchTeacherStudent">Switch Teacher Student</string>
+    <string name="reviews">reviews</string>
 </resources>

@@ -10,7 +10,7 @@ import android.view.MenuItem;
 
 import com.example.myapplication2.R;
 
-public class Setting extends AppCompatActivity {
+public class Settings extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -27,21 +27,21 @@ public class Setting extends AppCompatActivity {
         Bundle b;
         switch(item.getItemId()) {
             case R.id.menu_home:
-                intent = new Intent(Setting.this, HomePage.class);
+                intent = new Intent(Settings.this, HomePage.class);
                 b = new Bundle();
                 intent.putExtras(b);
                 startActivity(intent);
                 finish();
 
             case R.id.menu_myLesson:
-                intent = new Intent(Setting.this, MyLessons.class);
+                intent = new Intent(Settings.this, MyLessons.class);
                 b = new Bundle();
                 intent.putExtras(b);
                 startActivity(intent);
                 finish();
 
             case R.id.menu_contact:
-                intent = new Intent(Setting.this, ContactUs.class);
+                intent = new Intent(Settings.this, ContactUs.class);
                 b = new Bundle();
                 intent.putExtras(b);
                 startActivity(intent);

@@ -20,4 +20,12 @@ public class StudentProfile extends UserProfile{
         return null;
     }
     public void sortTeacherBy(String sortBy){}
+
+    public LinkedList<String> getFilledOfStudies() {
+        return filledOfStudies;
+    }
+
+    public void setFilledOfStudies(LinkedList<String> filledOfStudies) {
+        this.filledOfStudies = filledOfStudies;
+    }
 }

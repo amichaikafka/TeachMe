@@ -35,7 +35,7 @@ public class MyLessons extends AppCompatActivity {
                 finish();
 
             case R.id.menu_setting:
-                intent = new Intent(MyLessons.this, Setting.class);
+                intent = new Intent(MyLessons.this, Settings.class);
                 b = new Bundle();
                 intent.putExtras(b);
                 startActivity(intent);

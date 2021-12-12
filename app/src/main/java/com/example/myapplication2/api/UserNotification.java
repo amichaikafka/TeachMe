@@ -12,4 +12,20 @@ public class UserNotification {
     public void requestLesson(){}
     public void acceptLesson(){}
     public void denyLesson(){}
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public int getNotificationType() {
+        return notificationType;
+    }
+
+    public void setNotificationType(int notificationType) {
+        this.notificationType = notificationType;
+    }
 }

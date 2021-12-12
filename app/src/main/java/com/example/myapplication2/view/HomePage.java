@@ -42,7 +42,7 @@ public class HomePage extends AppCompatActivity {
                 finish();
 
             case R.id.menu_setting:
-                intent = new Intent(HomePage.this, Setting.class);
+                intent = new Intent(HomePage.this, Settings.class);
                 b = new Bundle();
                 intent.putExtras(b);
                 startActivity(intent);
@@ -60,4 +60,11 @@ public class HomePage extends AppCompatActivity {
     }
 
 
+    public void onClickSearchForTeacher(View view) {
+        Intent intent = new Intent(HomePage.this, HomePageNext.class);
+        Bundle b = new Bundle();
+        intent.putExtras(b);
+        startActivity(intent);
+        finish();
+    }
 }

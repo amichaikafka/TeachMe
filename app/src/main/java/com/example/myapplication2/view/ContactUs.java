@@ -47,7 +47,7 @@ public class ContactUs extends AppCompatActivity {
                 finish();
 
             case R.id.menu_setting:
-                intent = new Intent(ContactUs.this, Setting.class);
+                intent = new Intent(ContactUs.this, Settings.class);
                 b = new Bundle();
                 intent.putExtras(b);
                 startActivity(intent);

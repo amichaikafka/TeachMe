@@ -16,19 +16,35 @@ public  class UserAccount {
         this.hintQuestion = hintQuestion;
         this.hintAnswer = hintAnswer;
     }
-    public void registerUserAccount(){
 
-    }
-    public void signOut(){
-
-    }
-    public void deleteAccount(){
-
-    }
-    public void forgetPassword(){
-
-    }
+    public void registerUserAccount(){ }
+    public void signOut(){}
+    public void deleteAccount(){}
+    public void forgetPassword(){}
     public void recoveryPassword(){}
-
     public void changePassword(){}
+
+    public String getUserID() {
+        return userID;
+    }
+
+    public String getUserPassword() {
+        return userPassword;
+    }
+
+    public String getHintQuestion() {
+        return hintQuestion;
+    }
+
+    public String getHintAnswer() {
+        return hintAnswer;
+    }
+
+    public UserProfile getUserProfile() {
+        return userProfile;
+    }
+
+    public LinkedList<Lesson> getLessons() {
+        return lessons;
+    }
 }

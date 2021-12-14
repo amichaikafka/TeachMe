@@ -47,7 +47,7 @@ public class TeacherProfile extends UserProfile{
         return fieldsOfTeaching;
     }
 
-    public void setFieldsOfTeaching(LinkedList<String> fieldsOfTeaching) {
+    public void onSetFieldsOfTeaching(LinkedList<String> fieldsOfTeaching) {
         this.fieldsOfTeaching = fieldsOfTeaching;
     }
 
@@ -55,7 +55,7 @@ public class TeacherProfile extends UserProfile{
         return listOfStudents;
     }
 
-    public void setListOfStudents(LinkedList<String> listOfStudents) {
+    public void onSetListOfStudents(LinkedList<String> listOfStudents) {
         this.listOfStudents = listOfStudents;
     }
 
@@ -75,11 +75,11 @@ public class TeacherProfile extends UserProfile{
         this.rating = r;
     }
 
-    public void setFieldsOfTeaching(List<String> fieldsOfTeaching) {
+    public void onSetFieldsOfTeaching(List<String> fieldsOfTeaching) {
         this.fieldsOfTeaching = fieldsOfTeaching;
     }
 
-    public void setListOfStudents(List<String> listOfStudents) {
+    public void onSetListOfStudents(List<String> listOfStudents) {
         this.listOfStudents = listOfStudents;
     }
 

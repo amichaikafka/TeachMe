@@ -126,6 +126,7 @@ public class TeacherOrStudent extends AppCompatActivity {
                     ,email.getText().toString(),genderChoice.getText().toString());
             myRef = database.getReference("Teachers/"+id);
             myRef.setValue(teacher);
+
         }else{
             StudentProfile student=new StudentProfile(userName.getText().toString(),familyName.getText().toString()
                     ,email.getText().toString(),genderChoice.getText().toString());

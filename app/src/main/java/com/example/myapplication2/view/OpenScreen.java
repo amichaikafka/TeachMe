@@ -11,8 +11,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -155,5 +153,9 @@ public class OpenScreen extends AppCompatActivity {
             editor.putString("My_lang",lang);
             editor.apply();
 
+    }
+
+    public void onClickSett(View view) {
+        startActivity(new Intent(OpenScreen.this, SettingsOmerFragment.class));
     }
 }

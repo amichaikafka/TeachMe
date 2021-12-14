@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav"
+    app:startDestination="@id/homeOmerFragment">
+
+    <fragment
+        android:id="@+id/homeOmerFragment"
+        android:name="com.example.myapplication2.view.HomeOmerFragment"
+        android:label="Home"
+        tools:layout="@layout/fragment_home_omer" >
+        <action
+            android:id="@+id/action_homeOmerFragment_to_settingsOmerFragment"
+            app:destination="@id/settingsOmerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/settingsOmerFragment"
+        android:name="com.example.myapplication2.view.SettingsOmerFragment"
+        android:label="Settings" >
+        <action
+            android:id="@+id/action_settingsOmerFragment_to_homeOmerFragment"
+            app:destination="@id/homeOmerFragment" />
+    </fragment>
+    <activity
+        android:id="@+id/openScreen2"
+        android:name="com.example.myapplication2.view.OpenScreen"
+        android:label="open_screen"
+        tools:layout="@layout/open_screen" />
+</navigation>

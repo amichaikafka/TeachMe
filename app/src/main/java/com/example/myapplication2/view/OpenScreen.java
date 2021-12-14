@@ -156,6 +156,6 @@ public class OpenScreen extends AppCompatActivity {
     }
 
     public void onClickSett(View view) {
-        startActivity(new Intent(OpenScreen.this, SettingsOmerFragment.class));
+        startActivity(new Intent(OpenScreen.this, HomeOmerFragment.class));
     }
 }

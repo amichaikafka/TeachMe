@@ -37,7 +37,7 @@ public class TeachersProfilesAdapter extends RecyclerView.Adapter<TeachersProfil
         holder.aboutMeTextView.setText(currentProfile.getAboutMe());
         holder.ratingBar.setRating(currentProfile.getRating());          //TODO: add ratings to teacher profile
         holder.numOfReviews.setText(String.valueOf(currentProfile.getNumOfReviews()));
-        holder.reviewsWord.setText("Reviews");
+//        holder.reviewsWord.setText("Reviews");
         holder.phoneNumberBtn.setText(currentProfile.getPhoneNumber());
         holder.profileImageView.setImageResource(holder.nameTextView.getResources()
                 .getIdentifier(currentProfile.getProfilePicture(), "drawable",

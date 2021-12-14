@@ -29,4 +29,6 @@
     <string name="decline_to_specify_chice_reg">מסרב להזדהות</string>
     <string name="reviews">חוות דעת</string>
     <string name="hello">שלום</string>
+    <string name="hello_blank_fragment">משהו</string>
+    <string name="messages_header">הודעות</string>
 </resources>

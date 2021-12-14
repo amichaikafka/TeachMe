@@ -96,12 +96,10 @@ public class TeacherOrStudent extends AppCompatActivity {
     public void onClickRegistration(View view) {
         update();
         if(checkInfo()) {
-            System.out.println(userEmail+"  "+userPassword);
             mAuth.createUserWithEmailAndPassword(userEmail, userPassword)
                     .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
-                            System.out.println(task);
                             if (task.isSuccessful()) {
                                 addUser(mAuth.getUid());
                                 // Sign in success, update UI with the signed-in user's information

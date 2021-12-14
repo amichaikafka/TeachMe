@@ -61,7 +61,7 @@
         android:layout_width="297dp"
         android:layout_height="58dp"
         android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginEnd="12dp"
         android:layout_marginBottom="8dp"
         android:text="About me..."
         app:layout_constraintBottom_toTopOf="@+id/divider"

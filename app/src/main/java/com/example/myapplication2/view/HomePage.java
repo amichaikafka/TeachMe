@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import com.example.myapplication2.R;
 import com.example.myapplication2.api.StudentProfile;
+import com.example.myapplication2.api.TeacherProfile;
 import com.example.myapplication2.api.UserProfile;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -39,12 +40,29 @@ public class HomePage extends AppCompatActivity {
         hello=(TextView)findViewById(R.id.name_filled_search);
         database= FirebaseDatabase.getInstance("https://teachme-c8637-default-rtdb.firebaseio.com/");
 
-        DatabaseReference myRef = database.getReference("Students/"+mAuth.getUid());
+        DatabaseReference myRef = database.getReference("Teachers/"+mAuth.getUid());
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                StudentProfile userProfile=snapshot.getValue(StudentProfile.class);
-                hello.setText(userProfile.getFirstName());
+                TeacherProfile userProfile=snapshot.getValue(TeacherProfile.class);
+                if (userProfile!=null){
+                    hello.setText(userProfile.getFirstName());
+                }else{
+                    DatabaseReference myRef = database.getReference("Students/"+mAuth.getUid());
+                    myRef.addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            StudentProfile userProfile=snapshot.getValue(StudentProfile.class);
+                            hello.setText(userProfile.getFirstName());
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+                            Toast.makeText(HomePage.this, "error reading from firebase", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                }
+
             }
 
             @Override

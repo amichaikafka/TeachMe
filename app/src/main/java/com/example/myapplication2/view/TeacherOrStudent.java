@@ -34,7 +34,7 @@ public class TeacherOrStudent extends AppCompatActivity {
     private RadioButton studentOrTeacherChoice;
     private RadioGroup gender;
     private RadioButton genderChoice;
-    private String UserEmail,name,lastName,userGender;
+    private String userEmail,name,lastName,userGender,userPassword,userRole;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,52 +52,76 @@ public class TeacherOrStudent extends AppCompatActivity {
         startActivity(intent);
         finish();
     }
-
-    public void onClickRegistration(View view) {
+    private void update(){
         userName=(EditText)findViewById(R.id.first_name_reg);
         familyName=(EditText)findViewById(R.id.family_name_reg);
         email=(EditText) findViewById(R.id.email_reg);
         password =(EditText) findViewById(R.id.password_reg);
         passwordValid=(EditText)findViewById(R.id.password_verify_reg);
-        if (userName.getText().toString().equals("")||familyName.getText().toString().equals("")||email.getText().toString().equals("")||
-                password.getText().toString().equals("") ||passwordValid.getText().toString().equals("")){
-            System.out.println("missing");
-            return;
+        gender=findViewById(R.id.gender_reg);
+        genderChoice=findViewById(gender.getCheckedRadioButtonId());
+        studentOrTeacher = findViewById(R.id.radio_studenr_or_teacher_reg);
+        studentOrTeacherChoice=findViewById(studentOrTeacher.getCheckedRadioButtonId());
+    }
+    private boolean checkInfo(){
+        name=userName.getText().toString();
+        lastName=familyName.getText().toString();
+        userEmail= email.getText().toString().trim();
+        userPassword=password.getText().toString().trim();
+        if(studentOrTeacher.getCheckedRadioButtonId()==-1||gender.getCheckedRadioButtonId()==-1){
+//            System.out.println("");
+            Toast.makeText(TeacherOrStudent.this,"Need to fill in all the fields aaaaaaa:(",Toast.LENGTH_LONG).show();
+            return false;
         }
-        if( !password.getText().toString().equals( passwordValid.getText().toString())){
-            System.out.println("not match password");
-            return;
+        userRole=studentOrTeacherChoice.getText().toString().trim();
+        userGender=genderChoice.getText().toString().trim();
+        if (name.isEmpty()||lastName.isEmpty()||userEmail.isEmpty()||
+        userPassword.isEmpty()||userGender.isEmpty()||userRole.isEmpty()){
+            Toast.makeText(TeacherOrStudent.this,"Need to fill in all the fields :(",Toast.LENGTH_LONG).show();
+            return false;
         }
-                mAuth.createUserWithEmailAndPassword(email.getText().toString().trim(),password.getText().toString().trim())
-                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        System.out.println(task);
-                        if (task.isSuccessful()) {
-                            System.out.println("yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy");
-                            addUser(mAuth.getUid());
-                            // Sign in success, update UI with the signed-in user's information
-                            startActivity(new Intent(TeacherOrStudent.this,OpenScreen.class));
-                        } else {
-                            System.out.println("ssssssssssssssssssssssssssssssssss");
-                            // If sign in fails, display a message to the user.
-                            Toast.makeText(TeacherOrStudent.this,"failed :(",Toast.LENGTH_LONG).show();
 
+        if (!userPassword.equals(passwordValid.getText().toString().toString())){
+            Toast.makeText(TeacherOrStudent.this,"passwords don't match",Toast.LENGTH_LONG).show();
+            return false;
+        }
+        if (userPassword.length()<6){
+            Toast.makeText(TeacherOrStudent.this,"passwords has to be at list 6 characters",Toast.LENGTH_LONG).show();
+            return false;
+        }
+        return true;
+
+    }
+
+    public void onClickRegistration(View view) {
+        update();
+        if(checkInfo()) {
+            System.out.println(userEmail+"  "+userPassword);
+            mAuth.createUserWithEmailAndPassword(userEmail, userPassword)
+                    .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            System.out.println(task);
+                            if (task.isSuccessful()) {
+                                addUser(mAuth.getUid());
+                                // Sign in success, update UI with the signed-in user's information
+                                startActivity(new Intent(TeacherOrStudent.this, OpenScreen.class));
+                            } else {
+
+                                // If sign in fails, display a message to the user.
+                                Toast.makeText(TeacherOrStudent.this, "failed :(", Toast.LENGTH_LONG).show();
+
+                            }
                         }
-                    }
-                });
+                    });
+        }
 
     }
 
     private void addUser(String id){
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef =null;
-        gender=findViewById(R.id.gender_reg);
-        genderChoice=findViewById(gender.getCheckedRadioButtonId());
-        studentOrTeacher = findViewById(R.id.radio_studenr_or_teacher_reg);
-        studentOrTeacherChoice=findViewById(studentOrTeacher.getCheckedRadioButtonId());
-        if(studentOrTeacherChoice.getText().toString().equals("Teacher")){
-
+        if(userRole.equals("Teacher")){
             TeacherProfile teacher=new TeacherProfile(userName.getText().toString(),familyName.getText().toString()
                     ,email.getText().toString(),genderChoice.getText().toString());
             myRef = database.getReference("Teachers/"+id);

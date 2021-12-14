@@ -90,7 +90,7 @@ public class OpenScreen extends AppCompatActivity {
     public void onClickLog(View view) {
         EditText myEmail=findViewById(R.id.email_sign_in);
         EditText myPassword=findViewById(R.id.TextPassword);
-        if(!myEmail.getText().toString().equals("")&&!myPassword.getText().toString().equals("")) {
+        if(!myEmail.getText().toString().isEmpty()&&!myPassword.getText().toString().isEmpty()) {
 
             mAuth.signInWithEmailAndPassword(myEmail.getText().toString(), myPassword.getText().toString())
                     .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -108,14 +108,6 @@ public class OpenScreen extends AppCompatActivity {
                     });
         }
 
-//        Intent intent=new Intent(OpenScreen.this, HomePage.class);
-//        Bundle b=new Bundle();
-//        txtName=(EditText)findViewById(R.id.txtName);
-//        name=txtName.getText().toString();
-//        b.putString("name",name);
-//        intent.putExtras(b);
-//        startActivity(intent);
-//        finish();
     }
 
     public void onChangeLan(View view) {

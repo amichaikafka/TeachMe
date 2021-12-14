@@ -27,4 +27,5 @@
     <string name="female_choice_reg">Female</string>
     <string name="decline_to_specify_chice_reg">Decline to specify</string>
     <string name="reviews">reviews</string>
+    <string name="hello">Hello</string>
 </resources>

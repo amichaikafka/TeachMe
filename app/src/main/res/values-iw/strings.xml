@@ -28,4 +28,5 @@
     <string name="female_choice_reg">נקבה</string>
     <string name="decline_to_specify_chice_reg">מסרב להזדהות</string>
     <string name="reviews">חוות דעת</string>
+    <string name="hello">שלום</string>
 </resources>

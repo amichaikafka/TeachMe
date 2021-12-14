@@ -33,4 +33,26 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.235" />
 
+    <TextView
+        android:id="@+id/hello_search"
+        android:layout_width="47dp"
+        android:layout_height="28dp"
+        android:layout_marginTop="68dp"
+        android:text="@string/hello"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.241"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/name_filled_search"
+        android:layout_width="150dp"
+        android:layout_height="34dp"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/hello_search"
+        app:layout_constraintTop_toTopOf="@+id/hello_search" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

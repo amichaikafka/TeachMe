@@ -14,6 +14,7 @@ import android.view.MenuItem;
 import com.example.myapplication2.R;
 import com.example.myapplication2.api.TeacherProfile;
 import com.example.myapplication2.api.TeachersProfilesAdapter;
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -49,50 +50,27 @@ public class HomePageNext extends AppCompatActivity {
         recyclerView.setAdapter(teachersProfilesAdapter);
     }
 
+
+
+
+    //** menu **//
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-
         getMenuInflater().inflate(R.menu.menu_activity, menu);
-
-        return super.onCreateOptionsMenu(menu);
+        return true;
     }
 
     //TODO: need to add case for every items.
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        Intent intent;
-        Bundle b;
-        switch(item.getItemId()) {
-
-            case R.id.menu_home:
-                intent = new Intent(HomePageNext.this, HomePage.class);
-                b = new Bundle();
-                intent.putExtras(b);
-                startActivity(intent);
-                finish();
-
-            case R.id.menu_myLesson:
-                intent = new Intent(HomePageNext.this, MyLessons.class);
-                b = new Bundle();
-                intent.putExtras(b);
-                startActivity(intent);
-                finish();
-
-            case R.id.menu_setting:
-                intent = new Intent(HomePageNext.this, Settings.class);
-                b = new Bundle();
-                intent.putExtras(b);
-                startActivity(intent);
-                finish();
-
-            case R.id.menu_contact:
-                intent = new Intent(HomePageNext.this, ContactUs.class);
-                b = new Bundle();
-                intent.putExtras(b);
-                startActivity(intent);
-                finish();
+        if(item.getItemId() ==  R.id.menu_home) startActivity(new Intent(this, HomePage.class));
+        if(item.getItemId() ==  R.id.menu_myLesson) startActivity(new Intent(this, MyLessons.class));
+        if(item.getItemId() ==  R.id.menu_contact) startActivity(new Intent(this, ContactUs.class));
+        if(item.getItemId() ==  R.id.menu_setting) startActivity(new Intent(this, Settings.class));
+        if(item.getItemId() ==  R.id.menu_logout){
+            FirebaseAuth.getInstance().signOut();
+            startActivity(new Intent(this, OpenScreen.class));
         }
-
         return super.onContextItemSelected(item);
     }
 }

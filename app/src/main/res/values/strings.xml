@@ -44,4 +44,5 @@
     </string>
     <string name="attachment_summary_off">Only download attachments when manually requested</string>
     <string name="hello">Hello</string>
+    <string name="Logout">Logout</string>
 </resources>

@@ -34,8 +34,9 @@ public class HomePage extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_home_page);
+
+
         mAuth = FirebaseAuth.getInstance().getCurrentUser();
         hello=(TextView)findViewById(R.id.name_filled_search);
         database= FirebaseDatabase.getInstance("https://teachme-c8637-default-rtdb.firebaseio.com/");
@@ -73,52 +74,34 @@ public class HomePage extends AppCompatActivity {
         });
     }
 
+
+
+    public void onClickSearchForTeacher(View view) {
+        startActivity(new Intent(this, HomePageNext.class));
+    }
+
+
+
+
+
+    //** menu **//
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-
         getMenuInflater().inflate(R.menu.menu_activity, menu);
-
-        return super.onCreateOptionsMenu(menu);
+        return true;
     }
 
     //TODO: need to add case for every items.
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        Intent intent;
-        Bundle b;
-        switch(item.getItemId()) {
-
-            case R.id.menu_myLesson:
-                intent = new Intent(HomePage.this, MyLessons.class);
-                b = new Bundle();
-                intent.putExtras(b);
-                startActivity(intent);
-                finish();
-
-            case R.id.menu_setting:
-                intent = new Intent(HomePage.this, Settings.class);
-                b = new Bundle();
-                intent.putExtras(b);
-                startActivity(intent);
-                finish();
-
-            case R.id.menu_contact:
-                intent = new Intent(HomePage.this, ContactUs.class);
-                b = new Bundle();
-                intent.putExtras(b);
-                startActivity(intent);
-                finish();
+        if(item.getItemId() ==  R.id.menu_myLesson) startActivity(new Intent(this, MyLessons.class));
+        if(item.getItemId() ==  R.id.menu_contact) startActivity(new Intent(this, ContactUs.class));
+        if(item.getItemId() ==  R.id.menu_setting) startActivity(new Intent(this, Settings.class));
+        if(item.getItemId() ==  R.id.menu_logout){
+            FirebaseAuth.getInstance().signOut();
+            startActivity(new Intent(this, OpenScreen.class));
         }
-
         return super.onContextItemSelected(item);
     }
 
-
-    public void onClickSearchForTeacher(View view) {
-        Intent intent = new Intent(HomePage.this, HomePageNext.class);
-        Bundle b = new Bundle();
-        intent.putExtras(b);
-        startActivity(intent);
-        finish();
-    }
 }

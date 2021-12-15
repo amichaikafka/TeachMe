@@ -9,18 +9,31 @@
     <item
         android:id="@+id/menu_myProfile"
         android:title="@string/myProfile"
+        app:showAsAction="never"
         />
     <item
         android:id="@+id/menu_myLesson"
         android:title="@string/MyLesson"
+        app:showAsAction="never"
         />
     <item
         android:id="@+id/menu_contact"
-        android:title="@string/ContactUs" />
+        android:title="@string/ContactUs"
+        app:showAsAction="never"
+        />
     <item
         android:id="@+id/menu_setting"
-        android:title="@string/Settings" />
+        android:title="@string/Settings"
+        app:showAsAction="never"
+        />
     <item
         android:id="@+id/menu_switch"
-        android:title="@string/SwitchTeacherStudent" />
+        android:title="@string/SwitchTeacherStudent"
+        app:showAsAction="never"
+        />
+    <item
+        android:id="@+id/menu_logout"
+        android:title="@string/Logout"
+        app:showAsAction="never"
+        />
 </menu>

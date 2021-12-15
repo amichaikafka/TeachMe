@@ -41,6 +41,7 @@ public class HomePage extends AppCompatActivity {
         hello=(TextView)findViewById(R.id.name_filled_search);
         database= FirebaseDatabase.getInstance("https://teachme-c8637-default-rtdb.firebaseio.com/");
 
+
         DatabaseReference myRef = database.getReference("Teachers/"+mAuth.getUid());
         myRef.addValueEventListener(new ValueEventListener() {
             @Override

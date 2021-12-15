@@ -21,6 +21,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+
 import java.util.Objects;
 
 public class TeacherOrStudent extends AppCompatActivity {
@@ -64,33 +65,55 @@ public class TeacherOrStudent extends AppCompatActivity {
         studentOrTeacherChoice=findViewById(studentOrTeacher.getCheckedRadioButtonId());
     }
     private boolean checkInfo(){
+
         name=userName.getText().toString();
         lastName=familyName.getText().toString();
         userEmail= email.getText().toString().trim();
         userPassword=password.getText().toString().trim();
-        if(studentOrTeacher.getCheckedRadioButtonId()==-1||gender.getCheckedRadioButtonId()==-1){
-//            System.out.println("");
-            Toast.makeText(TeacherOrStudent.this,"Need to fill in all the fields aaaaaaa:(",Toast.LENGTH_LONG).show();
+
+        if(name.isEmpty()){
+            Toast.makeText(TeacherOrStudent.this,"You must to fill the Name field",Toast.LENGTH_LONG).show();
             return false;
         }
-        userRole=studentOrTeacherChoice.getText().toString().trim();
-        userGender=genderChoice.getText().toString().trim();
-        if (name.isEmpty()||lastName.isEmpty()||userEmail.isEmpty()||
-        userPassword.isEmpty()||userGender.isEmpty()||userRole.isEmpty()){
-            Toast.makeText(TeacherOrStudent.this,"Need to fill in all the fields :(",Toast.LENGTH_LONG).show();
+
+        if(lastName.isEmpty()){
+            Toast.makeText(TeacherOrStudent.this,"You must to fill the Family name field",Toast.LENGTH_LONG).show();
+            return false;
+        }
+
+        if(userEmail.isEmpty()){
+            Toast.makeText(TeacherOrStudent.this,"You must to fill the Email field",Toast.LENGTH_LONG).show();
+            return false;
+        }
+
+        if(userPassword.isEmpty()){
+            Toast.makeText(TeacherOrStudent.this,"You must to fill the Password field",Toast.LENGTH_LONG).show();
+            return false;
+        }
+
+        if (userPassword.length()<6){
+            Toast.makeText(TeacherOrStudent.this,"Passwords must to be at list 6 characters",Toast.LENGTH_LONG).show();
             return false;
         }
 
         if (!userPassword.equals(passwordValid.getText().toString().toString())){
-            Toast.makeText(TeacherOrStudent.this,"passwords don't match",Toast.LENGTH_LONG).show();
+            Toast.makeText(TeacherOrStudent.this,"Password verification must match the selected password",Toast.LENGTH_LONG).show();
             return false;
         }
-        if (userPassword.length()<6){
-            Toast.makeText(TeacherOrStudent.this,"passwords has to be at list 6 characters",Toast.LENGTH_LONG).show();
-            return false;
-        }
-        return true;
 
+        if (studentOrTeacher.getCheckedRadioButtonId()==-1){
+            Toast.makeText(TeacherOrStudent.this,"you must to chose Teacher/Student",Toast.LENGTH_LONG).show();
+            return false;
+        }
+
+        if (gender.getCheckedRadioButtonId()==-1){
+            Toast.makeText(TeacherOrStudent.this,"you must to chose gender type",Toast.LENGTH_LONG).show();
+            return false;
+        }
+
+        userRole=studentOrTeacherChoice.getText().toString().trim();
+        userGender=genderChoice.getText().toString().trim();
+        return true;
     }
 
     public void onClickRegistration(View view) {
@@ -106,7 +129,7 @@ public class TeacherOrStudent extends AppCompatActivity {
                                 startActivity(new Intent(TeacherOrStudent.this, OpenScreen.class));
                             } else {
 
-                                // If sign in fails, display a message to the user.
+                                // If sign in fails
                                 Toast.makeText(TeacherOrStudent.this, "failed :(", Toast.LENGTH_LONG).show();
 
                             }

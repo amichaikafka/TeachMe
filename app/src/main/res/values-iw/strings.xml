@@ -32,4 +32,7 @@
     <string name="hello_blank_fragment">משהו</string>
     <string name="messages_header">הודעות</string>
     <string name="Logout">התנתק</string>
+    <string name="sort_by_rate">דירוג</string>
+    <string name="sort_by_price">מחיר</string>
+    <string name="sort_by_name">שם</string>
 </resources>

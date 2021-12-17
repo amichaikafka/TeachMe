@@ -4,12 +4,13 @@ import android.graphics.Point;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 
 public class TeacherProfile extends UserProfile{
-    private List<String> fieldsOfTeaching;
-    private List<String> listOfStudents;
+    private HashSet<String> fieldsOfTeaching;
+    private HashSet<String>  listOfStudents;
     private String phoneNumber;
     private double price;
     private int rating;
@@ -26,14 +27,14 @@ public class TeacherProfile extends UserProfile{
 
     public TeacherProfile(String userId, String firstName, String lastName, Date dateOfBirth,
                           String emailAddress, String gender, String aboutMe, Point location,
-                          List<String> fieldsOfTeaching, String phoneNumber,
+                          HashSet<String>  fieldsOfTeaching, String phoneNumber,
                           double price, String iconPath) {
         super(userId, firstName, lastName, dateOfBirth, emailAddress, gender, aboutMe, location);
         this.fieldsOfTeaching = fieldsOfTeaching;
-        this.listOfStudents = new ArrayList<>();
+        this.listOfStudents = new HashSet<String> ();
         this.phoneNumber = phoneNumber;
         this.price = price;
-        this.listOfStudents = new ArrayList<>();
+        this.listOfStudents = new HashSet<String> ();
         this.rating = 0;
         this.profilePicture = iconPath;
         this.numOfReviews = 0;
@@ -43,19 +44,19 @@ public class TeacherProfile extends UserProfile{
     public void scheduleLesson(){}
     private void createLesson(){}
 
-    public List<String> getFieldsOfTeaching() {
+    public HashSet<String>  getFieldsOfTeaching() {
         return fieldsOfTeaching;
     }
 
-    public void onSetFieldsOfTeaching(LinkedList<String> fieldsOfTeaching) {
+    public void setFieldsOfTeaching(HashSet<String>  fieldsOfTeaching) {
         this.fieldsOfTeaching = fieldsOfTeaching;
     }
 
-    public List<String> getListOfStudents() {
+    public HashSet<String>  getListOfStudents() {
         return listOfStudents;
     }
 
-    public void onSetListOfStudents(LinkedList<String> listOfStudents) {
+    public void setListOfStudents(HashSet<String>  listOfStudents) {
         this.listOfStudents = listOfStudents;
     }
 
@@ -75,13 +76,6 @@ public class TeacherProfile extends UserProfile{
         this.rating = r;
     }
 
-    public void onSetFieldsOfTeaching(List<String> fieldsOfTeaching) {
-        this.fieldsOfTeaching = fieldsOfTeaching;
-    }
-
-    public void onSetListOfStudents(List<String> listOfStudents) {
-        this.listOfStudents = listOfStudents;
-    }
 
     public String getPhoneNumber() {
         return phoneNumber;

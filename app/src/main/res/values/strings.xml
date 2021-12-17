@@ -45,4 +45,7 @@
     <string name="attachment_summary_off">Only download attachments when manually requested</string>
     <string name="hello">Hello</string>
     <string name="Logout">Logout</string>
+    <string name="sort_by_rate">Rate</string>
+    <string name="sort_by_price">Price</string>
+    <string name="sort_by_name">Name</string>
 </resources>

@@ -3,26 +3,30 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/TeachMe/app/src/main/res/layout/activity_contact_us.xml" value="0.2056159420289855" />
-        <entry key="..\:/TeachMe/app/src/main/res/layout/activity_home_page.xml" value="0.22447916666666667" />
-        <entry key="..\:/TeachMe/app/src/main/res/layout/activity_home_page_next.xml" value="0.19791666666666666" />
-        <entry key="..\:/TeachMe/app/src/main/res/layout/activity_my_lessons.xml" value="0.176" />
-        <entry key="..\:/TeachMe/app/src/main/res/layout/activity_setting.xml" value="0.2056159420289855" />
-        <entry key="..\:/TeachMe/app/src/main/res/layout/activity_teacher_or_student.xml" value="0.23505434782608695" />
-        <entry key="..\:/TeachMe/app/src/main/res/layout/fragment_home_omer.xml" value="0.264" />
-        <entry key="..\:/TeachMe/app/src/main/res/layout/open_screen.xml" value="0.23854166666666668" />
-        <entry key="..\:/TeachMe/app/src/main/res/layout/teacher_profile_box.xml" value="0.19791666666666666" />
-        <entry key="..\:/TeachMe/app/src/main/res/menu/menu_activity.xml" value="0.23854166666666668" />
-        <entry key="..\:/TeachMe/app/src/main/res/xml/root_preferences.xml" value="0.12604166666666666" />
         <entry key="..\:/Users/amichai/Desktop/MyApplication2/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.14635416666666667" />
         <entry key="..\:/Users/amichai/Desktop/MyApplication2/app/src/main/res/drawable/ic_launcher_background.xml" value="0.14635416666666667" />
+        <entry key="..\:/Users/amichai/Desktop/MyApplication2/app/src/main/res/drawable/messages.xml" value="0.2703125" />
+        <entry key="..\:/Users/amichai/Desktop/MyApplication2/app/src/main/res/drawable/sync.xml" value="0.2703125" />
+        <entry key="..\:/Users/amichai/Desktop/MyApplication2/app/src/main/res/layout/activity_contact_us.xml" value="0.1838768115942029" />
+        <entry key="..\:/Users/amichai/Desktop/MyApplication2/app/src/main/res/layout/activity_home_page.xml" value="0.4" />
+        <entry key="..\:/Users/amichai/Desktop/MyApplication2/app/src/main/res/layout/activity_home_page_next.xml" value="0.4" />
         <entry key="..\:/Users/amichai/Desktop/MyApplication2/app/src/main/res/layout/activity_main.xml" value="0.264" />
         <entry key="..\:/Users/amichai/Desktop/MyApplication2/app/src/main/res/layout/activity_main2.xml" value="0.2" />
-        <entry key="..\:/Users/amichai/Desktop/MyApplication2/app/src/main/res/layout/activity_teacher_or_student.xml" value="0.536" />
+        <entry key="..\:/Users/amichai/Desktop/MyApplication2/app/src/main/res/layout/activity_my_lessons.xml" value="0.1838768115942029" />
+        <entry key="..\:/Users/amichai/Desktop/MyApplication2/app/src/main/res/layout/activity_setting.xml" value="0.1838768115942029" />
+        <entry key="..\:/Users/amichai/Desktop/MyApplication2/app/src/main/res/layout/activity_teacher_or_student.xml" value="0.264" />
         <entry key="..\:/Users/amichai/Desktop/MyApplication2/app/src/main/res/layout/activity_teacher_or_stufent.xml" value="0.4" />
+        <entry key="..\:/Users/amichai/Desktop/MyApplication2/app/src/main/res/layout/fragment_home_omer.xml" value="0.1408514492753623" />
         <entry key="..\:/Users/amichai/Desktop/MyApplication2/app/src/main/res/layout/open_screen.xml" value="0.264" />
+        <entry key="..\:/Users/amichai/Desktop/MyApplication2/app/src/main/res/layout/settings_activity.xml" value="0.264" />
+        <entry key="..\:/Users/amichai/Desktop/MyApplication2/app/src/main/res/layout/teacher_profile_box.xml" value="0.4" />
+        <entry key="..\:/Users/amichai/Desktop/MyApplication2/app/src/main/res/menu/menu_activity.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/amichai/Desktop/MyApplication2/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.14635416666666667" />
         <entry key="..\:/Users/amichai/Desktop/MyApplication2/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.14635416666666667" />
+        <entry key="..\:/Users/amichai/Desktop/MyApplication2/app/src/main/res/xml/header_preferences.xml" value="0.21739130434782608" />
+        <entry key="..\:/Users/amichai/Desktop/MyApplication2/app/src/main/res/xml/messages_preferences.xml" value="0.21739130434782608" />
+        <entry key="..\:/Users/amichai/Desktop/MyApplication2/app/src/main/res/xml/root_preferences.xml" value="0.49653979238754326" />
+        <entry key="..\:/Users/amichai/Desktop/MyApplication2/app/src/main/res/xml/sync_preferences.xml" value="0.4" />
       </map>
     </option>
   </component>

@@ -39,9 +39,9 @@ public class TeachersProfilesAdapter extends RecyclerView.Adapter<TeachersProfil
         holder.numOfReviews.setText(String.valueOf(currentProfile.getNumOfReviews()));
 //        holder.reviewsWord.setText("Reviews");
         holder.phoneNumberBtn.setText(currentProfile.getPhoneNumber());
-        holder.profileImageView.setImageResource(holder.nameTextView.getResources()
-                .getIdentifier(currentProfile.getProfilePicture(), "drawable",
-                        holder.nameTextView.getContext().getPackageName()));
+//        holder.profileImageView.setImageResource(holder.nameTextView.getResources()
+//                .getIdentifier(currentProfile.getProfilePicture(), "drawable",
+//                        holder.nameTextView.getContext().getPackageName()));
     }
 
     @Override

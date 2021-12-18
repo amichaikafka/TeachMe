@@ -61,7 +61,7 @@ public class TeacherOrStudent extends AppCompatActivity {
         passwordValid=(EditText)findViewById(R.id.password_verify_reg);
         gender=findViewById(R.id.gender_reg);
         genderChoice=findViewById(gender.getCheckedRadioButtonId());
-//        studentOrTeacher = findViewById(R.id.radio_studenr_or_teacher_reg);
+        studentOrTeacher = findViewById(R.id.radio_student_or_teacher_reg);
         studentOrTeacherChoice=findViewById(studentOrTeacher.getCheckedRadioButtonId());
     }
 

@@ -5,7 +5,7 @@
     <string name="txtReg">הרשמה</string>
     <string name="registration_reg">הרשמה</string>
     <string name="Backbtn">חזור</string>
-    <string name="language">HE</string>
+    <string name="language">עב</string>
     <string name="back_btn1">חזור</string>
     <string name="user_name_open">שם משתמש</string>
     <string name="password_open">סיסמא</string>
@@ -37,4 +37,5 @@
     <string name="sort_by_name">שם</string>
     <string name="account_type_reg">סוג החשבון</string>
     <string name="gender_reg">מין</string>
+    <string name="sort_by">מיין לפי:</string>
 </resources>

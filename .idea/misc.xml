@@ -29,10 +29,11 @@
         <entry key="app/src/main/res/drawable/password_icon.xml" value="0.4197916666666667" />
         <entry key="app/src/main/res/layout/activity_contact_us.xml" value="0.3145833333333333" />
         <entry key="app/src/main/res/layout/activity_home_page.xml" value="0.6362755228461539" />
-        <entry key="app/src/main/res/layout/activity_home_page_next.xml" value="0.5144134020492265" />
+        <entry key="app/src/main/res/layout/activity_home_page_next.xml" value="0.44623655913978494" />
         <entry key="app/src/main/res/layout/activity_main2.xml" value="0.3145833333333333" />
         <entry key="app/src/main/res/layout/activity_my_lessons.xml" value="0.3145833333333333" />
         <entry key="app/src/main/res/layout/activity_setting.xml" value="0.2732066157035665" />
+        <entry key="app/src/main/res/layout/activity_teacher_edit_profile.xml" value="0.20462962962962963" />
         <entry key="app/src/main/res/layout/activity_teacher_or_student.xml" value="0.42101681867200147" />
         <entry key="app/src/main/res/layout/fragment_home_omer.xml" value="0.3145833333333333" />
         <entry key="app/src/main/res/layout/open_screen.xml" value="0.375" />

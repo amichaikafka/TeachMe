@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication2">
         <activity
+            android:name=".view.TeacherEditProfile"
+            android:exported="false" />
+        <activity
             android:name=".view.HomePageNext"
             android:exported="false" />
         <activity

@@ -38,4 +38,12 @@
     <string name="account_type_reg">סוג החשבון</string>
     <string name="gender_reg">מין</string>
     <string name="sort_by">מיין לפי:</string>
+    <string name="informtion_mor_info">Informtion</string>
+    <string name="study_profession_more_info">מקצוע</string>
+    <string name="price_more_info">מחיר</string>
+    <string name="phone_number_more_info">פלאפון</string>
+    <string name="age_more_info">גיל</string>
+    <string name="update_more_info">עדכן</string>
+    <string name="skip_more_info">דלג</string>
+    <string name="about_me_more_info">About Me</string>
 </resources>

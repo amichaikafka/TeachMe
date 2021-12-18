@@ -51,4 +51,12 @@
     <string name="sort_by_rate">Rate</string>
     <string name="sort_by_price">Price</string>
     <string name="sort_by_name">Name</string>
+    <string name="informtion_mor_info">Informtion</string>
+    <string name="study_profession_more_info">Study profession</string>
+    <string name="price_more_info">Price</string>
+    <string name="phone_number_more_info">Phone Number</string>
+    <string name="age_more_info">Age</string>
+    <string name="update_more_info">Update</string>
+    <string name="skip_more_info">Skip</string>
+    <string name="about_me_more_info">About Me</string>
 </resources>

@@ -8,9 +8,10 @@ import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 
-public class TeacherProfile extends UserProfile{
-    private HashSet<String> fieldsOfTeaching;
-    private HashSet<String>  listOfStudents;
+public class TeacherProfile extends UserProfile {
+    //    private HashSet<String> fieldsOfTeaching;
+    private String fieldsOfTeaching;
+    private HashSet<String> listOfStudents;
     private String phoneNumber;
     private double price;
     private int rating;
@@ -27,36 +28,43 @@ public class TeacherProfile extends UserProfile{
 
     public TeacherProfile(String userId, String firstName, String lastName, Date dateOfBirth,
                           String emailAddress, String gender, String aboutMe, Point location,
-                          HashSet<String>  fieldsOfTeaching, String phoneNumber,
+                          String fieldsOfTeaching, String phoneNumber,
                           double price, String iconPath) {
         super(userId, firstName, lastName, dateOfBirth, emailAddress, gender, aboutMe, location);
         this.fieldsOfTeaching = fieldsOfTeaching;
-        this.listOfStudents = new HashSet<String> ();
+        this.listOfStudents = new HashSet<String>();
         this.phoneNumber = phoneNumber;
         this.price = price;
-        this.listOfStudents = new HashSet<String> ();
+        this.listOfStudents = new HashSet<String>();
         this.rating = 0;
         this.profilePicture = iconPath;
         this.numOfReviews = 0;
         this.reviews = new ArrayList<>();
     }
-    public String getStats(){ return "";}
-    public void scheduleLesson(){}
-    private void createLesson(){}
 
-    public HashSet<String>  getFieldsOfTeaching() {
+    public String getStats() {
+        return "";
+    }
+
+    public void scheduleLesson() {
+    }
+
+    private void createLesson() {
+    }
+
+    public String getFieldsOfTeaching() {
         return fieldsOfTeaching;
     }
 
-    public void setFieldsOfTeaching(HashSet<String>  fieldsOfTeaching) {
+    public void setFieldsOfTeaching(String fieldsOfTeaching) {
         this.fieldsOfTeaching = fieldsOfTeaching;
     }
 
-    public HashSet<String>  getListOfStudents() {
+    public HashSet<String> getListOfStudents() {
         return listOfStudents;
     }
 
-    public void setListOfStudents(HashSet<String>  listOfStudents) {
+    public void setListOfStudents(HashSet<String> listOfStudents) {
         this.listOfStudents = listOfStudents;
     }
 

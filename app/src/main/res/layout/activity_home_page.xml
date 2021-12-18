@@ -71,4 +71,12 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/profile_logo" />
 
+    <AutoCompleteTextView
+        android:id="@+id/autoCompleteTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="AutoCompleteTextView"
+        tools:layout_editor_absoluteX="83dp"
+        tools:layout_editor_absoluteY="334dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

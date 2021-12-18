@@ -13,6 +13,7 @@ public abstract class UserProfile {
     protected String gender;
     protected String aboutMe;
     protected Point location;
+    private int age;
 
     public UserProfile() {
     }
@@ -33,6 +34,14 @@ public abstract class UserProfile {
         this.gender = gender;
         this.aboutMe = aboutMe;
         this.location = location;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
     }
 
     public void uploadPhoto(){}

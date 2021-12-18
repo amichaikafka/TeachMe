@@ -2,15 +2,19 @@ package com.example.myapplication2.view;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.SearchView;
@@ -39,6 +43,7 @@ public class HomePageNext extends AppCompatActivity {
     private RadioButton sortBy;
     private String sortParam = "firstName";
 
+    @RequiresApi(api = Build.VERSION_CODES.P)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,13 +51,33 @@ public class HomePageNext extends AppCompatActivity {
         searchName = findViewById(R.id.searchView_search);
         System.out.println(searchName.toString());
         database = FirebaseDatabase.getInstance("https://teachme-c8637-default-rtdb.firebaseio.com/");
-//        sortBy();
 
+        sortGroup = findViewById(R.id.radio_sort);
+        sortGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @SuppressLint("NonConstantResourceId")
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+//                sortBy();
+                switch (checkedId){
+                    case R.id.radio_sort_name:
+                        sortParam="firstName";
+                        break;
+                    case R.id.radio_sort_price:
+                        sortParam="price";
+                        break;
+                    case R.id.radio_sort_rating:
+                        sortParam="rating";
+                        break;
+                }
+                techersDisplay();
+            }
+        });
         searchName.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
 //                System.out.println(query);
                 searchVal = query;
+                sortBy();
                 techersDisplay();
 
 
@@ -63,10 +88,12 @@ public class HomePageNext extends AppCompatActivity {
             public boolean onQueryTextChange(String newText) {
 //                System.out.println(newText+" _________");
                 searchVal = newText;
+                sortBy();
                 techersDisplay();
                 return false;
             }
         });
+
         techersDisplay();
 
 //        ArrayList<TeacherProfile> teachers= new ArrayList<>();
@@ -120,11 +147,12 @@ public class HomePageNext extends AppCompatActivity {
     }
 
     public void sortBy() {
-        sortGroup = findViewById(R.id.radio_sort);
         sortBy = findViewById(sortGroup.getCheckedRadioButtonId());
-        if (!sortBy.getText().toString().isEmpty()) {
-            if (sortBy.getText().toString().trim().equals("Price") || sortBy.getText().toString().trim().equals("Price")) {
-                sortParam = sortBy.getText().toString().trim();
+        if (sortGroup.getCheckedRadioButtonId()!=-1) {
+            if (sortBy.getText().toString().trim().equals("Price") || sortBy.getText().toString().trim().equals("Rate")) {
+                sortParam = sortBy.getText().toString().trim().toLowerCase(Locale.ROOT);
+            }else{
+                sortParam="firstName";
             }
         }
     }
@@ -137,6 +165,7 @@ public class HomePageNext extends AppCompatActivity {
 
         TeachersProfilesAdapter teachersProfilesAdapter = new TeachersProfilesAdapter(teachers);
         recyclerView.setAdapter(teachersProfilesAdapter);
+        System.out.println(sortParam+"________");
         myQuery = database.getReference("Teachers").orderByChild(sortParam);
         myQuery.addValueEventListener(new ValueEventListener() {
             @SuppressLint("NotifyDataSetChanged")
@@ -149,7 +178,11 @@ public class HomePageNext extends AppCompatActivity {
                     searchVal = searchVal.toLowerCase(Locale.ROOT);
                     String nameAndFamily = currTeacher.getFirstName().toLowerCase(Locale.ROOT) + " " + currTeacher.getLastName().toLowerCase(Locale.ROOT);
                     if (nameAndFamily.contains(searchVal)) {
-                        teachers.add(currTeacher);
+                        if (sortParam.equals("rating")) {
+                            teachers.add(0,currTeacher);
+                        }else {
+                            teachers.add(currTeacher);
+                        }
                     }
                 }
                 teachersProfilesAdapter.notifyDataSetChanged();

@@ -118,7 +118,11 @@ public class TeacherOrStudent extends AppCompatActivity {
                             if (task.isSuccessful()) {
                                 addUser(mAuth.getUid());
                                 // Sign in success, update UI with the signed-in user's information
-                                startActivity(new Intent(TeacherOrStudent.this, OpenScreen.class));
+                                if (userRole.equals("Teacher")){
+                                    startActivity(new Intent(TeacherOrStudent.this, TeacherMoreInfo.class));
+                                }else {
+                                    startActivity(new Intent(TeacherOrStudent.this, OpenScreen.class));
+                                }
                             } else {
 
                                 // If sign in fails
@@ -134,7 +138,7 @@ public class TeacherOrStudent extends AppCompatActivity {
     private void addUser(String id){
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef =null;
-        if(userRole.equals("Teacher")){
+        if(userRole.equals("Teacher")||userRole.equals("מורה")){
             TeacherProfile teacher=new TeacherProfile(userName.getText().toString(),familyName.getText().toString()
                     ,email.getText().toString(),genderChoice.getText().toString());
             myRef = database.getReference("Teachers/"+id);

@@ -27,7 +27,6 @@ import java.util.Locale;
 public class OpenScreen extends AppCompatActivity {
    public EditText txtName;
    public String name;
-   boolean flag=false;
     private FirebaseAuth mAuth;
 
     public EditText txtPass;
@@ -112,7 +111,6 @@ public class OpenScreen extends AppCompatActivity {
         ActionBar actionBar=getSupportActionBar();
         actionBar.setTitle(getResources().getString(R.string.app_name));
         final String[] lang={"English","עברית"};
-        flag=!flag;
         AlertDialog.Builder myBuilder=new AlertDialog.Builder(OpenScreen.this);
         myBuilder.setTitle("Choose language");
         myBuilder.setSingleChoiceItems(lang, -1, new DialogInterface.OnClickListener() {

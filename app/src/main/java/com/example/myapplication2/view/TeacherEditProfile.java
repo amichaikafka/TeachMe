@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
+import com.example.myapplication2.R;
+
 public class TeacherEditProfile extends AppCompatActivity {
 
     @Override

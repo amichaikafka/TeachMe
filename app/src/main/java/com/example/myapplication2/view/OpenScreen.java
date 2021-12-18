@@ -47,7 +47,6 @@ public class OpenScreen extends AppCompatActivity {
         super.onStart();
         // Check if user is signed in (non-null) and update UI accordingly.
         FirebaseUser currentUser = mAuth.getCurrentUser();
-
     }
     //TODO need to check how to connecet between email user and user profile
     public void onClickReg(View view) {

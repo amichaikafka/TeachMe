@@ -10,14 +10,16 @@
         android:id="@+id/searchForTeacherBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="94dp"
+        android:layout_marginEnd="94dp"
+        android:layout_marginBottom="280dp"
+        android:backgroundTint="#339AF0"
+        android:onClick="onClickSearchForTeacher"
         android:text="Search for teacher"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.351"
-        android:onClick="onClickSearchForTeacher"/>
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/studyFields"
@@ -28,31 +30,45 @@
         android:singleLine="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.835"
+        app:layout_constraintHorizontal_bias="0.293"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.235" />
+        app:layout_constraintVertical_bias="0.331" />
 
     <TextView
         android:id="@+id/hello_search"
-        android:layout_width="47dp"
-        android:layout_height="28dp"
-        android:layout_marginTop="68dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="141dp"
+        android:layout_marginBottom="112dp"
         android:text="@string/hello"
         android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.241"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toTopOf="@+id/searchForTeacherBtn"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/name_filled_search"
-        android:layout_width="150dp"
-        android:layout_height="34dp"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="141dp"
+        android:layout_marginBottom="112dp"
         android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/searchForTeacherBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/hello_search" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="265dp"
+        android:layout_height="285dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="-40dp"
+        android:layout_marginEnd="64dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/hello_search"
-        app:layout_constraintTop_toTopOf="@+id/hello_search" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/profile_logo" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

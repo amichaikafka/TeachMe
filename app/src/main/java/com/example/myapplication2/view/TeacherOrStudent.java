@@ -44,7 +44,6 @@ public class TeacherOrStudent extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
     }
 
-
     public void onClickBack(View view) {
         Intent intent=new Intent(TeacherOrStudent.this, OpenScreen.class);
         Bundle b=new Bundle();
@@ -53,6 +52,7 @@ public class TeacherOrStudent extends AppCompatActivity {
         startActivity(intent);
         finish();
     }
+
     private void update(){
         userName=(EditText)findViewById(R.id.first_name_reg);
         familyName=(EditText)findViewById(R.id.family_name_reg);
@@ -61,51 +61,43 @@ public class TeacherOrStudent extends AppCompatActivity {
         passwordValid=(EditText)findViewById(R.id.password_verify_reg);
         gender=findViewById(R.id.gender_reg);
         genderChoice=findViewById(gender.getCheckedRadioButtonId());
-        studentOrTeacher = findViewById(R.id.radio_studenr_or_teacher_reg);
+//        studentOrTeacher = findViewById(R.id.radio_studenr_or_teacher_reg);
         studentOrTeacherChoice=findViewById(studentOrTeacher.getCheckedRadioButtonId());
     }
-    private boolean checkInfo(){
 
+    private boolean checkInfo(){
         name=userName.getText().toString();
         lastName=familyName.getText().toString();
         userEmail= email.getText().toString().trim();
         userPassword=password.getText().toString().trim();
-
         if(name.isEmpty()){
             Toast.makeText(TeacherOrStudent.this,"You must to fill the Name field",Toast.LENGTH_LONG).show();
             return false;
         }
-
         if(lastName.isEmpty()){
             Toast.makeText(TeacherOrStudent.this,"You must to fill the Family name field",Toast.LENGTH_LONG).show();
             return false;
         }
-
         if(userEmail.isEmpty()){
             Toast.makeText(TeacherOrStudent.this,"You must to fill the Email field",Toast.LENGTH_LONG).show();
             return false;
         }
-
         if(userPassword.isEmpty()){
             Toast.makeText(TeacherOrStudent.this,"You must to fill the Password field",Toast.LENGTH_LONG).show();
             return false;
         }
-
-        if (userPassword.length()<6){
-            Toast.makeText(TeacherOrStudent.this,"Passwords must to be at list 6 characters",Toast.LENGTH_LONG).show();
+        if (userPassword.length()<6) {
+            Toast.makeText(TeacherOrStudent.this, "Passwords must to be at list 6 characters", Toast.LENGTH_LONG).show();
             return false;
         }
-
         if (!userPassword.equals(passwordValid.getText().toString().toString())){
             Toast.makeText(TeacherOrStudent.this,"Password verification must match the selected password",Toast.LENGTH_LONG).show();
             return false;
         }
-
         if (studentOrTeacher.getCheckedRadioButtonId()==-1){
             Toast.makeText(TeacherOrStudent.this,"you must to chose Teacher/Student",Toast.LENGTH_LONG).show();
             return false;
         }
-
         if (gender.getCheckedRadioButtonId()==-1){
             Toast.makeText(TeacherOrStudent.this,"you must to chose gender type",Toast.LENGTH_LONG).show();
             return false;
@@ -147,14 +139,12 @@ public class TeacherOrStudent extends AppCompatActivity {
                     ,email.getText().toString(),genderChoice.getText().toString());
             myRef = database.getReference("Teachers/"+id);
             myRef.setValue(teacher);
-
         }else{
             StudentProfile student=new StudentProfile(userName.getText().toString(),familyName.getText().toString()
                     ,email.getText().toString(),genderChoice.getText().toString());
             myRef = database.getReference("Students/"+id);
             myRef.setValue(student);
         }
-
     }
 
 }

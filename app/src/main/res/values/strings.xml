@@ -2,9 +2,9 @@
     <string name="app_name">TeachMe</string>
     <string name="txtLog">Log in</string>
     <string name="txtReg">Sign up</string>
-    <string name="registration_reg">Registration</string>
+    <string name="registration_reg">Create Account</string>
     <string name="Backbtn">Back</string>
-    <string name="language">language</string>
+    <string name="language">EN</string>
     <string name="back_btn1">Back</string>
     <string name="user_name_open">User name</string>
     <string name="password_open">Password</string>
@@ -20,12 +20,14 @@
     <string name="password">Password</string>
     <string name="verify_password">Verify password</string>
     <string name="email_reg">Email</string>
-    <string name="registration">Registration</string>
+    <string name="registration">Create Account</string>
+    <string name="account_type_reg">Account type</string>
     <string name="student_choice_reg">Student</string>
     <string name="teacher_chice_reg">Teacher</string>
+    <string name="gender_reg">Gender</string>
     <string name="male_choice_reg">Male</string>
     <string name="female_choice_reg">Female</string>
-    <string name="decline_to_specify_chice_reg">Decline to specify</string>
+    <string name="decline_to_specify_chice_reg">Rather not to say</string>
     <string name="reviews">reviews</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

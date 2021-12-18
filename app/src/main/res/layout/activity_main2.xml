@@ -19,6 +19,7 @@
         android:id="@+id/btnBack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:backgroundTint="#339af0"
         android:onClick="onClickBack"
         android:text="@string/Backbtn"
         app:layout_constraintBottom_toBottomOf="parent"

@@ -4,10 +4,13 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.TextView;
 
 import com.example.myapplication2.R;
@@ -30,9 +33,6 @@ public class MainActivity2 extends AppCompatActivity {
 
         TextView txt=findViewById(R.id.textView3);
         txt.setText(txtName);
-
-
-
     }
 
     //the Menu Bar create

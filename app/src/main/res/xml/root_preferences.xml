@@ -68,6 +68,19 @@
 
     </PreferenceCategory>
 
+
+    <PreferenceCategory
+        app:icon="@drawable/ic_baseline_language_24"
+        app:title="Language">
+
+        <Preference
+
+            app:title="Change language"/>
+
+
+
+    </PreferenceCategory>
+
     <PreferenceCategory
         app:icon="@drawable/ic_baseline_info_24"
         app:title="General">

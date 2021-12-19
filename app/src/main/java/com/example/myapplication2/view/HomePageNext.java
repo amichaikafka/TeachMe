@@ -48,12 +48,15 @@ public class HomePageNext extends AppCompatActivity {
     private RadioGroup sortGroup;
     private RadioButton sortBy;
     private String sortParam = "firstName";
+    private String subject;
 
     @RequiresApi(api = Build.VERSION_CODES.P)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page_next);
+        savedInstanceState=getIntent().getExtras();
+        subject=savedInstanceState.getString("subject");
         searchName = findViewById(R.id.searchView_search);
         System.out.println(searchName.toString());
         database = FirebaseDatabase.getInstance("https://teachme-c8637-default-rtdb.firebaseio.com/");
@@ -182,8 +185,9 @@ public class HomePageNext extends AppCompatActivity {
                     TeacherProfile currTeacher = teacher.getValue(TeacherProfile.class);
 //                    System.out.println(currTeacher.getFirstName()+" "+searchVal);
                     searchVal = searchVal.toLowerCase(Locale.ROOT);
+                    subject=subject.toLowerCase(Locale.ROOT);
                     String nameAndFamily = currTeacher.getFirstName().toLowerCase(Locale.ROOT) + " " + currTeacher.getLastName().toLowerCase(Locale.ROOT);
-                    if (nameAndFamily.contains(searchVal)) {
+                    if (nameAndFamily.contains(searchVal)&&currTeacher.getFieldsOfTeaching().toLowerCase(Locale.ROOT).contains(subject)) {
                         if (sortParam.equals("rating")) {
                             teachers.add(0,currTeacher);
                         }else {

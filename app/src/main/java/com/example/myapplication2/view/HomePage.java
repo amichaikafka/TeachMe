@@ -8,10 +8,13 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.myapplication2.R;
+import com.example.myapplication2.api.AutoCompleteSubjectAdapter;
 import com.example.myapplication2.api.StudentProfile;
 import com.example.myapplication2.api.TeacherProfile;
 import com.example.myapplication2.api.UserProfile;
@@ -23,38 +26,54 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.Objects;
 
 public class HomePage extends AppCompatActivity {
     private FirebaseUser mAuth;
     FirebaseDatabase database;
-    DatabaseReference myRef=null;
+    DatabaseReference myRef = null;
     TextView hello;
+    DatabaseReference subjectChecker;
+    List<String> currSubjects;
+    AutoCompleteTextView subjectChoose;
+    String[] suggestions;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
+        database = FirebaseDatabase.getInstance("https://teachme-c8637-default-rtdb.firebaseio.com/");
+        subjectChecker = database.getReference("FieldsOfTeaching");
+        subjectChecker.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                String curr = snapshot.getValue(String.class);
+                suggestions = curr.split(",");
+                subjectSearch();
+            }
 
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
 
+            }
+        });
         mAuth = FirebaseAuth.getInstance().getCurrentUser();
-        hello=(TextView)findViewById(R.id.name_filled_search);
-        database= FirebaseDatabase.getInstance("https://teachme-c8637-default-rtdb.firebaseio.com/");
-
-
-        DatabaseReference myRef = database.getReference("Teachers/"+mAuth.getUid());
+        hello = (TextView) findViewById(R.id.name_filled_search);
+        DatabaseReference myRef = database.getReference("Teachers/" + mAuth.getUid());
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                TeacherProfile userProfile=snapshot.getValue(TeacherProfile.class);
-                if (userProfile!=null){
+                TeacherProfile userProfile = snapshot.getValue(TeacherProfile.class);
+                if (userProfile != null) {
                     hello.setText(userProfile.getFirstName());
-                }else{
-                    DatabaseReference myRef = database.getReference("Students/"+mAuth.getUid());
+                } else {
+                    DatabaseReference myRef = database.getReference("Students/" + mAuth.getUid());
                     myRef.addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
-                            StudentProfile userProfile=snapshot.getValue(StudentProfile.class);
+                            StudentProfile userProfile = snapshot.getValue(StudentProfile.class);
                             hello.setText(userProfile.getFirstName());
                         }
 
@@ -73,16 +92,23 @@ public class HomePage extends AppCompatActivity {
 
             }
         });
-    }
+//            subjectSearch();
 
+    }
 
 
     public void onClickSearchForTeacher(View view) {
-        startActivity(new Intent(this, HomePageNext.class));
+        String subject=subjectChoose.getText().toString().trim();
+        if (Arrays.asList(suggestions).contains(subject)) {
+            Bundle b=new Bundle();
+            b.putString("subject",subject);
+            Intent intent=new Intent(this, HomePageNext.class);
+            intent.putExtras(b);
+            startActivity(intent);
+        }else {
+            Toast.makeText(HomePage.this, "you mast choose subject from the list", Toast.LENGTH_SHORT).show();
+        }
     }
-
-
-
 
 
     //** menu **//
@@ -95,14 +121,26 @@ public class HomePage extends AppCompatActivity {
     //TODO: need to add case for every items.
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if(item.getItemId() ==  R.id.menu_myLesson) startActivity(new Intent(this, MyLessons.class));
-        if(item.getItemId() ==  R.id.menu_contact) startActivity(new Intent(this, ContactUs.class));
-        if(item.getItemId() ==  R.id.menu_setting) startActivity(new Intent(this, Settings.class));
-        if(item.getItemId() ==  R.id.menu_logout){
+        if (item.getItemId() == R.id.menu_myLesson)
+            startActivity(new Intent(this, MyLessons.class));
+        if (item.getItemId() == R.id.menu_contact) startActivity(new Intent(this, ContactUs.class));
+        if (item.getItemId() == R.id.menu_setting) startActivity(new Intent(this, Settings.class));
+        if (item.getItemId() == R.id.menu_logout) {
             FirebaseAuth.getInstance().signOut();
             startActivity(new Intent(this, OpenScreen.class));
         }
         return super.onContextItemSelected(item);
     }
 
+    public void subjectSearch() {
+        System.out.println(Arrays.toString(suggestions));
+        subjectChoose=findViewById(R.id.subject_select_home);
+        ArrayAdapter<String> adapter=new ArrayAdapter<>(this,
+                android.R.layout.simple_list_item_1,suggestions);
+        subjectChoose.setAdapter(adapter);
+//        subjectChoose = findViewById(R.id.subject_select_home);
+//        System.out.println(currSubjects + "dddddddddd");
+//        AutoCompleteSubjectAdapter adapter = new AutoCompleteSubjectAdapter(this, currSubjects);
+//        subjectChoose.setAdapter(adapter);
+    }
 }

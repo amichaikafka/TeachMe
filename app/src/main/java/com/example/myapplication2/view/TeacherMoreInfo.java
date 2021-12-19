@@ -1,12 +1,16 @@
 package com.example.myapplication2.view;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myapplication2.R;
 import com.example.myapplication2.api.TeacherProfile;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,18 +18,36 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class TeacherMoreInfo extends AppCompatActivity {
     private EditText subjectEt, ageEt, phoneEt, aboutMeEt,priceEt;
     private String subject, age, phone, aboutMe,price;
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference myRef =null;
     private FirebaseAuth mAuth;
+    private DatabaseReference subjectChecker;
+    String currSubject="";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_teacher_more_info);
         mAuth = FirebaseAuth.getInstance();
+        subjectChecker = database.getReference("FieldsOfTeaching");
+        subjectChecker.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    String curr=snapshot.getValue(String.class);
+                    currSubject=curr;
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
 
     }
 
@@ -46,8 +68,17 @@ public class TeacherMoreInfo extends AppCompatActivity {
             myRef.setValue(Integer.parseInt(age));
             myRef = database.getReference("Teachers/" + mAuth.getUid() + "/fieldsOfTeaching");
             myRef.setValue(subject);
-            myRef = database.getReference("FieldsOfTeaching/");
-            myRef.setValue(subject);
+            String[] subjects=subject.split(",");
+            myRef = database.getReference("FieldsOfTeaching");
+            for(String s:subjects){
+                System.out.println(s);
+                System.out.println(!currSubject.contains(s));
+                if (!currSubject.contains(s)){
+                    System.out.println(s);
+                    currSubject+=(","+s);
+                }
+            }
+            myRef.setValue(currSubject);
             startActivity(new Intent(TeacherMoreInfo.this, OpenScreen.class));
         }
 

@@ -10,7 +10,7 @@ import java.util.List;
 
 public class TeacherProfile extends UserProfile {
     //    private HashSet<String> fieldsOfTeaching;
-    private String fieldsOfTeaching;
+    private String fieldsOfTeaching="";
     private HashSet<String> listOfStudents;
     private String phoneNumber;
     private double price;

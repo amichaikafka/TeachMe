@@ -74,4 +74,5 @@
     <string name="Contact_us">צרו קשר</string>
     <string name="Via_email">דרך אימייל</string>
     <string name="summary_delete">לא ניתן לשחזור לאחר מחיקת החשבון</string>
+    <string name="subject_select_home">מה תרצה ללמוד</string>
 </resources>

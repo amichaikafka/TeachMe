@@ -3,6 +3,7 @@ package com.example.myapplication2.view;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -42,6 +43,39 @@ public class TeacherOrStudent extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_teacher_or_student);
         mAuth = FirebaseAuth.getInstance();
+        studentOrTeacher = findViewById(R.id.radio_student_or_teacher_reg);
+        studentOrTeacher.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @SuppressLint("NonConstantResourceId")
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                switch (checkedId){
+                    case R.id.radio_teacher_reg:
+                        userRole="Teacher";
+                        break;
+                    case R.id.radio_student_reg:
+                        userRole="Student";
+                        break;
+                }
+            }
+        });
+        gender = findViewById(R.id.gender_reg);
+        gender.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @SuppressLint("NonConstantResourceId")
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                switch (checkedId){
+                    case R.id.radio_male_reg:
+                        userGender="Male";
+                        break;
+                    case R.id.radio_female_reg:
+                        userGender="Female";
+                        break;
+                    case R.id.radio_decline_reg:
+                        userGender="Rather not to say";
+                        break;
+                }
+            }
+        });
     }
 
     public void onClickBack(View view) {
@@ -103,8 +137,8 @@ public class TeacherOrStudent extends AppCompatActivity {
             return false;
         }
 
-        userRole=studentOrTeacherChoice.getText().toString().trim();
-        userGender=genderChoice.getText().toString().trim();
+//        userRole=studentOrTeacherChoice.getText().toString().trim();
+//        userGender=genderChoice.getText().toString().trim();
         return true;
     }
 
@@ -138,14 +172,14 @@ public class TeacherOrStudent extends AppCompatActivity {
     private void addUser(String id){
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef =null;
-        if(userRole.equals("Teacher")||userRole.equals("מורה")){
+        if(userRole.equals("Teacher")){
             TeacherProfile teacher=new TeacherProfile(userName.getText().toString(),familyName.getText().toString()
-                    ,email.getText().toString(),genderChoice.getText().toString());
+                    ,email.getText().toString(),userGender);
             myRef = database.getReference("Teachers/"+id);
             myRef.setValue(teacher);
         }else{
             StudentProfile student=new StudentProfile(userName.getText().toString(),familyName.getText().toString()
-                    ,email.getText().toString(),genderChoice.getText().toString());
+                    ,email.getText().toString(),userGender);
             myRef = database.getReference("Students/"+id);
             myRef.setValue(student);
         }

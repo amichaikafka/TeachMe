@@ -15,7 +15,7 @@
         android:layout_marginBottom="280dp"
         android:backgroundTint="#339AF0"
         android:onClick="onClickSearchForTeacher"
-        android:text="Search for teacher"
+        android:text="@string/searchForTeacher"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"

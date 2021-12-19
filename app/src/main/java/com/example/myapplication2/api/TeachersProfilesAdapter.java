@@ -63,7 +63,7 @@ public class TeachersProfilesAdapter extends RecyclerView.Adapter<TeachersProfil
             aboutMeTextView = itemView.findViewById(R.id.textview_box_teacher_about);
             ratingBar = itemView.findViewById(R.id.ratingbar_box);
             phoneNumberBtn = itemView.findViewById(R.id.btn_box_phone);
-            profileImageView = itemView.findViewById(R.id.imageview_box_teacher_pic);
+            profileImageView = itemView.findViewById(R.id.viewProfilePic);
             numOfReviews = itemView.findViewById(R.id.num_of_reviews);
             reviewsWord = itemView.findViewById(R.id.review_word);
         }

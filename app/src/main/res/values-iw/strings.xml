@@ -52,5 +52,11 @@
     <string name="age_more_info">גיל</string>
     <string name="update_more_info">עדכן</string>
     <string name="skip_more_info">דלג</string>
-    <string name="about_me_more_info">About Me</string>
+    <string name="about_me_more_info">קצת עליי</string>
+    <string name="send">שלח</string>
+    <string name="searchForTeacher">חפש מורה</string>
+    <string name="message">הודעה:</string>
+    <string name="subject">נושא:</string>
+    <string name="to">אל:</string>
+    <string name="typeHere">הקלד כאן...</string>
 </resources>

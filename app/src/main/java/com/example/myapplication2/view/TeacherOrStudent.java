@@ -99,7 +99,7 @@ public class TeacherOrStudent extends AppCompatActivity {
             return false;
         }
         if (gender.getCheckedRadioButtonId()==-1){
-            Toast.makeText(TeacherOrStudent.this,"you must to chose gender type",Toast.LENGTH_LONG).show();
+            Toast.makeText(TeacherOrStudent.this,"you must to choose gender type",Toast.LENGTH_LONG).show();
             return false;
         }
 
@@ -126,7 +126,7 @@ public class TeacherOrStudent extends AppCompatActivity {
                             } else {
 
                                 // If sign in fails
-                                Toast.makeText(TeacherOrStudent.this, "failed :(", Toast.LENGTH_LONG).show();
+                                Toast.makeText(TeacherOrStudent.this, "You have entered an invalid username or password", Toast.LENGTH_LONG).show();
 
                             }
                         }

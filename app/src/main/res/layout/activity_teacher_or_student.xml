@@ -195,7 +195,7 @@
             android:id="@+id/radio_student_reg"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="24dp"
+            android:layout_marginEnd="24dp"
             android:text="@string/student_choice_reg"
             android:textColor="#212529"
             app:layout_constraintBottom_toTopOf="@+id/first_name_reg"

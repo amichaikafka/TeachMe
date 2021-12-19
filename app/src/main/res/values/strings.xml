@@ -30,6 +30,8 @@
     <string name="decline_to_specify_chice_reg">Rather not to say</string>
     <string name="reviews">reviews</string>
     <string name="sort_by">Sort by:</string>
+    <string name="send">Send</string>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <!-- Preference Titles -->
@@ -59,4 +61,9 @@
     <string name="update_more_info">Update</string>
     <string name="skip_more_info">Skip</string>
     <string name="about_me_more_info">About Me</string>
+    <string name="searchForTeacher">Search for teacher</string>
+    <string name="message">Message:</string>
+    <string name="subject">Subject:</string>
+    <string name="to">To:</string>
+    <string name="typeHere">Type here ...</string>
 </resources>

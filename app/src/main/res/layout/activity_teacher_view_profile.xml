@@ -6,24 +6,108 @@
     android:layout_height="match_parent"
     tools:context=".view.TeacherViewProfile">
 
+    <Button
+        android:id="@+id/viewProfilePhoneNumberBtn"
+        android:layout_width="347dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="20dp"
+        android:backgroundTint="#339AF0"
+        android:paddingStart="100dp"
+        android:paddingEnd="100dp"
+        android:singleLine="true"
+        android:text="Phone - Number"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/viewProfilePic" />
+
     <ImageView
-        android:id="@+id/imageview_box_teacher_pic"
+        android:id="@+id/viewProfilePic"
         android:layout_width="115dp"
         android:layout_height="116dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="12dp"
         android:contentDescription="TODO"
         android:gravity="center"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/viewProfileName"
         app:srcCompat="@mipmap/ic_launcher"
-        tools:ignore="ImageContrastCheck"
-        tools:layout_editor_absoluteX="36dp"
-        tools:layout_editor_absoluteY="16dp" />
+        tools:ignore="ImageContrastCheck" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/viewProfileName"
+        android:layout_width="114dp"
+        android:layout_height="29dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="28dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toStartOf="@+id/viewProfileNumOfReviews"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <RatingBar
+        android:id="@+id/viewProfileRatingBar"
+        style="?android:attr/ratingBarStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginBottom="16dp"
+        android:isIndicator="true"
+        android:numStars="5"
+        android:stepSize="0.1"
+        app:layout_constraintBottom_toTopOf="@+id/viewProfileAbout"
+        app:layout_constraintStart_toEndOf="@+id/viewProfilePic" />
+
+    <TextView
+        android:id="@+id/viewProfileNumOfReviews"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="16dp"
+        android:text="#"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@+id/viewProfileReviewWord"
+        app:layout_constraintStart_toEndOf="@+id/viewProfilePic"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/viewProfileReviewWord"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:text="@string/reviews"
+        android:textAlignment="center"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toTopOf="@+id/viewProfileRatingBar"
+        app:layout_constraintStart_toEndOf="@+id/viewProfilePic" />
+
+    <TextView
+        android:id="@+id/viewProfileAbout"
+        android:layout_width="203dp"
+        android:layout_height="88dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
         android:text="TextView"
-        tools:layout_editor_absoluteX="178dp"
-        tools:layout_editor_absoluteY="16dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/viewProfilePic"
+        app:layout_constraintTop_toBottomOf="@+id/viewProfileRatingBar" />
+
+    <TextView
+        android:id="@+id/viewProfileFieldOfStudy"
+        android:layout_width="89dp"
+        android:layout_height="31dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="22dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/viewProfileNumOfReviews"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

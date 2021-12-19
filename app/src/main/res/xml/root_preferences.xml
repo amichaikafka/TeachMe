@@ -4,7 +4,7 @@
 
     <PreferenceCategory
         app:icon="@drawable/ic_baseline_settings_24"
-        android:title="Settings">
+        android:title="@string/Settings">
 
         <CheckBoxPreference
             android:key="sync"
@@ -42,29 +42,29 @@
 
     <PreferenceCategory
         app:icon="@drawable/ic_baseline_notifications_24"
-        android:title="Notifications">
+        android:title="@string/Notifications">
 
         <SeekBarPreference
             android:key="volume_notifications"
-            android:title="Volume"
+            android:title="@string/Volume"
             app:showSeekBarValue="true"
             android:defaultValue= "50" />
 
         <CheckBoxPreference
             android:key="notifications"
-            android:title="Disable notifications"
-            android:summaryOn="You will no longer receive any notifications"
-            android:summaryOff="You will receive all notifications"/>
+            android:title="@string/Disable_notifications"
+            android:summaryOn="@string/summary_on_notification"
+            android:summaryOff="@string/summary_off_notification"/>
     </PreferenceCategory>
 
     <PreferenceCategory
         app:icon="@drawable/ic_baseline_delete_24"
-        android:title="Delete account">
+        android:title="@string/Delete_account">
 
         <Preference
 
-            android:title="Delete your account"
-            android:summary="Once deleted the account can not be restored"/>
+            android:title="@string/Delete_your_account"
+            android:summary="@string/summary_delete"/>
 
 
 
@@ -73,11 +73,11 @@
 
     <PreferenceCategory
         app:icon="@drawable/ic_baseline_language_24"
-        android:title="Language">
+        android:title="@string/Language">
 
         <Preference
 
-            android:title="Change language"/>
+            android:title="@string/Change_language"/>
 
 
 
@@ -85,16 +85,16 @@
 
     <PreferenceCategory
         app:icon="@drawable/ic_baseline_info_24"
-        android:title="General">
+        android:title="@string/General">
 
         <Preference
 
-            android:title="About us"
-            android:summary="What services we offer"/>
+            android:title="@string/About_us"
+            android:summary="@string/What_services_we_offer"/>
 
         <Preference
-            android:title="Contact Us"
-            android:summary="Via email"/>
+            android:title="@string/Contact_us"
+            android:summary="@string/Via_email"/>
 
 
     </PreferenceCategory>

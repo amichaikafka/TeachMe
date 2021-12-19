@@ -66,4 +66,19 @@
     <string name="subject">Subject:</string>
     <string name="to">To:</string>
     <string name="typeHere">Type here ...</string>
+    <string name="Notifications">Notfication</string>
+    <string name="Volume">Volume</string>
+    <string name="Disable_notifications">Disable notification</string>
+    <string name="summary_on_notification">You will no longer receive any notifications</string>
+    <string name="summary_off_notification">You will receive all notifications</string>
+    <string name="Delete_account">Delete account</string>
+    <string name="Delete_your_account">Delete your account</string>
+    <string name="Language">Language</string>
+    <string name="Change_language">Change language</string>
+    <string name="General">General</string>
+    <string name="About_us">About_us</string>
+    <string name="What_services_we_offer">What services we offer</string>
+    <string name="Contact_us">Contact us</string>
+    <string name="Via_email">Via email</string>
+    <string name="summary_delete">Once deleted the account can not be restored</string>
 </resources>

@@ -59,4 +59,19 @@
     <string name="subject">נושא:</string>
     <string name="to">אל:</string>
     <string name="typeHere">הקלד כאן...</string>
+    <string name="Notifications">התראות</string>
+    <string name="Volume">שמע</string>
+    <string name="Disable_notifications">אפשר התראות</string>
+    <string name="summary_on_notification">לא תקבל עוד התראות</string>
+    <string name="summary_off_notification">תקבל את כל ההתראות</string>
+    <string name="Delete_account">מחיקת משתמש</string>
+    <string name="Delete_your_account">מחק את המשתמש שלך</string>
+    <string name="Language">שפה</string>
+    <string name="Change_language">שנה שפה</string>
+    <string name="General">כללי</string>
+    <string name="About_us">מידע על האפליקציה</string>
+    <string name="What_services_we_offer">השירותים שאנו מציעים</string>
+    <string name="Contact_us">צרו קשר</string>
+    <string name="Via_email">דרך אימייל</string>
+    <string name="summary_delete">לא ניתן לשחזור לאחר מחיקת החשבון</string>
 </resources>

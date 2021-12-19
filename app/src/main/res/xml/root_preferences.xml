@@ -1,37 +1,39 @@
-<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
+<PreferenceScreen
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">>
 
     <PreferenceCategory
         app:icon="@drawable/ic_baseline_settings_24"
-        app:title="Settings">
+        android:title="Settings">
 
-        <SwitchPreferenceCompat
-            app:key="sync"
-            app:title="@string/sync_title" />
+        <CheckBoxPreference
+            android:key="sync"
+            android:title="@string/sync_title" />
 
-        <SwitchPreferenceCompat
-            app:dependency="sync"
-            app:key="attachment"
-            app:summaryOff="@string/attachment_summary_off"
-            app:summaryOn="@string/attachment_summary_on"
-            app:title="@string/attachment_title" />
+        <CheckBoxPreference
+            android:dependency="sync"
+            android:key="attachment"
+            android:summaryOff="@string/attachment_summary_off"
+            android:summaryOn="@string/attachment_summary_on"
+            android:title="@string/attachment_title" />
 
     </PreferenceCategory>
 
     <PreferenceCategory
         app:icon="@drawable/ic_baseline_message_24"
-        app:title="@string/messages_header">
+        android:title="@string/messages_header">
 
         <EditTextPreference
-            app:key="signature"
-            app:title="@string/signature_title"
+            android:key="signature"
+            android:title="@string/signature_title"
             app:useSimpleSummaryProvider="true" />
 
         <ListPreference
-            app:defaultValue="reply"
-            app:entries="@array/reply_entries"
-            app:entryValues="@array/reply_values"
-            app:key="reply"
-            app:title="@string/reply_title"
+            android:defaultValue="reply"
+            android:entries="@array/reply_entries"
+            android:entryValues="@array/reply_values"
+            android:key="reply"
+            android:title="@string/reply_title"
             app:useSimpleSummaryProvider="true" />
 
     </PreferenceCategory>
@@ -40,29 +42,29 @@
 
     <PreferenceCategory
         app:icon="@drawable/ic_baseline_notifications_24"
-        app:title="Notifications">
+        android:title="Notifications">
 
         <SeekBarPreference
-            app:key="volume_notifications"
-            app:title="Volume"
+            android:key="volume_notifications"
+            android:title="Volume"
             app:showSeekBarValue="true"
-            app:defaultValue= "50" />
+            android:defaultValue= "50" />
 
-        <SwitchPreferenceCompat
-            app:key="notifications"
-            app:title="Disable notifications"
-            app:summaryOn="You will no longer receive any notifications"
-            app:summaryOff="You will receive all notifications"/>
+        <CheckBoxPreference
+            android:key="notifications"
+            android:title="Disable notifications"
+            android:summaryOn="You will no longer receive any notifications"
+            android:summaryOff="You will receive all notifications"/>
     </PreferenceCategory>
 
     <PreferenceCategory
         app:icon="@drawable/ic_baseline_delete_24"
-        app:title="Delete account">
+        android:title="Delete account">
 
         <Preference
 
-            app:title="Delete your account"
-            app:summary="Once deleted the account can not be restored"/>
+            android:title="Delete your account"
+            android:summary="Once deleted the account can not be restored"/>
 
 
 
@@ -71,11 +73,11 @@
 
     <PreferenceCategory
         app:icon="@drawable/ic_baseline_language_24"
-        app:title="Language">
+        android:title="Language">
 
         <Preference
 
-            app:title="Change language"/>
+            android:title="Change language"/>
 
 
 
@@ -83,16 +85,16 @@
 
     <PreferenceCategory
         app:icon="@drawable/ic_baseline_info_24"
-        app:title="General">
+        android:title="General">
 
         <Preference
 
-            app:title="About us"
-            app:summary="What services we offer"/>
+            android:title="About us"
+            android:summary="What services we offer"/>
 
         <Preference
-            app:title="Contact Us"
-            app:summary="Via email"/>
+            android:title="Contact Us"
+            android:summary="Via email"/>
 
 
     </PreferenceCategory>

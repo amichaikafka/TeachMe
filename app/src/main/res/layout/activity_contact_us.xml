@@ -79,7 +79,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/message"
         android:layout_marginHorizontal="16dp"
-        android:lines="10"
+        android:lines="5"
         android:gravity="start"
         android:hint="@string/typeHere"/>
 

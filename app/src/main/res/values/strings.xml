@@ -53,7 +53,7 @@
     <string name="sort_by_rate">Rate</string>
     <string name="sort_by_price">Price</string>
     <string name="sort_by_name">Name</string>
-    <string name="informtion_mor_info">Informtion</string>
+    <string name="informtion_mor_info">More Information</string>
     <string name="study_profession_more_info">Study profession</string>
     <string name="price_more_info">Price</string>
     <string name="phone_number_more_info">Phone Number</string>
@@ -76,7 +76,7 @@
     <string name="Language">Language</string>
     <string name="Change_language">Change language</string>
     <string name="General">General</string>
-    <string name="About_us">About_us</string>
+    <string name="About_us">About us</string>
     <string name="What_services_we_offer">What services we offer</string>
     <string name="Contact_us">Contact us</string>
     <string name="Via_email">Via email</string>

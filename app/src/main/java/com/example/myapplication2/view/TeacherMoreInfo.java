@@ -20,6 +20,7 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Locale;
 
 public class TeacherMoreInfo extends AppCompatActivity {
     private EditText subjectEt, ageEt, phoneEt, aboutMeEt,priceEt;
@@ -73,9 +74,12 @@ public class TeacherMoreInfo extends AppCompatActivity {
             for(String s:subjects){
                 System.out.println(s);
                 System.out.println(!currSubject.contains(s));
-                if (!currSubject.contains(s)){
+                if (!currSubject.toLowerCase(Locale.ROOT).contains(s.toLowerCase(Locale.ROOT))){
                     System.out.println(s);
-                    currSubject+=(","+s);
+                    s = s.toLowerCase(Locale.ROOT);
+                    char c = Character.toUpperCase(s.charAt(0));
+                    String ans = c + s.substring(1);
+                    currSubject+=(","+ans);
                 }
             }
             myRef.setValue(currSubject);

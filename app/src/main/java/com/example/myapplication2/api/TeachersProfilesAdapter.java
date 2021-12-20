@@ -37,6 +37,7 @@ public class TeachersProfilesAdapter extends RecyclerView.Adapter<TeachersProfil
         holder.aboutMeTextView.setText(currentProfile.getAboutMe());
         holder.ratingBar.setRating(currentProfile.getRating());          //TODO: add ratings to teacher profile
         holder.numOfReviews.setText(String.valueOf(currentProfile.getNumOfReviews()));
+        holder.priceTextView.setText(String.valueOf((int)(currentProfile.getPrice())) + " NIS");
 //        holder.reviewsWord.setText("Reviews");
         holder.phoneNumberBtn.setText(currentProfile.getPhoneNumber());
 //        holder.profileImageView.setImageResource(holder.nameTextView.getResources()
@@ -57,6 +58,7 @@ public class TeachersProfilesAdapter extends RecyclerView.Adapter<TeachersProfil
         public TextView numOfReviews;
         public TextView reviewsWord;
         public ImageView profileImageView;
+        public TextView priceTextView;
         public TeachersViewHolder(@NonNull View itemView) {
             super(itemView);
             nameTextView = itemView.findViewById(R.id.textview_box_teacher_name);
@@ -66,6 +68,7 @@ public class TeachersProfilesAdapter extends RecyclerView.Adapter<TeachersProfil
             profileImageView = itemView.findViewById(R.id.viewProfilePic);
             numOfReviews = itemView.findViewById(R.id.num_of_reviews);
             reviewsWord = itemView.findViewById(R.id.review_word);
+            priceTextView = itemView.findViewById(R.id.textview_box_teacher_price);
         }
     }
 

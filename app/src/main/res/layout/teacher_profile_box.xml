@@ -116,6 +116,20 @@
         app:layout_constraintBottom_toTopOf="@+id/review_word"
         app:layout_constraintStart_toEndOf="@+id/viewProfilePic"
         app:layout_constraintTop_toTopOf="parent" />
-<!--    </RelativeLayout>-->
+
+    <TextView
+        android:id="@+id/textview_box_teacher_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="99dp"
+        android:layout_marginBottom="8dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@+id/divider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.849"
+        app:layout_constraintStart_toStartOf="@+id/textview_box_teacher_about"
+        app:layout_constraintTop_toTopOf="@+id/btn_box_phone"
+        app:layout_constraintVertical_bias="1.0" />
+    <!--    </RelativeLayout>-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

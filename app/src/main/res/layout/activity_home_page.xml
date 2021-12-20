@@ -27,6 +27,7 @@
         android:id="@+id/hello_search"
         android:layout_width="wrap_content"
         android:layout_height="27dp"
+        android:layout_marginBottom="20dp"
         android:text="@string/hello"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/subject_select_home"
@@ -40,15 +41,17 @@
         android:id="@+id/name_filled_search"
         android:layout_width="wrap_content"
         android:layout_height="27dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginBottom="30dp"
         android:textAlignment="center"
         android:textSize="20sp"
         app:flow_horizontalAlign="center"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/subject_select_home"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.024"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/hello_search"
         app:layout_constraintTop_toBottomOf="@+id/imageView3"
-        app:layout_constraintVertical_bias="0.048" />
+        app:layout_constraintVertical_bias="0.465" />
 
     <Button
         android:id="@+id/searchForTeacherBtn"

@@ -4,7 +4,6 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myapplication2.R;
-import com.example.myapplication2.api.TeacherProfile;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -18,8 +17,6 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Locale;
 
 public class TeacherMoreInfo extends AppCompatActivity {
@@ -91,7 +88,7 @@ public class TeacherMoreInfo extends AppCompatActivity {
                 }
             }
             myRef.setValue(currSubject);
-            startActivity(new Intent(TeacherMoreInfo.this, OpenScreen.class));
+            startActivity(new Intent(TeacherMoreInfo.this, Login.class));
         }
 
     }
@@ -138,7 +135,7 @@ public class TeacherMoreInfo extends AppCompatActivity {
 
     public void onClickSkip(View view) {
         Toast.makeText(TeacherMoreInfo.this, "you wont be shown..", Toast.LENGTH_LONG).show();
-        startActivity(new Intent(TeacherMoreInfo.this, OpenScreen.class));
+        startActivity(new Intent(TeacherMoreInfo.this, Login.class));
 
     }
 

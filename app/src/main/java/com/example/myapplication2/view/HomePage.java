@@ -14,10 +14,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.myapplication2.R;
-import com.example.myapplication2.api.AutoCompleteSubjectAdapter;
 import com.example.myapplication2.api.StudentProfile;
 import com.example.myapplication2.api.TeacherProfile;
-import com.example.myapplication2.api.UserProfile;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -28,7 +26,6 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.Objects;
 
 public class HomePage extends AppCompatActivity {
     private FirebaseUser mAuth;
@@ -127,7 +124,7 @@ public class HomePage extends AppCompatActivity {
         if (item.getItemId() == R.id.menu_setting) startActivity(new Intent(this, Settings.class));
         if (item.getItemId() == R.id.menu_logout) {
             FirebaseAuth.getInstance().signOut();
-            startActivity(new Intent(this, OpenScreen.class));
+            startActivity(new Intent(this, Login.class));
         }
         return super.onContextItemSelected(item);
     }

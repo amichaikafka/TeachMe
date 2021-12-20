@@ -24,9 +24,7 @@ public class StudentProfile extends UserProfile{
         this.filledOfStudies = filledOfStudies;
     }
     public void scheduleLesson(){}
-    public LinkedList<String> searchForTeacher(Fillter fillter){
-        return null;
-    }
+
     public void sortTeacherBy(String sortBy){}
 
     public LinkedList<String> getFilledOfStudies() {

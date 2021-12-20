@@ -4,7 +4,6 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -69,7 +68,7 @@ public class ContactUs extends AppCompatActivity {
         if(item.getItemId() ==  R.id.menu_setting) startActivity(new Intent(this, Settings.class));
         if(item.getItemId() ==  R.id.menu_logout){
             FirebaseAuth.getInstance().signOut();
-            startActivity(new Intent(this, OpenScreen.class));
+            startActivity(new Intent(this, Login.class));
         }
         return super.onContextItemSelected(item);
     }

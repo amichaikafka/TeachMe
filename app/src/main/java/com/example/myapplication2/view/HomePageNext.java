@@ -1,7 +1,6 @@
 package com.example.myapplication2.view;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
@@ -16,7 +15,6 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -29,10 +27,8 @@ import com.example.myapplication2.R;
 import com.example.myapplication2.api.TeacherProfile;
 import com.example.myapplication2.api.TeachersProfilesAdapter;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
@@ -238,7 +234,7 @@ public class HomePageNext extends AppCompatActivity {
         if (item.getItemId() == R.id.menu_setting) startActivity(new Intent(this, Settings.class));
         if (item.getItemId() == R.id.menu_logout) {
             FirebaseAuth.getInstance().signOut();
-            startActivity(new Intent(this, OpenScreen.class));
+            startActivity(new Intent(this, Login.class));
         }
         return super.onContextItemSelected(item);
     }

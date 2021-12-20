@@ -24,7 +24,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 import java.util.Locale;
 
-public class OpenScreen extends AppCompatActivity {
+public class Login extends AppCompatActivity {
    public EditText txtName;
    public String name;
     private FirebaseAuth mAuth;
@@ -34,7 +34,7 @@ public class OpenScreen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mAuth = FirebaseAuth.getInstance();
-        setContentView(R.layout.open_screen);
+        setContentView(R.layout.activity_login);
         ActionBar actionBar=getSupportActionBar();
         actionBar.setTitle(getResources().getString(R.string.app_name));
         txtPass=(EditText)findViewById(R.id.TextPassword);
@@ -47,38 +47,9 @@ public class OpenScreen extends AppCompatActivity {
         // Check if user is signed in (non-null) and update UI accordingly.
         FirebaseUser currentUser = mAuth.getCurrentUser();
     }
-    //TODO need to check how to connecet between email user and user profile
+
     public void onClickReg(View view) {
-//        EditText myEmail=findViewById(R.id.txtName);
-//        EditText myPassword=findViewById(R.id.TextPassword);
-//        mAuth.createUserWithEmailAndPassword(myEmail.getText().toString(),myPassword.getText().toString())
-//                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-//                    @Override
-//                    public void onComplete(@NonNull Task<AuthResult> task) {
-//                        if (task.isSuccessful()) {
-//                            // Sign in success, update UI with the signed-in user's information
-//                            startActivity(new Intent(OpenScreen.this,HomePage.class));
-//                        } else {
-//                            // If sign in fails, display a message to the user.
-//                            Toast.makeText(OpenScreen.this,"failed :(",Toast.LENGTH_LONG).show();
-//
-//                        }
-//                    }
-//                });
-//        mAuth.signInWithCustomToken(mCustomToken)
-//                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-//                    @Override
-//                    public void onComplete(@NonNull Task<AuthResult> task) {
-//                        if (task.isSuccessful()) {
-//                            // Sign in success, update UI with the signed-in user's information
-//
-//                        } else {
-//                            // If sign in fails, display a message to the user.
-//
-//                        }
-//                    }
-//                });
-        Intent intent=new Intent(OpenScreen.this, TeacherOrStudent.class);
+        Intent intent=new Intent(Login.this, Registration.class);
         startActivity(intent);
         finish();
     }
@@ -94,10 +65,10 @@ public class OpenScreen extends AppCompatActivity {
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
                                 // Sign in success, update UI with the signed-in user's information
-                                startActivity(new Intent(OpenScreen.this, HomePage.class));
+                                startActivity(new Intent(Login.this, HomePage.class));
                             } else {
                                 // If sign in fails, display a message to the user.
-                                Toast.makeText(OpenScreen.this, "failed :(", Toast.LENGTH_LONG).show();
+                                Toast.makeText(Login.this, "failed :(", Toast.LENGTH_LONG).show();
 
                             }
                         }
@@ -111,7 +82,7 @@ public class OpenScreen extends AppCompatActivity {
         ActionBar actionBar=getSupportActionBar();
         actionBar.setTitle(getResources().getString(R.string.app_name));
         final String[] lang={"English","עברית"};
-        AlertDialog.Builder myBuilder=new AlertDialog.Builder(OpenScreen.this);
+        AlertDialog.Builder myBuilder=new AlertDialog.Builder(Login.this);
         myBuilder.setTitle("Choose language");
         myBuilder.setSingleChoiceItems(lang, -1, new DialogInterface.OnClickListener() {
             @Override

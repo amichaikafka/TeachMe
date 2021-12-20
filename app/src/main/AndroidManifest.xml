@@ -39,13 +39,10 @@
             android:name=".view.HomePage"
             android:exported="false" />
         <activity
-            android:name=".view.TeacherOrStudent"
+            android:name=".view.Registration"
             android:exported="false" />
         <activity
-            android:name=".view.MainActivity2"
-            android:exported="false" />
-        <activity
-            android:name=".view.OpenScreen"
+            android:name=".view.Login"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

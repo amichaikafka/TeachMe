@@ -2,24 +2,15 @@ package com.example.myapplication2.view;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.Activity;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 
 import com.example.myapplication2.R;
 import com.google.firebase.auth.FirebaseAuth;
-
-import java.util.Locale;
 
 
 public class Settings extends AppCompatActivity {
@@ -59,7 +50,7 @@ public class Settings extends AppCompatActivity {
         if (item.getItemId() == R.id.menu_contact) startActivity(new Intent(this, ContactUs.class));
         if (item.getItemId() == R.id.menu_logout) {
             FirebaseAuth.getInstance().signOut();
-            startActivity(new Intent(this, OpenScreen.class));
+            startActivity(new Intent(this, Login.class));
         }
         return super.onContextItemSelected(item);
     }

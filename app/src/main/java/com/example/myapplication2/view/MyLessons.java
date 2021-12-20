@@ -4,10 +4,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 
 import com.example.myapplication2.R;
 import com.google.firebase.auth.FirebaseAuth;
@@ -38,7 +36,7 @@ public class MyLessons extends AppCompatActivity {
         if(item.getItemId() ==  R.id.menu_setting) startActivity(new Intent(this, Settings.class));
         if(item.getItemId() ==  R.id.menu_logout){
             FirebaseAuth.getInstance().signOut();
-            startActivity(new Intent(this, OpenScreen.class));
+            startActivity(new Intent(this, Login.class));
         }
         return super.onContextItemSelected(item);
     }

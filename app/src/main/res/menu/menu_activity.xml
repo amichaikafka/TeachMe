@@ -27,11 +27,6 @@
         app:showAsAction="never"
         />
     <item
-        android:id="@+id/menu_switch"
-        android:title="@string/SwitchTeacherStudent"
-        app:showAsAction="never"
-        />
-    <item
         android:id="@+id/menu_logout"
         android:title="@string/Logout"
         app:showAsAction="never"

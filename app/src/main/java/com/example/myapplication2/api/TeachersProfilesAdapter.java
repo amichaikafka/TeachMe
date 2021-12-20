@@ -34,7 +34,12 @@ public class TeachersProfilesAdapter extends RecyclerView.Adapter<TeachersProfil
     public void onBindViewHolder(@NonNull TeachersViewHolder holder, int position) {
         TeacherProfile currentProfile = teachers.get(position);
         holder.nameTextView.setText(currentProfile.getFirstName() + " " + currentProfile.getLastName());
-        holder.aboutMeTextView.setText(currentProfile.getAboutMe());
+        if(currentProfile.getAboutMe().length()>100) {
+            holder.aboutMeTextView.setText(currentProfile.getAboutMe().substring(0, 100) + "...");
+        }
+        else{
+            holder.aboutMeTextView.setText(currentProfile.getAboutMe());
+        }
         holder.ratingBar.setRating(currentProfile.getRating());          //TODO: add ratings to teacher profile
         holder.numOfReviews.setText(String.valueOf(currentProfile.getNumOfReviews()));
         holder.priceTextView.setText(String.valueOf((int)(currentProfile.getPrice())) + " NIS");

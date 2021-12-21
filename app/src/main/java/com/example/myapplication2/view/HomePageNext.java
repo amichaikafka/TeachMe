@@ -200,6 +200,9 @@ public class HomePageNext extends AppCompatActivity {
             }
         });
     }
+    public void onTeacherClick(View view){
+        startActivity(new Intent(this, TeacherViewProfile.class));
+    }
 
     public void onClickPhoneCall(View view){
         final int REQUEST_PHONE_CALL = 1;

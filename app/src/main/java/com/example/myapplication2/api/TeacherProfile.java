@@ -84,7 +84,6 @@ public class TeacherProfile extends UserProfile {
         this.rating = r;
     }
 
-
     public String getPhoneNumber() {
         return phoneNumber;
     }

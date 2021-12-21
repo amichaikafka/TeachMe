@@ -75,4 +75,7 @@
     <string name="Via_email">דרך אימייל</string>
     <string name="summary_delete">לא ניתן לשחזור לאחר מחיקת החשבון</string>
     <string name="subject_select_home">מה תרצה ללמוד</string>
+    <string name="view_teachet_profile">Full name</string>
+    <string name="view_teacher_price">Price</string>
+    <string name="view_teacher_reviews"><![CDATA[Ratings & Reviews]]></string>
 </resources>

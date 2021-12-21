@@ -82,4 +82,7 @@
     <string name="Contact_us">Contact us</string>
     <string name="Via_email">Via email</string>
     <string name="summary_delete">Once deleted the account can not be restored</string>
+    <string name="view_teacher_name">Full name</string>
+    <string name="view_teacher_price">Price</string>
+    <string name="view_teacher_reviews"><![CDATA[Ratings & Reviews]]></string>
 </resources>

@@ -26,6 +26,8 @@
 
     <TextView
         android:id="@+id/textview_box_teacher_name"
+        android:onClick="onTeacherClick"
+        android:clickable="true"
         android:layout_width="90dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -124,8 +126,9 @@
         android:layout_marginTop="99dp"
         android:layout_marginBottom="8dp"
 
-        android:text="TextView"
+        android:text="Price"
         android:textColor="#228be6"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/divider"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.849"

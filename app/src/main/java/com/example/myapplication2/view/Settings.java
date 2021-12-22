@@ -52,6 +52,7 @@ public class Settings extends AppCompatActivity {
             FirebaseAuth.getInstance().signOut();
             startActivity(new Intent(this, Login.class));
         }
+        if (item.getItemId() == R.id.menu_myProfile){startActivity(new Intent(this, TeacherEditProfile.class));}
         return super.onContextItemSelected(item);
     }
 }

@@ -170,7 +170,6 @@ public class HomePageNext extends AppCompatActivity {
 
         TeachersProfilesAdapter teachersProfilesAdapter = new TeachersProfilesAdapter(teachers);
         recyclerView.setAdapter(teachersProfilesAdapter);
-        System.out.println(sortParam+"________");
         myQuery = database.getReference("Teachers").orderByChild(sortParam);
         myQuery.addValueEventListener(new ValueEventListener() {
             @SuppressLint("NotifyDataSetChanged")
@@ -239,6 +238,7 @@ public class HomePageNext extends AppCompatActivity {
             FirebaseAuth.getInstance().signOut();
             startActivity(new Intent(this, Login.class));
         }
+        if (item.getItemId() == R.id.menu_myProfile){startActivity(new Intent(this, TeacherEditProfile.class));}
         return super.onContextItemSelected(item);
     }
 }

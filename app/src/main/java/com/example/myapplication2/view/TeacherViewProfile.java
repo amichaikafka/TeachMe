@@ -1,10 +1,13 @@
 package com.example.myapplication2.view;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -54,6 +57,18 @@ public class TeacherViewProfile extends AppCompatActivity {
 //        phoneNumberBtn = findViewById(R.id.viewProfilePhoneNumberBtn);
 //        aboutTextView = findViewById(R.id.viewProfileAbout);
 
+    }
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == R.id.menu_home) startActivity(new Intent(this, HomePage.class));
+        if (item.getItemId() == R.id.menu_myLesson) startActivity(new Intent(this, MyLessons.class));
+        if (item.getItemId() == R.id.menu_contact) startActivity(new Intent(this, ContactUs.class));
+        if (item.getItemId() == R.id.menu_logout) {
+            FirebaseAuth.getInstance().signOut();
+            startActivity(new Intent(this, Login.class));
+        }
+        if (item.getItemId() == R.id.menu_myProfile){startActivity(new Intent(this, TeacherEditProfile.class));}
+        return super.onContextItemSelected(item);
     }
 
 

@@ -78,4 +78,5 @@
     <string name="view_teachet_profile">Full name</string>
     <string name="view_teacher_price">Price</string>
     <string name="view_teacher_reviews"><![CDATA[Ratings & Reviews]]></string>
+    <string name="my_details">הפרטים שלי</string>
 </resources>

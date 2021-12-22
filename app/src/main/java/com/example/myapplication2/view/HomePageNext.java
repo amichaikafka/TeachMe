@@ -22,13 +22,16 @@ import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.SearchView;
+import android.widget.Toast;
 
 import com.example.myapplication2.R;
 import com.example.myapplication2.api.TeacherProfile;
 import com.example.myapplication2.api.TeachersProfilesAdapter;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
@@ -37,6 +40,7 @@ import java.util.ArrayList;
 import java.util.Locale;
 
 public class HomePageNext extends AppCompatActivity {
+    private FirebaseUser mAuth;
     private SearchView searchName;
     private FirebaseDatabase database;
     private Query myQuery = null;
@@ -44,7 +48,10 @@ public class HomePageNext extends AppCompatActivity {
     private RadioGroup sortGroup;
     private RadioButton sortBy;
     private String sortParam = "firstName";
-    private String subject;
+    private String subject,userType;
+    Bundle userToMove=new Bundle();
+
+    DatabaseReference myRef = null;
 
     @RequiresApi(api = Build.VERSION_CODES.P)
     @Override
@@ -53,6 +60,8 @@ public class HomePageNext extends AppCompatActivity {
         setContentView(R.layout.activity_home_page_next);
         savedInstanceState=getIntent().getExtras();
         subject=savedInstanceState.getString("subject");
+        userType=savedInstanceState.getString("user");
+        userToMove.putString("user",userType);
         searchName = findViewById(R.id.searchView_search);
         System.out.println(searchName.toString());
         database = FirebaseDatabase.getInstance("https://teachme-c8637-default-rtdb.firebaseio.com/");
@@ -238,7 +247,15 @@ public class HomePageNext extends AppCompatActivity {
             FirebaseAuth.getInstance().signOut();
             startActivity(new Intent(this, Login.class));
         }
-        if (item.getItemId() == R.id.menu_myProfile){startActivity(new Intent(this, TeacherEditProfile.class));}
+        if (item.getItemId() == R.id.menu_myProfile){
+            if(userType.equals("student")){
+                Toast.makeText(this, "only teacher can edit profile", Toast.LENGTH_LONG).show();
+            }else {
+                Intent intent = new Intent(this, TeacherEditProfile.class);
+                intent.putExtras(userToMove);
+                startActivity(new Intent(this, TeacherEditProfile.class));
+            }
+        }
         return super.onContextItemSelected(item);
     }
 }

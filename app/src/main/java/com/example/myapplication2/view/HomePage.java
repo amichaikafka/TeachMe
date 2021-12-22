@@ -36,6 +36,9 @@ public class HomePage extends AppCompatActivity {
     List<String> currSubjects;
     AutoCompleteTextView subjectChoose;
     String[] suggestions;
+    String userType;
+    Bundle userToMove=new Bundle();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,6 +67,8 @@ public class HomePage extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 TeacherProfile userProfile = snapshot.getValue(TeacherProfile.class);
                 if (userProfile != null) {
+                    userType="teacher";
+                    userToMove.putString("user",userType);
                     hello.setText(userProfile.getFirstName());
                 } else {
                     DatabaseReference myRef = database.getReference("Students/" + mAuth.getUid());
@@ -71,6 +76,8 @@ public class HomePage extends AppCompatActivity {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
                             StudentProfile userProfile = snapshot.getValue(StudentProfile.class);
+                            userType="student";
+                            userToMove.putString("user",userType);
                             hello.setText(userProfile.getFirstName());
                         }
 
@@ -97,10 +104,10 @@ public class HomePage extends AppCompatActivity {
     public void onClickSearchForTeacher(View view) {
         String subject=subjectChoose.getText().toString().trim();
         if (Arrays.asList(suggestions).contains(subject)) {
-            Bundle b=new Bundle();
-            b.putString("subject",subject);
+
+            userToMove.putString("subject",subject);
             Intent intent=new Intent(this, HomePageNext.class);
-            intent.putExtras(b);
+            intent.putExtras(userToMove);
             startActivity(intent);
         }else {
             Toast.makeText(HomePage.this, "you mast choose subject from the list", Toast.LENGTH_SHORT).show();
@@ -126,7 +133,15 @@ public class HomePage extends AppCompatActivity {
             FirebaseAuth.getInstance().signOut();
             startActivity(new Intent(this, Login.class));
         }
-        if (item.getItemId() == R.id.menu_myProfile){startActivity(new Intent(this, TeacherEditProfile.class));}
+        if (item.getItemId() == R.id.menu_myProfile){
+            if(userType.equals("student")){
+                Toast.makeText(this, "only teacher can edit profile", Toast.LENGTH_LONG).show();
+            }else {
+                Intent intent = new Intent(this, TeacherEditProfile.class);
+                intent.putExtras(userToMove);
+                startActivity(new Intent(this, TeacherEditProfile.class));
+            }
+        }
         return super.onContextItemSelected(item);
     }
 

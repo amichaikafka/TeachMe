@@ -18,12 +18,16 @@ import com.google.firebase.auth.FirebaseAuth;
 public class ContactUs extends AppCompatActivity {
     EditText editTextTo,editTextSubject,editTextMessage;
     Button send;
+    String userType;
+    Bundle userToMove=new Bundle();
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contact_us);
+        userType=savedInstanceState.getString("user");
+        userToMove.putString("user",userType);
 
         editTextTo=(EditText)findViewById(R.id.emailAddress);
         editTextSubject=(EditText)findViewById(R.id.subject);

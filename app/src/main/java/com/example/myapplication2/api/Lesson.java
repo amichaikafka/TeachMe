@@ -12,11 +12,17 @@ public class Lesson {
     private LinkedList<Integer> studentsID;
     private Date date;
     private double duration;
-    private String price;
+    private int price;
     private boolean onlineLesson=false;
     private URL link;
+    private String teacherName;
+    private String studentName;
 
-    public Lesson(int teacherID, LinkedList<Integer> studentsID, Date date, double duration, String price, String link) throws MalformedURLException {
+
+
+    private String studyField;
+
+    public Lesson(int teacherID, LinkedList<Integer> studentsID, Date date, double duration, int price, String link) throws MalformedURLException {
         this.teacherID = teacherID;
         this.studentsID = studentsID;
         this.date = date;
@@ -28,16 +34,15 @@ public class Lesson {
         this.lessonID=ID;
 
     }
-
-    public Lesson(int teacherID, LinkedList<Integer> studentsID, Date date, double duration, String price) {
-        this.teacherID = teacherID;
-        this.studentsID = studentsID;
+    // use for lesson box.
+    public Lesson(String teacherName, String studentName, String studyField, Date date, int price) {
+        this.teacherName = teacherName;
+        this.studentName = studentName;
+        this.studyField = studyField;
         this.date = date;
-        this.duration = duration;
         this.price = price;
-        ID++;
-        this.lessonID=ID;
     }
+
     public void startLesson(){}
     public void endLesson(){}
 
@@ -89,11 +94,11 @@ public class Lesson {
         this.duration = duration;
     }
 
-    public String getPrice() {
+    public int getPrice() {
         return price;
     }
 
-    public void setPrice(String price) {
+    public void setPrice(int price) {
         this.price = price;
     }
 
@@ -111,5 +116,29 @@ public class Lesson {
 
     public void setLink(URL link) {
         this.link = link;
+    }
+
+    public String getTeacherName() {
+        return teacherName;
+    }
+
+    public void setTeacherName(String teacherName) {
+        this.teacherName = teacherName;
+    }
+
+    public void setStudentName(String studentName) {
+        this.studentName = studentName;
+    }
+
+    public void setStudyField(String studyField) {
+        this.studyField = studyField;
+    }
+
+    public String getStudentName() {
+        return studentName;
+    }
+
+    public String getStudyField() {
+        return studyField;
     }
 }

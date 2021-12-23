@@ -1,4 +1,4 @@
-package com.example.myapplication2.view;
+package com.example.myapplication2.controller;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,14 +9,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
 import com.example.myapplication2.R;
-import com.example.myapplication2.api.Comment;
-import com.example.myapplication2.api.CommentAdapter;
+import com.example.myapplication2.model.Comment;
+import com.example.myapplication2.model.CommentAdapter;
 import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.ArrayList;

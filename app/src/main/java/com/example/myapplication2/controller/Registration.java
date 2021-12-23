@@ -1,4 +1,4 @@
-package com.example.myapplication2.view;
+package com.example.myapplication2.controller;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,8 +13,8 @@ import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.example.myapplication2.R;
-import com.example.myapplication2.api.StudentProfile;
-import com.example.myapplication2.api.TeacherProfile;
+import com.example.myapplication2.model.StudentProfile;
+import com.example.myapplication2.model.TeacherProfile;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;

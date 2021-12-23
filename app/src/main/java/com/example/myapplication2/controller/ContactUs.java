@@ -1,4 +1,4 @@
-package com.example.myapplication2.view;
+package com.example.myapplication2.controller;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,7 +18,7 @@ import com.google.firebase.auth.FirebaseAuth;
 public class ContactUs extends AppCompatActivity {
     EditText editTextTo,editTextSubject,editTextMessage;
     Button send;
-    String userType;
+    boolean isTeacher;
     Bundle userToMove=new Bundle();
 
 
@@ -26,8 +26,9 @@ public class ContactUs extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contact_us);
-        userType=savedInstanceState.getString("user");
-        userToMove.putString("user",userType);
+        savedInstanceState=getIntent().getExtras();
+        isTeacher =savedInstanceState.getBoolean("user");
+        userToMove.putBoolean("user", isTeacher);
 
         editTextTo=(EditText)findViewById(R.id.emailAddress);
         editTextSubject=(EditText)findViewById(R.id.subject);
@@ -67,9 +68,9 @@ public class ContactUs extends AppCompatActivity {
     //TODO: need to add case for every items.
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if(item.getItemId() ==  R.id.menu_myLesson) startActivity(new Intent(this, MyLessons.class));
-        if(item.getItemId() ==  R.id.menu_home) startActivity(new Intent(this, HomePage.class));
-        if(item.getItemId() ==  R.id.menu_setting) startActivity(new Intent(this, Settings.class));
+        if(item.getItemId() ==  R.id.menu_myLesson) startActivity(new Intent(this, MyLessons.class).putExtras(userToMove));
+        if(item.getItemId() ==  R.id.menu_home) startActivity(new Intent(this, HomePage.class).putExtras(userToMove));
+        if(item.getItemId() ==  R.id.menu_setting) startActivity(new Intent(this, Settings.class).putExtras(userToMove));
         if(item.getItemId() ==  R.id.menu_logout){
             FirebaseAuth.getInstance().signOut();
             startActivity(new Intent(this, Login.class));

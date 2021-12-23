@@ -1,4 +1,4 @@
-package com.example.myapplication2.view;
+package com.example.myapplication2.controller;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
@@ -25,8 +25,8 @@ import android.widget.SearchView;
 import android.widget.Toast;
 
 import com.example.myapplication2.R;
-import com.example.myapplication2.api.TeacherProfile;
-import com.example.myapplication2.api.TeachersProfilesAdapter;
+import com.example.myapplication2.model.TeacherProfile;
+import com.example.myapplication2.model.TeachersProfilesAdapter;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -48,7 +48,8 @@ public class HomePageNext extends AppCompatActivity {
     private RadioGroup sortGroup;
     private RadioButton sortBy;
     private String sortParam = "firstName";
-    private String subject,userType;
+    private String subject;
+    private boolean isTeacher;
     Bundle userToMove=new Bundle();
 
     DatabaseReference myRef = null;
@@ -60,8 +61,8 @@ public class HomePageNext extends AppCompatActivity {
         setContentView(R.layout.activity_home_page_next);
         savedInstanceState=getIntent().getExtras();
         subject=savedInstanceState.getString("subject");
-        userType=savedInstanceState.getString("user");
-        userToMove.putString("user",userType);
+        isTeacher =savedInstanceState.getBoolean("user");
+        userToMove.putBoolean("user", isTeacher);
         searchName = findViewById(R.id.searchView_search);
         System.out.println(searchName.toString());
         database = FirebaseDatabase.getInstance("https://teachme-c8637-default-rtdb.firebaseio.com/");
@@ -238,22 +239,22 @@ public class HomePageNext extends AppCompatActivity {
     //TODO: need to add case for every items.
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if (item.getItemId() == R.id.menu_home) startActivity(new Intent(this, HomePage.class));
+        if (item.getItemId() == R.id.menu_home) startActivity(new Intent(this, HomePage.class).putExtras(userToMove));
         if (item.getItemId() == R.id.menu_myLesson)
-            startActivity(new Intent(this, MyLessons.class));
-        if (item.getItemId() == R.id.menu_contact) startActivity(new Intent(this, ContactUs.class));
-        if (item.getItemId() == R.id.menu_setting) startActivity(new Intent(this, Settings.class));
+            startActivity(new Intent(this, MyLessons.class).putExtras(userToMove));
+        if (item.getItemId() == R.id.menu_contact) startActivity(new Intent(this, ContactUs.class).putExtras(userToMove));
+        if (item.getItemId() == R.id.menu_setting) startActivity(new Intent(this, Settings.class).putExtras(userToMove));
         if (item.getItemId() == R.id.menu_logout) {
             FirebaseAuth.getInstance().signOut();
             startActivity(new Intent(this, Login.class));
         }
         if (item.getItemId() == R.id.menu_myProfile){
-            if(userType.equals("student")){
+            if(!isTeacher){
                 Toast.makeText(this, "only teacher can edit profile", Toast.LENGTH_LONG).show();
             }else {
                 Intent intent = new Intent(this, TeacherEditProfile.class);
                 intent.putExtras(userToMove);
-                startActivity(new Intent(this, TeacherEditProfile.class));
+                startActivity(intent);;
             }
         }
         return super.onContextItemSelected(item);

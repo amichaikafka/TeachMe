@@ -15,34 +15,34 @@
         android:theme="@style/Theme.MyApplication2">
 
         <activity
-            android:name=".view.TeacherMoreInfo"
+            android:name=".controller.TeacherMoreInfo"
             android:exported="false" />
         <activity
-            android:name=".view.TeacherViewProfile"
+            android:name=".controller.TeacherViewProfile"
             android:exported="false" />
         <activity
-            android:name=".view.TeacherEditProfile"
+            android:name=".controller.TeacherEditProfile"
             android:exported="false" />
         <activity
-            android:name=".view.HomePageNext"
+            android:name=".controller.HomePageNext"
             android:exported="false" />
         <activity
-            android:name=".view.ContactUs"
+            android:name=".controller.ContactUs"
             android:exported="false" />
         <activity
-            android:name=".view.Settings"
+            android:name=".controller.Settings"
             android:exported="false" />
         <activity
-            android:name=".view.MyLessons"
+            android:name=".controller.MyLessons"
             android:exported="false" />
         <activity
-            android:name=".view.HomePage"
+            android:name=".controller.HomePage"
             android:exported="false" />
         <activity
-            android:name=".view.Registration"
+            android:name=".controller.Registration"
             android:exported="false" />
         <activity
-            android:name=".view.Login"
+            android:name=".controller.Login"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

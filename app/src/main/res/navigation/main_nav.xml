@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/homeOmerFragment"
-        android:name="com.example.myapplication2.view.FragmentToBeUse"
+        android:name="com.example.myapplication2.controller.FragmentToBeUse"
         android:label="Home"
         tools:layout="@layout/fragment_settings" >
         <action
@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/settingsOmerFragment"
-        android:name="com.example.myapplication2.view.SettingsOmerFragment"
+        android:name="com.example.myapplication2.controller.SettingsOmerFragment"
         android:label="Settings" >
         <action
             android:id="@+id/action_settingsOmerFragment_to_homeOmerFragment"
@@ -24,7 +24,7 @@
     </fragment>
     <activity
         android:id="@+id/openScreen2"
-        android:name="com.example.myapplication2.view.Login"
+        android:name="com.example.myapplication2.controller.Login"
         android:label="open_screen"
         tools:layout="@layout/activity_login" />
 </navigation>

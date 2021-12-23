@@ -1,4 +1,4 @@
-package com.example.myapplication2.view;
+package com.example.myapplication2.controller;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;

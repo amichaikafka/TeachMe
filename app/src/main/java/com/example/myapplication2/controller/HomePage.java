@@ -1,4 +1,4 @@
-package com.example.myapplication2.view;
+package com.example.myapplication2.controller;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,8 +14,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.myapplication2.R;
-import com.example.myapplication2.api.StudentProfile;
-import com.example.myapplication2.api.TeacherProfile;
+import com.example.myapplication2.model.StudentProfile;
+import com.example.myapplication2.model.TeacherProfile;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -36,7 +36,7 @@ public class HomePage extends AppCompatActivity {
     List<String> currSubjects;
     AutoCompleteTextView subjectChoose;
     String[] suggestions;
-    String userType;
+    boolean isTeacher;
     Bundle userToMove=new Bundle();
 
 
@@ -46,6 +46,7 @@ public class HomePage extends AppCompatActivity {
         setContentView(R.layout.activity_home_page);
         database = FirebaseDatabase.getInstance("https://teachme-c8637-default-rtdb.firebaseio.com/");
         subjectChecker = database.getReference("FieldsOfTeaching");
+
         subjectChecker.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -67,8 +68,8 @@ public class HomePage extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 TeacherProfile userProfile = snapshot.getValue(TeacherProfile.class);
                 if (userProfile != null) {
-                    userType="teacher";
-                    userToMove.putString("user",userType);
+                    isTeacher =true;
+                    userToMove.putBoolean("user", isTeacher);
                     hello.setText(userProfile.getFirstName());
                 } else {
                     DatabaseReference myRef = database.getReference("Students/" + mAuth.getUid());
@@ -76,8 +77,8 @@ public class HomePage extends AppCompatActivity {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
                             StudentProfile userProfile = snapshot.getValue(StudentProfile.class);
-                            userType="student";
-                            userToMove.putString("user",userType);
+                            isTeacher =false;
+                            userToMove.putBoolean("user", isTeacher);
                             hello.setText(userProfile.getFirstName());
                         }
 
@@ -126,20 +127,20 @@ public class HomePage extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (item.getItemId() == R.id.menu_myLesson)
-            startActivity(new Intent(this, MyLessons.class));
-        if (item.getItemId() == R.id.menu_contact) startActivity(new Intent(this, ContactUs.class));
-        if (item.getItemId() == R.id.menu_setting) startActivity(new Intent(this, Settings.class));
+            startActivity(new Intent(this, MyLessons.class).putExtras(userToMove));
+        if (item.getItemId() == R.id.menu_contact) startActivity(new Intent(this, ContactUs.class).putExtras(userToMove));
+        if (item.getItemId() == R.id.menu_setting) startActivity(new Intent(this, Settings.class).putExtras(userToMove));
         if (item.getItemId() == R.id.menu_logout) {
             FirebaseAuth.getInstance().signOut();
             startActivity(new Intent(this, Login.class));
         }
         if (item.getItemId() == R.id.menu_myProfile){
-            if(userType.equals("student")){
+            if(!isTeacher){
                 Toast.makeText(this, "only teacher can edit profile", Toast.LENGTH_LONG).show();
             }else {
                 Intent intent = new Intent(this, TeacherEditProfile.class);
                 intent.putExtras(userToMove);
-                startActivity(new Intent(this, TeacherEditProfile.class));
+                startActivity(intent);
             }
         }
         return super.onContextItemSelected(item);

@@ -1,11 +1,10 @@
-package com.example.myapplication2.api;
+package com.example.myapplication2.model;
 
 import android.graphics.Point;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashSet;
-import java.util.LinkedList;
 import java.util.List;
 
 public class TeacherProfile extends UserProfile {

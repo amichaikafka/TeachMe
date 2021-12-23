@@ -1,4 +1,4 @@
-package com.example.myapplication2.view;
+package com.example.myapplication2.controller;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,7 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.myapplication2.R;
-import com.example.myapplication2.api.TeacherProfile;
+import com.example.myapplication2.model.TeacherProfile;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -28,10 +28,15 @@ public class TeacherEditProfile extends AppCompatActivity {
     TeacherProfile currTeacher;
     private EditText subjectEt, ageEt, phoneEt, aboutMeEt, priceEt;
     private String subject, age, phone, aboutMe, price;
+    private boolean isTeacher;
+    Bundle userToMove=new Bundle();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_teacher_edit_profile);
+        savedInstanceState=getIntent().getExtras();
+        isTeacher =savedInstanceState.getBoolean("user");
+        userToMove.putBoolean("user", isTeacher);
         mAuth = FirebaseAuth.getInstance().getCurrentUser();
         database = FirebaseDatabase.getInstance("https://teachme-c8637-default-rtdb.firebaseio.com/");
         myRef=database.getReference("Teachers/"+mAuth.getUid());
@@ -95,14 +100,14 @@ public class TeacherEditProfile extends AppCompatActivity {
     }
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if (item.getItemId() == R.id.menu_home) startActivity(new Intent(this, HomePage.class));
-        if (item.getItemId() == R.id.menu_myLesson) startActivity(new Intent(this, MyLessons.class));
-        if (item.getItemId() == R.id.menu_contact) startActivity(new Intent(this, ContactUs.class));
+        if (item.getItemId() == R.id.menu_home) startActivity(new Intent(this, HomePage.class).putExtras(userToMove));
+        if (item.getItemId() == R.id.menu_myLesson) startActivity(new Intent(this, MyLessons.class).putExtras(userToMove));
+        if (item.getItemId() == R.id.menu_contact) startActivity(new Intent(this, ContactUs.class).putExtras(userToMove));
         if (item.getItemId() == R.id.menu_logout) {
             FirebaseAuth.getInstance().signOut();
             startActivity(new Intent(this, Login.class));
         }
-        if (item.getItemId() == R.id.menu_myProfile){startActivity(new Intent(this, TeacherEditProfile.class));}
+//        if (item.getItemId() == R.id.menu_myProfile){startActivity(new Intent(this, TeacherEditProfile.class));}
         return super.onContextItemSelected(item);
     }
 }

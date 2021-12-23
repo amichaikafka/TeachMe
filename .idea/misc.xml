@@ -6,45 +6,23 @@
         <entry key="..\:/TeachMe/app/src/main/res/drawable/ic_search_black_24dp.xml" value="0.16614583333333333" />
         <entry key="..\:/TeachMe/app/src/main/res/layout/activity_contact_us.xml" value="0.20416666666666666" />
         <entry key="..\:/TeachMe/app/src/main/res/layout/activity_home_page_next.xml" value="0.19375" />
-        <entry key="..\:/TeachMe/app/src/main/res/layout/activity_my_lessons.xml" value="0.2269021739130435" />
         <entry key="..\:/TeachMe/app/src/main/res/layout/activity_setting.xml" value="0.19375" />
-        <entry key="..\:/TeachMe/app/src/main/res/layout/activity_subject_row.xml" value="0.2269021739130435" />
-        <entry key="..\:/TeachMe/app/src/main/res/layout/create_new_lesson.xml" value="0.2341485507246377" />
         <entry key="..\:/TeachMe/app/src/main/res/layout/fragment_home_omer.xml" value="0.2" />
-        <entry key="..\:/TeachMe/app/src/main/res/layout/lesson_box.xml" value="0.4" />
-        <entry key="..\:/TeachMe/app/src/main/res/layout/lessons_box.xml" value="0.264" />
         <entry key="..\:/TeachMe/app/src/main/res/layout/open_screen.xml" value="0.14895833333333333" />
-        <entry key="..\:/TeachMe/app/src/main/res/layout/teacher_profile_box.xml" value="0.22264150943396227" />
         <entry key="..\:/TeachMe/app/src/main/res/xml/preferences.xml" value="0.2296195652173913" />
-        <entry key="..\:/TeachMe/app/src/main/res/xml/root_preferences.xml" value="0.264" />
+        <entry key="..\:/TeachMe/app/src/main/res/xml/root_preferences.xml" value="0.2" />
         <entry key="..\:/Users/amichai/Desktop/MyApplication2/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.14635416666666667" />
         <entry key="..\:/Users/amichai/Desktop/MyApplication2/app/src/main/res/drawable/ic_launcher_background.xml" value="0.14635416666666667" />
         <entry key="..\:/Users/amichai/Desktop/MyApplication2/app/src/main/res/drawable/messages.xml" value="0.2703125" />
         <entry key="..\:/Users/amichai/Desktop/MyApplication2/app/src/main/res/drawable/sync.xml" value="0.2703125" />
-        <entry key="..\:/Users/amichai/Desktop/MyApplication2/app/src/main/res/layout/activity_contact_us.xml" value="0.1838768115942029" />
-        <entry key="..\:/Users/amichai/Desktop/MyApplication2/app/src/main/res/layout/activity_home_page.xml" value="0.264" />
-        <entry key="..\:/Users/amichai/Desktop/MyApplication2/app/src/main/res/layout/activity_home_page_next.xml" value="0.4" />
-        <entry key="..\:/Users/amichai/Desktop/MyApplication2/app/src/main/res/layout/activity_login.xml" value="0.1640625" />
         <entry key="..\:/Users/amichai/Desktop/MyApplication2/app/src/main/res/layout/activity_main.xml" value="0.264" />
         <entry key="..\:/Users/amichai/Desktop/MyApplication2/app/src/main/res/layout/activity_main2.xml" value="0.2" />
-        <entry key="..\:/Users/amichai/Desktop/MyApplication2/app/src/main/res/layout/activity_my_lessons.xml" value="0.1838768115942029" />
-        <entry key="..\:/Users/amichai/Desktop/MyApplication2/app/src/main/res/layout/activity_registration.xml" value="0.1640625" />
-        <entry key="..\:/Users/amichai/Desktop/MyApplication2/app/src/main/res/layout/activity_setting.xml" value="0.1838768115942029" />
-        <entry key="..\:/Users/amichai/Desktop/MyApplication2/app/src/main/res/layout/activity_subject_row.xml" value="0.2293144208037825" />
-        <entry key="..\:/Users/amichai/Desktop/MyApplication2/app/src/main/res/layout/activity_teacher_edit_profile.xml" value="0.25" />
-        <entry key="..\:/Users/amichai/Desktop/MyApplication2/app/src/main/res/layout/activity_teacher_more_info.xml" value="0.2" />
-        <entry key="..\:/Users/amichai/Desktop/MyApplication2/app/src/main/res/layout/activity_teacher_or_student.xml" value="0.264" />
+        <entry key="..\:/Users/amichai/Desktop/MyApplication2/app/src/main/res/layout/activity_teacher_or_student.xml" value="0.136" />
         <entry key="..\:/Users/amichai/Desktop/MyApplication2/app/src/main/res/layout/activity_teacher_or_stufent.xml" value="0.4" />
-        <entry key="..\:/Users/amichai/Desktop/MyApplication2/app/src/main/res/layout/activity_teacher_view_profile.xml" value="0.1640625" />
-        <entry key="..\:/Users/amichai/Desktop/MyApplication2/app/src/main/res/layout/fragment_home_omer.xml" value="0.1408514492753623" />
         <entry key="..\:/Users/amichai/Desktop/MyApplication2/app/src/main/res/layout/open_screen.xml" value="0.264" />
         <entry key="..\:/Users/amichai/Desktop/MyApplication2/app/src/main/res/layout/settings_activity.xml" value="0.264" />
-        <entry key="..\:/Users/amichai/Desktop/MyApplication2/app/src/main/res/layout/teacher_profile_box.xml" value="0.4" />
-        <entry key="..\:/Users/amichai/Desktop/MyApplication2/app/src/main/res/layout/teacher_review_box.xml" value="0.18704710144927536" />
-        <entry key="..\:/Users/amichai/Desktop/MyApplication2/app/src/main/res/menu/menu_activity.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/amichai/Desktop/MyApplication2/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.14635416666666667" />
         <entry key="..\:/Users/amichai/Desktop/MyApplication2/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.14635416666666667" />
-        <entry key="..\:/Users/amichai/Desktop/MyApplication2/app/src/main/res/xml/contact_us.xml" value="0.2128623188405797" />
         <entry key="..\:/Users/amichai/Desktop/MyApplication2/app/src/main/res/xml/header_preferences.xml" value="0.21739130434782608" />
         <entry key="..\:/Users/amichai/Desktop/MyApplication2/app/src/main/res/xml/messages_preferences.xml" value="0.21739130434782608" />
         <entry key="..\:/Users/amichai/Desktop/MyApplication2/app/src/main/res/xml/root_preferences.xml" value="0.21739130434782608" />
@@ -56,19 +34,22 @@
         <entry key="app/src/main/res/drawable/custom_input.xml" value="0.4197916666666667" />
         <entry key="app/src/main/res/drawable/email_icon.xml" value="0.4197916666666667" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.18385416666666668" />
+        <entry key="app/src/main/res/drawable/myrect.xml" value="0.3731481481481482" />
         <entry key="app/src/main/res/drawable/password_icon.xml" value="0.4197916666666667" />
         <entry key="app/src/main/res/layout/activity_contact_us.xml" value="0.3145833333333333" />
-        <entry key="app/src/main/res/layout/activity_home_page.xml" value="0.6362755228461539" />
+        <entry key="app/src/main/res/layout/activity_home_page.xml" value="0.26858940284587857" />
         <entry key="app/src/main/res/layout/activity_home_page_next.xml" value="0.44623655913978494" />
         <entry key="app/src/main/res/layout/activity_main2.xml" value="0.3145833333333333" />
         <entry key="app/src/main/res/layout/activity_my_lessons.xml" value="0.3145833333333333" />
         <entry key="app/src/main/res/layout/activity_setting.xml" value="0.2732066157035665" />
-        <entry key="app/src/main/res/layout/activity_teacher_edit_profile.xml" value="0.20462962962962963" />
+        <entry key="app/src/main/res/layout/activity_teacher_edit_profile.xml" value="0.4728348674793401" />
         <entry key="app/src/main/res/layout/activity_teacher_more_info.xml" value="0.3587962962962963" />
         <entry key="app/src/main/res/layout/activity_teacher_or_student.xml" value="0.42101681867200147" />
+        <entry key="app/src/main/res/layout/activity_teacher_view_profile.xml" value="0.31775742308308275" />
         <entry key="app/src/main/res/layout/fragment_home_omer.xml" value="0.3145833333333333" />
         <entry key="app/src/main/res/layout/open_screen.xml" value="0.375" />
-        <entry key="app/src/main/res/layout/teacher_profile_box.xml" value="0.6080910240202275" />
+        <entry key="app/src/main/res/layout/teacher_profile_box.xml" value="0.5467836257309941" />
+        <entry key="app/src/main/res/layout/teacher_review_box.xml" value="0.3888196537672605" />
       </map>
     </option>
   </component>

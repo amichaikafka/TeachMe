@@ -158,17 +158,18 @@ public class MyLessons extends AppCompatActivity {
                                 System.out.println(currStudent.getEmailAddress());
                                 Lesson l1 = new Lesson(currTeacher.getFirstName() + " " + currTeacher.getLastName(),
                                         currStudent.getFirstName() + " " + currStudent.getLastName(),
-                                        lessonDialogStudyField.getText().toString(),new Date(),
+                                        lessonDialogStudyField.getText().toString(), new Date(lessonDialogDate.getText().toString()),
                                         Integer.parseInt(lessonDialogPrice.getText().toString()));
                                 lessonsArr.add(l1);
-                                DatabaseReference lessonRef = database.getReference("Lessons/"+student.getKey()).push();
+                                DatabaseReference lessonRef = database.getReference("Lessons/" + student.getKey()).push();
                                 lessonRef.setValue(l1);
-                                lessonRef = database.getReference("Lessons/"+mAuth.getUid()).push();
+                                lessonRef = database.getReference("Lessons/" + mAuth.getUid()).push();
                                 lessonRef.setValue(l1);
+
                             }
                         }
 
-
+                        dialog.dismiss();
                     }
 
                     @Override
@@ -188,12 +189,12 @@ public class MyLessons extends AppCompatActivity {
 
     }
 
-    private void lessonsDisplay(){
+    private void lessonsDisplay() {
         RecyclerView recyclerView = findViewById(R.id.recyclerview_lesson);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(lessonAdapter);
-        DatabaseReference lessonsRef = database.getReference("Lessons/"+mAuth.getUid());
+        DatabaseReference lessonsRef = database.getReference("Lessons/" + mAuth.getUid());
         lessonsRef.addValueEventListener(new ValueEventListener() {
             @SuppressLint("NotifyDataSetChanged")
             @Override
@@ -203,9 +204,10 @@ public class MyLessons extends AppCompatActivity {
                     System.out.println(lessons.getValue());
                     Lesson currLesson = (Lesson) lessons.getValue(Lesson.class);
                     lessonsArr.add(currLesson);
-                    }
-                lessonAdapter.notifyDataSetChanged();
                 }
+                lessonAdapter.notifyDataSetChanged();
+            }
+
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 

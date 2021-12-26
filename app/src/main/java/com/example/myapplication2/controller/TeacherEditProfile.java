@@ -10,6 +10,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.example.myapplication2.R;
 import com.example.myapplication2.model.TeacherProfile;
@@ -27,7 +28,8 @@ public class TeacherEditProfile extends AppCompatActivity {
     DatabaseReference myRef = null;
     TeacherProfile currTeacher;
     private EditText subjectEt, ageEt, phoneEt, aboutMeEt, priceEt;
-    private String subject, age, phone, aboutMe, price;
+    TextView nameAndFamilyT;
+    private String subject, age, phone, aboutMe, price,nameAndFamily;
     private boolean isTeacher;
     Bundle userToMove=new Bundle();
     @Override
@@ -49,6 +51,7 @@ public class TeacherEditProfile extends AppCompatActivity {
                 phone=currTeacher.getPhoneNumber();
                 aboutMe=currTeacher.getAboutMe();
                 price=""+currTeacher.getPrice();
+                nameAndFamily=currTeacher.getFirstName()+" "+currTeacher.getLastName();
                 updateUi();
             }
 
@@ -64,11 +67,14 @@ public class TeacherEditProfile extends AppCompatActivity {
         phoneEt = findViewById(R.id.phone_edit);
         aboutMeEt = (EditText)findViewById(R.id.about_me2_edit);
         priceEt = findViewById(R.id.price_edit);
+        nameAndFamilyT=findViewById(R.id.name_and_family_edit);
         subjectEt.setText(subject);
         ageEt.setText(age);
         phoneEt.setText(phone);
         aboutMeEt.setText(aboutMe);
         priceEt.setText(price);
+        nameAndFamilyT.setText(nameAndFamily);
+
     }
     private void updateTeacher(){
         subject=subjectEt.getText().toString();

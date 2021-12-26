@@ -9,17 +9,16 @@
 
     <ImageView
         android:id="@+id/viewProfilePic"
-        android:layout_width="115dp"
-        android:layout_height="116dp"
-        android:layout_marginEnd="20dp"
+        android:layout_width="160dp"
+        android:layout_height="171dp"
         android:contentDescription="TODO"
         android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/study_profession_edit"
-        app:layout_constraintHorizontal_bias="0.62"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.47"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.169"
+        app:layout_constraintTop_toBottomOf="@+id/my_details_edit"
+        app:layout_constraintVertical_bias="0.032"
         app:srcCompat="@mipmap/ic_launcher"
         tools:ignore="ImageContrastCheck" />
 
@@ -27,54 +26,53 @@
         android:id="@+id/study_profession_edit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:ems="10"
         android:hint="@string/study_profession_more_info"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/price_edit"
-        app:layout_constraintTop_toBottomOf="@+id/about_me2_edit"
-        app:layout_constraintVertical_bias="0.068" />
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/about_me2_edit" />
 
     <EditText
         android:id="@+id/price_edit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="20dp"
         android:ems="10"
         android:hint="@string/price_more_info"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/phone_edit"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/study_profession_edit" />
 
     <EditText
         android:id="@+id/phone_edit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="20dp"
         android:ems="10"
         android:hint="@string/phone_number_more_info"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/age_edit"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/price_edit" />
 
     <EditText
         android:id="@+id/age_edit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="20dp"
         android:ems="10"
         android:hint="@string/age_more_info"
         android:inputType="textPersonName"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.92"
+        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/phone_edit" />
+        app:layout_constraintTop_toBottomOf="@+id/phone_edit"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/update_edit"
@@ -93,7 +91,7 @@
         android:id="@+id/my_details_edit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="24dp"
         android:text="@string/my_details"
         android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -104,16 +102,94 @@
         android:id="@+id/about_me2_edit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="24dp"
         android:ems="10"
         android:gravity="start|top"
         android:hint="About me"
         android:inputType="textMultiLine"
-        app:layout_constraintBottom_toBottomOf="@+id/viewProfilePic"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/study_profession_edit"
-        app:layout_constraintTop_toBottomOf="@+id/my_details_edit"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.46" />
+
+    <TextView
+        android:id="@+id/about_me_title_edit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/about_me_more_info"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/about_me2_edit"
+        app:layout_constraintEnd_toStartOf="@+id/about_me2_edit"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.967" />
+
+    <TextView
+        android:id="@+id/name_and_family_edit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="name fameliy"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.463"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/viewProfilePic"
+        app:layout_constraintVertical_bias="0.03" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Subjects"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/study_profession_edit"
+        app:layout_constraintEnd_toStartOf="@+id/study_profession_edit"
+        app:layout_constraintHorizontal_bias="0.416"
+        app:layout_constraintStart_toStartOf="@+id/about_me_title_edit"
+        app:layout_constraintTop_toBottomOf="@+id/about_me_title_edit"
         app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/price_more_info"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/price_edit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.049"
+        app:layout_constraintStart_toStartOf="@+id/textView5"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.98" />
+
+    <TextView
+        android:id="@+id/phone_title_edit"
+        android:layout_width="54dp"
+        android:layout_height="32dp"
+        android:text="Phone"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/phone_edit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/textView6"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/age_title_edit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/age_more_info"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/age_edit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.03"
+        app:layout_constraintStart_toStartOf="@+id/phone_title_edit"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.981" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

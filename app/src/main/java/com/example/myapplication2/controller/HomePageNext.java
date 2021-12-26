@@ -15,18 +15,23 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.RatingBar;
 import android.widget.SearchView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.myapplication2.R;
 import com.example.myapplication2.model.TeacherProfile;
-import com.example.myapplication2.model.TeachersProfilesAdapter;
+import com.example.myapplication2.model.TeachersProfilesAdapter2;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -37,7 +42,9 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Locale;
+
 
 public class HomePageNext extends AppCompatActivity {
     private FirebaseUser mAuth;
@@ -49,6 +56,7 @@ public class HomePageNext extends AppCompatActivity {
     private RadioButton sortBy;
     private String sortParam = "firstName";
     private String subject;
+    private HashMap<String,String> findId=new HashMap<>();
     private boolean isTeacher;
     Bundle userToMove=new Bundle();
 
@@ -188,13 +196,17 @@ public class HomePageNext extends AppCompatActivity {
                 teachers.clear();
                 for (DataSnapshot teacher : snapshot.getChildren()) {
                     TeacherProfile currTeacher = teacher.getValue(TeacherProfile.class);
+
 //                    System.out.println(currTeacher.getFirstName()+" "+searchVal);
                     searchVal = searchVal.toLowerCase(Locale.ROOT);
                     subject=subject.toLowerCase(Locale.ROOT);
                     String nameAndFamily = currTeacher.getFirstName().toLowerCase(Locale.ROOT) + " " + currTeacher.getLastName().toLowerCase(Locale.ROOT);
                     if (nameAndFamily.contains(searchVal)&&currTeacher.getFieldsOfTeaching().toLowerCase(Locale.ROOT).contains(subject)) {
+//                        findId.put(currTeacher.getEmailAddress(),teacher.getKey());
+                        currTeacher.setUserID(teacher.getKey());
                         if (sortParam.equals("rating")) {
                             teachers.add(0,currTeacher);
+
                         }else {
                             teachers.add(currTeacher);
                         }
@@ -209,9 +221,14 @@ public class HomePageNext extends AppCompatActivity {
             }
         });
     }
-    public void onTeacherClick(View view){
-        startActivity(new Intent(this, TeacherViewProfile.class));
-    }
+//    public void onTeacherClick(View view){
+////        TextView name=findViewById(R.id.textview_box_teacher_name);
+//        TextView name =(TextView) view;
+//        System.out.println(name.getText());
+//        String userName=name.getText().toString();
+//        userToMove.putString("otherUserId",findId.get(userName));
+//        startActivity(new Intent(this, TeacherViewProfile.class).putExtras(userToMove));
+//    }
 
     public void onClickPhoneCall(View view){
         final int REQUEST_PHONE_CALL = 1;
@@ -258,5 +275,75 @@ public class HomePageNext extends AppCompatActivity {
             }
         }
         return super.onContextItemSelected(item);
+    }
+    public class TeachersProfilesAdapter extends RecyclerView.Adapter<TeachersProfilesAdapter2.TeachersViewHolder2> {
+
+        private ArrayList<TeacherProfile> teachers;
+
+        public TeachersProfilesAdapter(ArrayList<TeacherProfile> teachers) {
+            this.teachers = teachers;
+        }
+
+        @NonNull
+        @Override
+        public TeachersProfilesAdapter2.TeachersViewHolder2 onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+            View teachersProfileView = LayoutInflater.from(parent.getContext())
+                    .inflate(R.layout.teacher_profile_box,parent,false);
+            return new TeachersProfilesAdapter2.TeachersViewHolder2(teachersProfileView);
+        }
+
+        @Override
+        public void onBindViewHolder(@NonNull TeachersProfilesAdapter2.TeachersViewHolder2 holder, int position) {
+            TeacherProfile currentProfile = teachers.get(position);
+            holder.nameTextView.setText(currentProfile.getFirstName() + " " + currentProfile.getLastName());
+            if(currentProfile.getAboutMe().length()>100) {
+                holder.aboutMeTextView.setText(currentProfile.getAboutMe().substring(0, 100) + "...");
+            }
+            else{
+                holder.aboutMeTextView.setText(currentProfile.getAboutMe());
+            }
+            holder.ratingBar.setRating(currentProfile.getRating());          //TODO: add ratings to teacher profile
+            holder.numOfReviews.setText(String.valueOf(currentProfile.getNumOfReviews()));
+            holder.priceTextView.setText(String.valueOf((int)(currentProfile.getPrice())) + " NIS");
+            holder.phoneNumberBtn.setText(currentProfile.getPhoneNumber());
+            holder.nameTextView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    String email=currentProfile.getEmailAddress();
+                    userToMove.putString("otherUserId",currentProfile.getUserID());
+                    startActivity(new Intent(HomePageNext.this, TeacherViewProfile.class).putExtras(userToMove));
+                }
+            });
+
+        }
+
+        @Override
+        public int getItemCount() {
+            return teachers.size();
+        }
+
+        public  class TeachersViewHolder extends RecyclerView.ViewHolder{
+            public TextView nameTextView;
+            public TextView aboutMeTextView;
+            public RatingBar ratingBar;
+            public Button phoneNumberBtn;
+            public TextView numOfReviews;
+            public TextView reviewsWord;
+            public ImageView profileImageView;
+            public TextView priceTextView;
+            public TeachersViewHolder(@NonNull View itemView) {
+                super(itemView);
+                nameTextView = itemView.findViewById(R.id.textview_box_teacher_name);
+                aboutMeTextView = itemView.findViewById(R.id.textview_box_teacher_about);
+                ratingBar = itemView.findViewById(R.id.ratingbar_box);
+                phoneNumberBtn = itemView.findViewById(R.id.btn_box_phone);
+                profileImageView = itemView.findViewById(R.id.viewProfilePic);
+                numOfReviews = itemView.findViewById(R.id.num_of_reviews);
+                reviewsWord = itemView.findViewById(R.id.review_word);
+                priceTextView = itemView.findViewById(R.id.textview_box_teacher_price);
+            }
+        }
+
     }
 }

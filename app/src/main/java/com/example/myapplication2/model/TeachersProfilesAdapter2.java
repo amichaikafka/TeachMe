@@ -1,5 +1,7 @@
 package com.example.myapplication2.model;
+import static androidx.core.content.ContextCompat.startActivity;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,30 +10,32 @@ import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 import com.example.myapplication2.R;
+import com.example.myapplication2.controller.HomePageNext;
+import com.example.myapplication2.controller.TeacherViewProfile;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-public class TeachersProfilesAdapter extends RecyclerView.Adapter<TeachersProfilesAdapter.TeachersViewHolder> {
+public class TeachersProfilesAdapter2 extends RecyclerView.Adapter<TeachersProfilesAdapter2.TeachersViewHolder2> {
 
     private ArrayList<TeacherProfile> teachers;
 
-    public TeachersProfilesAdapter(ArrayList<TeacherProfile> teachers) {
+    public TeachersProfilesAdapter2(ArrayList<TeacherProfile> teachers) {
         this.teachers = teachers;
     }
 
     @NonNull
     @Override
-    public TeachersViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public TeachersViewHolder2 onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View teachersProfileView = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.teacher_profile_box,parent,false);
-        return new TeachersViewHolder(teachersProfileView);
+        return new TeachersViewHolder2(teachersProfileView);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull TeachersViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull TeachersViewHolder2 holder, int position) {
         TeacherProfile currentProfile = teachers.get(position);
         holder.nameTextView.setText(currentProfile.getFirstName() + " " + currentProfile.getLastName());
         if(currentProfile.getAboutMe().length()>100) {
@@ -43,11 +47,19 @@ public class TeachersProfilesAdapter extends RecyclerView.Adapter<TeachersProfil
         holder.ratingBar.setRating(currentProfile.getRating());          //TODO: add ratings to teacher profile
         holder.numOfReviews.setText(String.valueOf(currentProfile.getNumOfReviews()));
         holder.priceTextView.setText(String.valueOf((int)(currentProfile.getPrice())) + " NIS");
-//        holder.reviewsWord.setText("Reviews");
         holder.phoneNumberBtn.setText(currentProfile.getPhoneNumber());
-//        holder.profileImageView.setImageResource(holder.nameTextView.getResources()
-//                .getIdentifier(currentProfile.getProfilePicture(), "drawable",
-//                        holder.nameTextView.getContext().getPackageName()));
+//        holder.nameTextView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                System.out.println("aaaaaa");
+////                TextView name =(TextView) view;
+////                System.out.println(name.getText());
+////                String userName=name.getText().toString();
+////                userToMove.putString("otherUserId",findId.get(userName));
+////                startActivity(new Intent(HomePageNext.class, TeacherViewProfile.class));
+//            }
+//        });
+
     }
 
     @Override
@@ -55,7 +67,7 @@ public class TeachersProfilesAdapter extends RecyclerView.Adapter<TeachersProfil
         return teachers.size();
     }
 
-    public static class TeachersViewHolder extends RecyclerView.ViewHolder{
+    public static class TeachersViewHolder2 extends RecyclerView.ViewHolder{
         public TextView nameTextView;
         public TextView aboutMeTextView;
         public RatingBar ratingBar;
@@ -64,7 +76,7 @@ public class TeachersProfilesAdapter extends RecyclerView.Adapter<TeachersProfil
         public TextView reviewsWord;
         public ImageView profileImageView;
         public TextView priceTextView;
-        public TeachersViewHolder(@NonNull View itemView) {
+        public TeachersViewHolder2(@NonNull View itemView) {
             super(itemView);
             nameTextView = itemView.findViewById(R.id.textview_box_teacher_name);
             aboutMeTextView = itemView.findViewById(R.id.textview_box_teacher_about);

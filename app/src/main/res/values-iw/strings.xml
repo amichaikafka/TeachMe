@@ -79,4 +79,11 @@
     <string name="view_teacher_price">Price</string>
     <string name="view_teacher_reviews"><![CDATA[Ratings & Reviews]]></string>
     <string name="my_details">הפרופיל שלי</string>
+    <string name="Date_of_the_lesson">תאריך השיעור</string>
+    <string name="Field_of_study">תחום לימודים</string>
+    <string name="Price">מחיר</string>
+    <string name="Create_your_lesson">צור את השיעור שלך</string>
+    <string name="Student_mail">מייל התלמיד</string>
+    <string name="save">שמור</string>
+    <string name="cancel">בטל</string>
 </resources>

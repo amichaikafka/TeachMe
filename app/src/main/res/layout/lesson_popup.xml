@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+    <EditText
+        android:id="@+id/lesson_popup_student_mail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="53dp"
+        android:hint="@string/Student_mail"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lesson_popup_create"
+        app:layout_editor_absoluteX="28dp"
+        app:layout_editor_absoluteY="394dp"
+        android:textAlignment="center"/>
+
+    <EditText
+        android:id="@+id/lesson_popup_date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:hint="@string/Date_of_the_lesson"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lesson_popup_student_mail"
+        app:layout_editor_absoluteX="28dp"
+        app:layout_editor_absoluteY="394dp"
+        android:textAlignment="center"/>
+
+    <EditText
+        android:id="@+id/lesson_popup_study_field"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:hint="@string/Field_of_study"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lesson_popup_date"
+        app:layout_editor_absoluteX="28dp"
+        app:layout_editor_absoluteY="394dp"
+        android:textAlignment="center"/>
+
+    <EditText
+        android:id="@+id/lesson_popup_price"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:hint="@string/Price"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lesson_popup_study_field"
+        app:layout_editor_absoluteX="28dp"
+        app:layout_editor_absoluteY="394dp"
+        android:textAlignment="center"/>
+
+    <TextView
+        android:id="@+id/lesson_popup_create"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="@string/Create_your_lesson"
+        android:textSize="28sp"
+        app:layout_constraintBottom_toTopOf="@+id/lesson_popup_student_mail"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:textAlignment="center"/>
+
+    <Button
+        android:id="@+id/lesson_popup_cancel_btn"
+        android:layout_width="76dp"
+        android:layout_height="33dp"
+        android:layout_marginTop="20dp"
+        android:scrollbarSize="4dp"
+        android:text="@string/cancel"
+        android:textSize="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.146"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lesson_popup_price"
+        app:layout_constraintVertical_bias="0.216" />
+
+    <Button
+        android:id="@+id/lesson_popup_save_btn"
+        android:layout_width="76dp"
+        android:layout_height="33dp"
+        android:layout_marginTop="20dp"
+        android:scrollbarSize="4dp"
+        android:text="@string/save"
+        android:textSize="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.747"
+        app:layout_constraintStart_toEndOf="@+id/lesson_popup_cancel_btn"
+        app:layout_constraintTop_toBottomOf="@+id/lesson_popup_price"
+        app:layout_constraintVertical_bias="0.216" />
+</androidx.constraintlayout.widget.ConstraintLayout>

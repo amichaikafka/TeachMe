@@ -17,6 +17,8 @@ public class Lesson {
     private URL link;
     private String teacherName;
     private String studentName;
+    private String teacherEmail;
+    private String studentEmail;
 
 
 
@@ -41,6 +43,9 @@ public class Lesson {
         this.studyField = studyField;
         this.date = date;
         this.price = price;
+    }
+    public Lesson(){
+
     }
 
     public void startLesson(){}

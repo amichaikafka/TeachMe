@@ -36,6 +36,7 @@ public class LessonAdapter extends RecyclerView.Adapter<LessonAdapter.LessonView
         SimpleDateFormat dateFormat= new SimpleDateFormat("dd/MMM/yyyy");
         String dateOnly = dateFormat.format(currentLesson.getDate());
         holder.dateTextView.setText(dateOnly);
+        holder.studyFieldTextView.setText(currentLesson.getStudyField());
 
     }
 
@@ -54,7 +55,7 @@ public class LessonAdapter extends RecyclerView.Adapter<LessonAdapter.LessonView
             super(itemView);
             teacherNameTextView = itemView.findViewById(R.id.lesson_box_teacher_name);
             studentNameTextView = itemView.findViewById(R.id.lesson_box_student_name);
-            studyFieldTextView = itemView.findViewById(R.id.lesson_box_study);
+            studyFieldTextView = itemView.findViewById(R.id.lesson_box_study_feild);
             dateTextView = itemView.findViewById(R.id.lesson_box_date_of_lesson);
             priceTextView = itemView.findViewById(R.id.lesson_box_price_nis);
         }

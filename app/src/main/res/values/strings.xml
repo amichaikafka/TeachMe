@@ -86,4 +86,11 @@
     <string name="view_teacher_price">Price</string>
     <string name="view_teacher_reviews"><![CDATA[Ratings & Reviews]]></string>
     <string name="my_details">My Profile</string>
+    <string name="Date_of_the_lesson">Date of the lesson</string>
+    <string name="Field_of_study">Field of study</string>
+    <string name="Price">Price</string>
+    <string name="Create_your_lesson">Create your lesson</string>
+    <string name="Student_mail">Student mail</string>
+    <string name="save">save</string>
+    <string name="cancel">cancel</string>
 </resources>

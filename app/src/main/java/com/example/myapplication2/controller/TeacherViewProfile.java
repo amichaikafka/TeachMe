@@ -10,6 +10,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
@@ -34,6 +36,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -127,6 +131,7 @@ public class TeacherViewProfile extends AppCompatActivity {
 
         ratingBarRb.setRating(rate);
 
+//        loadImage();
     }
     public void onClickPhoneCall(View view){
         final int REQUEST_PHONE_CALL = 1;
@@ -142,6 +147,21 @@ public class TeacherViewProfile extends AppCompatActivity {
             startActivity(callIntent);
         }
         startActivity(callIntent);
+    }
+
+    public void loadImage(){
+        FirebaseStorage firebaseStorage = FirebaseStorage.getInstance();
+        StorageReference storageReference = firebaseStorage.getReference();
+        storageReference.child("profilePic/" + getIntent().getExtras().getString("otherUserId") + ".png").getBytes(Long.MAX_VALUE)
+                .addOnSuccessListener(bytes -> {
+                    Bitmap bitmap = BitmapFactory.decodeByteArray(bytes,0,bytes.length);
+                    picImageView.setImageBitmap(bitmap);
+                    picImageView.setAdjustViewBounds(true);
+                    picImageView.setMaxHeight(115);
+                    picImageView.setMaxWidth(115);
+                }).addOnFailureListener(exception -> {
+            // Handle any errors
+        });
     }
     //** menu **//
     @Override

@@ -1,195 +1,221 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/about_me_edit"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:fillViewport="false">
+
+<LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".controller.TeacherEditProfile">
-
-    <ImageView
-        android:id="@+id/viewProfilePic"
-        android:layout_width="160dp"
-        android:layout_height="171dp"
-        android:contentDescription="TODO"
-        android:gravity="center"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.47"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/my_details_edit"
-        app:layout_constraintVertical_bias="0.032"
-        app:srcCompat="@mipmap/ic_launcher"
-        tools:ignore="ImageContrastCheck" />
-
-    <EditText
-        android:id="@+id/study_profession_edit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:ems="10"
-        android:hint="@string/study_profession_more_info"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/about_me2_edit" />
-
-    <EditText
-        android:id="@+id/price_edit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:ems="10"
-        android:hint="@string/price_more_info"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/study_profession_edit" />
-
-    <EditText
-        android:id="@+id/phone_edit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:ems="10"
-        android:hint="@string/phone_number_more_info"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/price_edit" />
-
-    <EditText
-        android:id="@+id/age_edit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:ems="10"
-        android:hint="@string/age_more_info"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/phone_edit"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <Button
-        android:id="@+id/update_edit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="28dp"
-        android:onClick="onClickUpdate"
-        android:text="@string/update_more_info"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.871"
-        app:layout_constraintStart_toStartOf="parent" />
-
+    android:orientation="vertical"
+    android:layout_margin="8dp">
 
     <TextView
         android:id="@+id/my_details_edit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_gravity="center"
         android:text="@string/my_details"
-        android:textSize="34sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:textColor="#000"
+        android:textSize="34sp" />
 
-    <EditText
-        android:id="@+id/about_me2_edit"
+    <ImageView
+        android:id="@+id/viewProfilePic"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:gravity="start|top"
-        android:hint="About me"
-        android:inputType="textMultiLine"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.46" />
+        android:layout_gravity="center"
+        android:layout_marginTop="12dp"
+        android:clickable="true"
+        android:contentDescription="TODO"
+        android:gravity="center"
+        android:onClick="onPicClick"
+        app:srcCompat="@mipmap/ic_launcher"
+        tools:ignore="ImageContrastCheck" />
 
-    <TextView
-        android:id="@+id/about_me_title_edit"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/about_me_more_info"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="@+id/about_me2_edit"
-        app:layout_constraintEnd_toStartOf="@+id/about_me2_edit"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.967" />
+        android:layout_gravity="center"
+        android:layout_marginTop="12dp"
+        android:orientation="horizontal">
 
-    <TextView
-        android:id="@+id/name_and_family_edit"
+        <TextView
+            android:id="@+id/my_profile_name_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="50dp"
+            android:text="@string/my_profile_name_title"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/my_profile_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/my_profile_name"
+            android:inputType="textPersonName" />
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="name fameliy"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.463"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/viewProfilePic"
-        app:layout_constraintVertical_bias="0.03" />
+        android:layout_gravity="center"
+        android:layout_marginTop="12dp"
+        android:orientation="horizontal">
 
-    <TextView
-        android:id="@+id/textView5"
+        <TextView
+            android:id="@+id/my_profile_email_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="87dp"
+            android:text="@string/my_profile_email_title"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/my_profile_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="false"
+            android:ems="10"
+            android:hint="@string/my_profile_email"
+            android:inputType="textPersonName" />
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Subjects"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="@+id/study_profession_edit"
-        app:layout_constraintEnd_toStartOf="@+id/study_profession_edit"
-        app:layout_constraintHorizontal_bias="0.416"
-        app:layout_constraintStart_toStartOf="@+id/about_me_title_edit"
-        app:layout_constraintTop_toBottomOf="@+id/about_me_title_edit"
-        app:layout_constraintVertical_bias="1.0" />
+        android:layout_gravity="center"
+        android:layout_marginTop="12dp"
+        android:orientation="horizontal">
 
-    <TextView
-        android:id="@+id/textView6"
+        <TextView
+            android:id="@+id/my_profile_subject_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="69dp"
+            android:text="@string/my_profile_subject_title"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/my_profile_subject"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/my_profile_subject"
+            android:inputType="textPersonName" />
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/price_more_info"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="@+id/price_edit"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.049"
-        app:layout_constraintStart_toStartOf="@+id/textView5"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.98" />
+        android:layout_gravity="center"
+        android:layout_marginTop="12dp"
+        android:orientation="horizontal">
 
-    <TextView
-        android:id="@+id/phone_title_edit"
-        android:layout_width="54dp"
-        android:layout_height="32dp"
-        android:text="Phone"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="@+id/phone_edit"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/textView6"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        <TextView
+            android:id="@+id/my_profile_phone_number_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="3dp"
+            android:text="@string/my_profile_phone_title"
+            android:textSize="20sp" />
 
-    <TextView
-        android:id="@+id/age_title_edit"
+        <EditText
+            android:id="@+id/my_profile_phone_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/phone_number_more_info"
+            android:inputType="textPersonName"/>
+
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/age_more_info"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="@+id/age_edit"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.03"
-        app:layout_constraintStart_toStartOf="@+id/phone_title_edit"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.981" />
+        android:layout_gravity="center"
+        android:layout_marginTop="12dp"
+        android:orientation="horizontal">
 
+        <TextView
+            android:id="@+id/my_profile_price_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="91dp"
+            android:text="@string/my_profile_price"
+            android:textSize="20sp"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <EditText
+            android:id="@+id/my_profile_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/price_more_info"
+            android:inputType="textPersonName"/>
+
+</LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="12dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/my_profile_age_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="101dp"
+            android:text="@string/my_profile_age_title"
+            android:textSize="20sp"/>
+
+        <EditText
+            android:id="@+id/my_profile_age"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/age_more_info"
+            android:inputType="textPersonName"/>
+</LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="12dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/my_profile_about_me_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="50dp"
+            android:text="@string/my_profile_about_me_title"
+            android:textSize="20sp"/>
+
+        <EditText
+            android:id="@+id/my_profile_about_me"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="About me"
+            android:inputType="textMultiLine" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/update_edit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:layout_marginTop="24dp"
+        android:layout_gravity="center"
+        android:onClick="onClickUpdate"
+        android:text="@string/update_more_info"/>
+
+</LinearLayout>
+</ScrollView>

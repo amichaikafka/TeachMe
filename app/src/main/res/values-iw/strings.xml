@@ -75,10 +75,18 @@
     <string name="Via_email">דרך אימייל</string>
     <string name="summary_delete">לא ניתן לשחזור לאחר מחיקת החשבון</string>
     <string name="subject_select_home">מה תרצה ללמוד</string>
-    <string name="view_teachet_profile">Full name</string>
+    <string name="view_teacher_name">Full name</string>
     <string name="view_teacher_price">Price</string>
     <string name="view_teacher_reviews"><![CDATA[Ratings & Reviews]]></string>
     <string name="my_details">הפרופיל שלי</string>
+    <string name="my_profile_name">שם מלא</string>
+    <string name="my_profile_name_title">שם מלא:</string>
+    <string name="my_profile_email_title">אימייל:</string>
+    <string name="my_profile_subject">מקצועות הלימוד</string>
+    <string name="my_profile_subject_title">נושאים:</string>
+    <string name="my_profile_phone_title">מספר טלפון:</string>
+    <string name="my_profile_price">מחיר:</string>
+    <string name="my_profile_age_title">גיל:</string>
     <string name="Date_of_the_lesson">תאריך השיעור</string>
     <string name="Field_of_study">תחום לימודים</string>
     <string name="Price">מחיר</string>
@@ -86,4 +94,6 @@
     <string name="Student_mail">מייל התלמיד</string>
     <string name="save">שמור</string>
     <string name="cancel">בטל</string>
+    <string name="my_profile_email">אימייל</string>
+    <string name="my_profile_about_me_title">קצת עליי:</string>
 </resources>

@@ -66,7 +66,7 @@
     <string name="message">Message:</string>
     <string name="subject">Subject:</string>
     <string name="to">To:</string>
-    <string name="typeHere">Type here ...</string>
+    <string name="typeHere">Type here …</string>
     <string name="Notifications">Notfication</string>
     <string name="Volume">Volume</string>
     <string name="Disable_notifications">Disable notification</string>
@@ -92,5 +92,15 @@
     <string name="Create_your_lesson">Create your lesson</string>
     <string name="Student_mail">Student mail</string>
     <string name="save">save</string>
-    <string name="cancel">cancel</string>
+    <string name="cancel">Cancel</string>
+    <string name="my_profile_name">Full name</string>
+    <string name="my_profile_name_title">Full name:</string>
+    <string name="my_profile_email_title">Email:</string>
+    <string name="my_profile_email">Email</string>
+    <string name="my_profile_subject">Study profession</string>
+    <string name="my_profile_subject_title">Subject:</string>
+    <string name="my_profile_phone_title">Phone-Number:</string>
+    <string name="my_profile_price">Price:</string>
+    <string name="my_profile_about_me_title">About Me:</string>
+    <string name="my_profile_age_title">Age:</string>
 </resources>

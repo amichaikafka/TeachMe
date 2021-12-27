@@ -84,7 +84,7 @@ public class Login extends AppCompatActivity {
                                 startActivity(intent);
                             } else {
                                 // If sign in fails, display a message to the user.
-                                Toast.makeText(Login.this, "failed :(", Toast.LENGTH_LONG).show();
+                                Toast.makeText(Login.this, "@string/subject_select_home", Toast.LENGTH_LONG).show();
 
                             }
                         }

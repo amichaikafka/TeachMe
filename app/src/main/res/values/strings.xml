@@ -96,7 +96,7 @@
     <string name="where_are_you_located">Where are you located?</string>
     <string name="hayarkon_16_street_tel_aviv_israel">hayarkon 16 street tel aviv, Israel</string>
     <!--    <string name="settings">settings</string> -->
-    <string name="Date_of_the_lesson">Date of the lesson</string>
+    <string name="Date_of_the_lesson">Date of the lesson(mm/dd/yy)</string>
     <string name="Field_of_study">Field of study</string>
     <string name="Price">Price</string>
     <string name="Create_your_lesson">Create your lesson</string>

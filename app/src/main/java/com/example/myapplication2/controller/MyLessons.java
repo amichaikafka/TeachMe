@@ -87,26 +87,7 @@ public class MyLessons extends AppCompatActivity {
     }
 
 
-    //** menu **//
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_activity, menu);
-        return true;
-    }
 
-    //TODO: need to add case for every items.
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if (item.getItemId() == R.id.menu_home) startActivity(new Intent(this, HomePage.class));
-        if (item.getItemId() == R.id.menu_contact) startActivity(new Intent(this, ContactUs.class));
-        if (item.getItemId() == R.id.menu_setting) startActivity(new Intent(this, Settings.class));
-        if (item.getItemId() == R.id.menu_logout) {
-            FirebaseAuth.getInstance().signOut();
-            startActivity(new Intent(this, Login.class));
-        }
-
-        return super.onContextItemSelected(item);
-    }
 
 
     public void createNewLessonDialog() throws ParseException {
@@ -295,5 +276,33 @@ public class MyLessons extends AppCompatActivity {
             return false;
         }
         return true;
+    }
+
+
+    //** menu **//
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_activity, menu);
+        return true;
+    }
+
+    //TODO: need to add case for every items.
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == R.id.menu_home) startActivity(new Intent(this, HomePage.class).putExtras(userToMove));
+        if (item.getItemId() == R.id.menu_contact) startActivity(new Intent(this, ContactUs.class).putExtras(userToMove));
+        if (item.getItemId() == R.id.menu_setting) startActivity(new Intent(this, Settings.class).putExtras(userToMove));
+        if (item.getItemId() == R.id.menu_logout) {
+            FirebaseAuth.getInstance().signOut();
+            startActivity(new Intent(this, Login.class));
+        }
+        if (item.getItemId() == R.id.menu_myProfile){
+            if(!isTeacher){
+                Toast.makeText(this, "only teacher can edit profile", Toast.LENGTH_LONG).show();
+            }else {
+                startActivity(new Intent(this, TeacherEditProfile.class).putExtras(userToMove));
+            }
+        }
+        return super.onContextItemSelected(item);
     }
 }

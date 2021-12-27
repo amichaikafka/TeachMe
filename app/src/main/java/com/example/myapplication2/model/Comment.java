@@ -7,9 +7,9 @@ public class Comment {
     private String review;
     private Date date;
     private String reviewerName;
-    private int rating;
-
-    public Comment(String subject, String review, Date date ,String name, int rating){
+    private float rating;
+    public Comment(){}
+    public Comment(String subject, String review, Date date ,String name, float rating){
         this.subject = subject;
         this.review = review;
         this.date = date;
@@ -49,7 +49,7 @@ public class Comment {
         this.reviewerName = reviewerName;
     }
 
-    public int getRating() {
+    public float getRating() {
         return rating;
     }
 

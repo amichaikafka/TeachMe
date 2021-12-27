@@ -97,4 +97,8 @@
     <string name="my_profile_email">אימייל</string>
     <string name="my_profile_about_me_title">קצת עליי:</string>
     <string name="My_lessons">השיעורים שלי</string>
+    <string name="rating_1_5">Rating(1-5)</string>
+    <string name="subject_comment">Subject_comment</string>
+    <string name="review">Review</string>
+    <string name="leave_a_comment">Leave a comment</string>
 </resources>

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <EditText
+        android:id="@+id/rating_popup_comment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="56dp"
+        android:hint="@string/rating_1_5"
+        android:textAlignment="center"
+        app:layout_constraintTop_toBottomOf="@+id/leave_a_comment_popup_comment"
+        app:layout_editor_absoluteX="28dp"
+        app:layout_editor_absoluteY="394dp"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <EditText
+
+        android:id="@+id/subject_popup_comment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:hint="@string/subject_comment"
+
+        android:textAlignment="center"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintTop_toBottomOf="@+id/rating_popup_comment"
+        app:layout_editor_absoluteX="28dp"
+        app:layout_editor_absoluteY="394dp"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <EditText
+
+        android:id="@+id/review_popup_comment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_marginTop="64dp"
+        android:hint="@string/review"
+        android:textAlignment="center"
+        app:layout_constraintTop_toBottomOf="@+id/subject_popup_comment"
+        app:layout_editor_absoluteX="28dp"
+        app:layout_editor_absoluteY="394dp"
+        tools:layout_editor_absoluteX="-16dp" />
+
+    <TextView
+
+        android:id="@+id/leave_a_comment_popup_comment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="@string/leave_a_comment"
+
+        android:textAlignment="center"
+
+        android:textSize="28sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+
+        android:id="@+id/close_popup_comment"
+        android:layout_width="76dp"
+        android:layout_height="33dp"
+        android:layout_marginBottom="308dp"
+        android:scrollbarSize="4dp"
+        android:text="@string/cancel"
+        android:textSize="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.211"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/review_popup_comment"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <Button
+
+        android:id="@+id/save_popup_comment"
+        android:layout_width="76dp"
+        android:layout_height="33dp"
+        android:layout_marginEnd="80dp"
+        android:layout_marginBottom="308dp"
+        android:scrollbarSize="4dp"
+        android:text="@string/save"
+        android:textSize="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/review_popup_comment"
+        app:layout_constraintVertical_bias="1.0" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

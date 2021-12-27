@@ -10,12 +10,13 @@ import java.util.List;
 
 public class TeacherProfile extends UserProfile {
     //    private HashSet<String> fieldsOfTeaching;
-    private String fieldsOfTeaching="";
+    private String fieldsOfTeaching = "";
     private String listOfStudents = "";
     private String phoneNumber;
     private double price;
-    private int rating;
+    private float rating;
     private int numOfReviews;
+    private float sumOfReviews;
     private List<String> reviews;           //TODO class Review
     private Bitmap profilePicture;
 
@@ -51,6 +52,14 @@ public class TeacherProfile extends UserProfile {
     private void createLesson() {
     }
 
+    public float getSumOfReviews() {
+        return sumOfReviews;
+    }
+
+    public void setSumOfReviews(float sumOfReviews) {
+        this.sumOfReviews = sumOfReviews;
+    }
+
     public String getFieldsOfTeaching() {
         return fieldsOfTeaching;
     }
@@ -75,11 +84,11 @@ public class TeacherProfile extends UserProfile {
         this.price = price;
     }
 
-    public int getRating() {
+    public float getRating() {
         return rating;
     }
 
-    public void setRating(int r) {
+    public void setRating(float r) {
         this.rating = r;
     }
 

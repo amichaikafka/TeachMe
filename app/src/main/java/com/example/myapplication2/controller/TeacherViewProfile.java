@@ -8,6 +8,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
@@ -28,7 +30,10 @@ import android.widget.Toast;
 import com.example.myapplication2.R;
 import com.example.myapplication2.model.Comment;
 import com.example.myapplication2.model.CommentAdapter;
+import com.example.myapplication2.model.Lesson;
+import com.example.myapplication2.model.StudentProfile;
 import com.example.myapplication2.model.TeacherProfile;
+import com.example.myapplication2.model.UserProfile;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -46,32 +51,60 @@ public class TeacherViewProfile extends AppCompatActivity {
     private FirebaseUser mAuth;
     private FirebaseDatabase database;
     private DatabaseReference myRef;
+    private AlertDialog.Builder dialogBuilder;
     private TextView nameTextView;
     private ImageView picImageView;
+    private AlertDialog dialog;
+    private Button saveBtn, cancelBtn;
     private TextView numOfReviewsTextView;
     private RatingBar ratingBar;
     private TextView filedOfStudyTextView;
     private Button phoneNumberBtn;
     private TextView aboutTextView;
     TeacherProfile otherTeacher;
+    private EditText  commentDialogRate, commentDialogSubject, commentDialogReview;
     private TextView   aboutMeTv, priceTv,nameAndFamilyTv,reviewsTv;
     Button phoneBt;
     private String  reviews, phone, aboutMe, price,nameAndFamily;
-    private  int rate;
+    private  float rate,rateComment;
     private boolean isTeacher;
     private String otherUserId;
     private RatingBar ratingBarRb;
+    private UserProfile currUser;
     Bundle userToMove=new Bundle();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_teacher_view_profile);
+        mAuth = FirebaseAuth.getInstance().getCurrentUser();
+        database = FirebaseDatabase.getInstance("https://teachme-c8637-default-rtdb.firebaseio.com/");
         savedInstanceState=getIntent().getExtras();
         isTeacher =savedInstanceState.getBoolean("user");
         otherUserId=savedInstanceState.getString("otherUserId");
         userToMove.putBoolean("user", isTeacher);
-        database = FirebaseDatabase.getInstance("https://teachme-c8637-default-rtdb.firebaseio.com/");
+        if(isTeacher) {
+            myRef = database.getReference("Teachers/" + mAuth.getUid());
+        }
+        else {
+            myRef = database.getReference("Students/" + mAuth.getUid());
+        }
+        myRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (isTeacher) {
+                    currUser = snapshot.getValue(TeacherProfile.class);
+                }else {
+                    currUser = snapshot.getValue(StudentProfile.class);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
         myRef=database.getReference("Teachers/"+otherUserId);
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
@@ -85,6 +118,7 @@ public class TeacherViewProfile extends AppCompatActivity {
                 rate=otherTeacher.getRating();
 
                 updateUi();
+                commentDisplay();
             }
 
             @Override
@@ -93,27 +127,47 @@ public class TeacherViewProfile extends AppCompatActivity {
             }
         });
 
+//
+//        ArrayList<Comment> comments = new ArrayList<Comment>();
+//        for(int i=0 ; i<10 ; i++){
+//            comments.add(new Comment("Great teacher", "Great Math teacher.\nI recommend everyone to learn with him.", new Date(), "Israel Israeli", i));
+//        }
+//
+//        RecyclerView recyclerView = findViewById(R.id.teacher_reviews);
+//        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
+//        recyclerView.setLayoutManager(layoutManager);
+//
+//        CommentAdapter reviewAdapter = new CommentAdapter(comments);
+//        recyclerView.setAdapter(reviewAdapter);
 
+
+    }
+    private void commentDisplay() {
         ArrayList<Comment> comments = new ArrayList<Comment>();
-        for(int i=0 ; i<10 ; i++){
-            comments.add(new Comment("Great teacher", "Great Math teacher.\nI recommend everyone to learn with him.", new Date(), "Israel Israeli", i));
-        }
-
         RecyclerView recyclerView = findViewById(R.id.teacher_reviews);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
-
         CommentAdapter reviewAdapter = new CommentAdapter(comments);
         recyclerView.setAdapter(reviewAdapter);
-//
-//        nameTextView = findViewById(R.id.viewProfileName);
-//        picImageView = findViewById(R.id.viewProfilePic);
-//        numOfReviewsTextView = findViewById(R.id.viewProfileNumOfReviews);
-//        ratingBar = findViewById(R.id.viewProfileRatingBar);
-//        filedOfStudyTextView = findViewById(R.id.viewProfileFieldOfStudy);
-//        phoneNumberBtn = findViewById(R.id.viewProfilePhoneNumberBtn);
-//        aboutTextView = findViewById(R.id.viewProfileAbout);
+        DatabaseReference lessonsRef = database.getReference("Reviews/" + otherUserId);
+        lessonsRef.addValueEventListener(new ValueEventListener() {
+            @SuppressLint("NotifyDataSetChanged")
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                comments.clear();
+                for (DataSnapshot comment : snapshot.getChildren()) {
+                    System.out.println(comment.getValue());
+                    Comment currComment = comment.getValue(Comment.class);
+                    comments.add(currComment);
+                }
+                reviewAdapter.notifyDataSetChanged();
+            }
 
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
     private void updateUi(){
         reviewsTv=findViewById(R.id.viewProfileNumOfReviews);
@@ -128,7 +182,6 @@ public class TeacherViewProfile extends AppCompatActivity {
         aboutMeTv.setText(aboutMe);
         priceTv.setText(price);
         nameAndFamilyTv.setText(nameAndFamily);
-
         ratingBarRb.setRating(rate);
         picImageView = findViewById(R.id.viewProfilePic);
         loadImage();
@@ -195,4 +248,71 @@ public class TeacherViewProfile extends AppCompatActivity {
     }
 
 
+    public void onClickAddComment(View view) {
+        if (otherTeacher.getListOfStudents().contains(currUser.getEmailAddress())) {
+            dialogBuilder = new AlertDialog.Builder(this);
+            final View lessonPopupView = getLayoutInflater().inflate(R.layout.review_popup, null);
+
+            commentDialogRate = (EditText) lessonPopupView.findViewById(R.id.rating_popup_comment);
+            commentDialogSubject = (EditText) lessonPopupView.findViewById(R.id.subject_popup_comment);
+            commentDialogReview = (EditText) lessonPopupView.findViewById(R.id.review_popup_comment);
+
+            saveBtn = (Button) lessonPopupView.findViewById(R.id.save_popup_comment);
+            cancelBtn = (Button) lessonPopupView.findViewById(R.id.close_popup_comment);
+
+            dialogBuilder.setView(lessonPopupView);
+            dialog = dialogBuilder.create();
+            dialog.show();
+            database = FirebaseDatabase.getInstance("https://teachme-c8637-default-rtdb.firebaseio.com/");
+
+
+            saveBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if(isValid()) {
+                        otherTeacher.setNumOfReviews(otherTeacher.getNumOfReviews()+1);
+                        otherTeacher.setSumOfReviews(otherTeacher.getSumOfReviews()+rateComment);
+                        otherTeacher.setRating(otherTeacher.getSumOfReviews()/otherTeacher.getNumOfReviews());
+                        myRef = database.getReference("Reviews/" + otherUserId).push();
+                        Comment comment = new Comment(commentDialogSubject.getText().toString(),
+                                commentDialogReview.getText().toString(),
+                                new Date(), currUser.getFirstName() + " " + currUser.getLastName(), rateComment);
+                        myRef.setValue(comment);
+                        myRef = database.getReference("Teachers/" + otherUserId + "/numOfReviews");
+                        myRef.setValue(otherTeacher.getNumOfReviews());
+                        myRef = database.getReference("Teachers/" + otherUserId + "/sumOfReviews");
+                        myRef.setValue(otherTeacher.getSumOfReviews());
+                        myRef = database.getReference("Teachers/" + otherUserId + "/rating");
+                        myRef.setValue((otherTeacher.getRating()));
+                        dialog.dismiss();
+                    }
+                }
+            });
+
+            cancelBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    dialog.dismiss();
+                }
+            });
+        }else{
+            Toast.makeText(this, "Only student of this teacher can leave a comment", Toast.LENGTH_LONG).show();
+
+        }
+    }
+    private boolean isValid(){
+        String rateS = commentDialogRate.getText().toString();
+
+        try {
+            rateComment = Integer.parseInt(rateS);
+            if (rateComment > 5 || rate < 0) {
+                Toast.makeText(this, "rate must be a between 1 to 5", Toast.LENGTH_LONG).show();
+                return false;
+            }
+        } catch (Exception e) {
+            Toast.makeText(this, "rate must be a number", Toast.LENGTH_LONG).show();
+            return false;
+        }
+        return true;
+    }
 }

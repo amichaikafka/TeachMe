@@ -11,7 +11,7 @@ import java.util.List;
 public class TeacherProfile extends UserProfile {
     //    private HashSet<String> fieldsOfTeaching;
     private String fieldsOfTeaching="";
-    private HashSet<String> listOfStudents;
+    private String listOfStudents = "";
     private String phoneNumber;
     private double price;
     private int rating;
@@ -32,10 +32,9 @@ public class TeacherProfile extends UserProfile {
                           double price, Bitmap pic) {
         super(userId, firstName, lastName, dateOfBirth, emailAddress, gender, aboutMe, location);
         this.fieldsOfTeaching = fieldsOfTeaching;
-        this.listOfStudents = new HashSet<String>();
+        this.listOfStudents = "";
         this.phoneNumber = phoneNumber;
         this.price = price;
-        this.listOfStudents = new HashSet<String>();
         this.rating = 0;
         this.profilePicture = pic;
         this.numOfReviews = 0;
@@ -60,11 +59,11 @@ public class TeacherProfile extends UserProfile {
         this.fieldsOfTeaching = fieldsOfTeaching;
     }
 
-    public HashSet<String> getListOfStudents() {
+    public String getListOfStudents() {
         return listOfStudents;
     }
 
-    public void setListOfStudents(HashSet<String> listOfStudents) {
+    public void setListOfStudents(String listOfStudents) {
         this.listOfStudents = listOfStudents;
     }
 

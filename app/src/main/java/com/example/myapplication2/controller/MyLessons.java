@@ -57,18 +57,6 @@ public class MyLessons extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_lessons);
-
-//        ArrayList<Lesson> lessons = new ArrayList<>();
-//        for(int i =0; i<10; i++) {
-//            lessons.add(new Lesson("Yossi", "person" +i, "java", new Date(), 100));
-//        }
-//
-//        RecyclerView recycleView = findViewById(R.id.recyclerview_lesson);
-//        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
-//        recycleView.setLayoutManager(layoutManager);
-//
-//        LessonAdapter lessonsAdapter = new LessonAdapter(lessons);
-//        recycleView.setAdapter(lessonsAdapter);
         savedInstanceState = getIntent().getExtras();
         isTeacher = savedInstanceState.getBoolean("user");
         userToMove.putBoolean("user", isTeacher);
@@ -142,7 +130,6 @@ public class MyLessons extends AppCompatActivity {
         dialog.show();
         database = FirebaseDatabase.getInstance("https://teachme-c8637-default-rtdb.firebaseio.com/");
 
-
         saveBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -151,24 +138,100 @@ public class MyLessons extends AppCompatActivity {
                     @SuppressLint("NotifyDataSetChanged")
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
-
-                        for (DataSnapshot student : snapshot.getChildren()) {
-                            StudentProfile currStudent = student.getValue(StudentProfile.class);
-                            if (currStudent.getEmailAddress().equals(lessonDialogStudentMail.getText().toString())) {
-                                System.out.println(currStudent.getEmailAddress());
-                                Lesson l1 = new Lesson(currTeacher.getFirstName() + " " + currTeacher.getLastName(),
-                                        currStudent.getFirstName() + " " + currStudent.getLastName(),
-                                        lessonDialogStudyField.getText().toString(), new Date(lessonDialogDate.getText().toString()),
-                                        Integer.parseInt(lessonDialogPrice.getText().toString()));
-                                lessonsArr.add(l1);
-                                DatabaseReference lessonRef = database.getReference("Lessons/" + student.getKey()).push();
-                                lessonRef.setValue(l1);
-                                lessonRef = database.getReference("Lessons/" + mAuth.getUid()).push();
-                                lessonRef.setValue(l1);
-
+                        Lesson l1 = null;
+                        boolean flag = false;
+                        boolean itWork = false;
+                        if (checkInfo()) {
+                            for (DataSnapshot student : snapshot.getChildren()) {
+                                StudentProfile currStudent = student.getValue(StudentProfile.class);
+                                if (currStudent.getEmailAddress().equals(lessonDialogStudentMail.getText().toString())) {
+                                    flag = true;
+                                    try {
+                                        l1 = new Lesson(currTeacher.getFirstName() + " " + currTeacher.getLastName(),
+                                                currStudent.getFirstName() + " " + currStudent.getLastName(),
+                                                lessonDialogStudyField.getText().toString(), new Date(lessonDialogDate.getText().toString()),
+                                                Integer.parseInt(lessonDialogPrice.getText().toString()));
+                                        lessonsArr.add(l1);
+                                        if (!currTeacher.getListOfStudents().contains(currStudent.getEmailAddress())) {
+                                            DatabaseReference tempRef = database.getReference("Teachers/" + mAuth.getUid() + "/listOfStudents");
+                                            if (currTeacher.getListOfStudents().isEmpty()) {
+                                                currTeacher.setListOfStudents(currStudent.getEmailAddress());
+                                                tempRef.setValue(currTeacher.getListOfStudents());
+                                            } else {
+                                                currTeacher.setListOfStudents(currTeacher.getListOfStudents() + "," +currStudent.getEmailAddress());
+                                                tempRef.setValue(currTeacher.getListOfStudents());
+                                            }
+                                        }
+                                        itWork = true;
+                                        DatabaseReference lessonRef = database.getReference("Lessons/" + student.getKey()).push();
+                                        lessonRef.setValue(l1);
+                                        lessonRef = database.getReference("Lessons/" + mAuth.getUid()).push();
+                                        lessonRef.setValue(l1);
+                                    } catch (Exception e) {
+                                        e.printStackTrace();
+                                    }
+                                }
+                            }
+                            if (l1 == null) {
+                                if (flag) {
+                                    Toast.makeText(MyLessons.this, "You entered an invalid date", Toast.LENGTH_LONG).show();
+                                }
                             }
                         }
+                        if (itWork) {
+                            dialog.dismiss();
+                            return;
+                        }
+                    }
 
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+                myQuery = database.getReference("Teachers/");
+                myQuery.addValueEventListener(new ValueEventListener() {
+                    @SuppressLint("NotifyDataSetChanged")
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        Lesson l1 = null;
+                        boolean flag = false;
+                        if (checkInfo()) {
+                            for (DataSnapshot student : snapshot.getChildren()) {
+                                TeacherProfile currStudent = student.getValue(TeacherProfile.class);
+                                if (currStudent.getEmailAddress().equals(lessonDialogStudentMail.getText().toString())) {
+                                    flag = true;
+                                    try {
+                                        l1 = new Lesson(currTeacher.getFirstName() + " " + currTeacher.getLastName(),
+                                                currStudent.getFirstName() + " " + currStudent.getLastName(),
+                                                lessonDialogStudyField.getText().toString(), new Date(lessonDialogDate.getText().toString()),
+                                                Integer.parseInt(lessonDialogPrice.getText().toString()));
+                                        lessonsArr.add(l1);
+                                        if (!currTeacher.getListOfStudents().contains(currStudent.getEmailAddress())) {
+                                            DatabaseReference tempRef = database.getReference("Teachers/" + mAuth.getUid() + "/listOfStudents");
+                                            if (currTeacher.getListOfStudents().isEmpty()) {
+                                                currTeacher.setListOfStudents(currStudent.getEmailAddress());
+                                                tempRef.setValue(currTeacher.getListOfStudents());
+                                            } else {
+                                                currTeacher.setListOfStudents(currTeacher.getListOfStudents() + "," +currStudent.getEmailAddress());
+                                                tempRef.setValue(currTeacher.getListOfStudents());
+                                            }
+                                        }
+                                        DatabaseReference lessonRef = database.getReference("Lessons/" + student.getKey()).push();
+                                        lessonRef.setValue(l1);
+                                        lessonRef = database.getReference("Lessons/" + mAuth.getUid()).push();
+                                        lessonRef.setValue(l1);
+                                    } catch (Exception e) {
+                                        e.printStackTrace();
+                                    }
+                                }
+                            }
+                            if (l1 == null) {
+                                if (flag) {
+                                    Toast.makeText(MyLessons.this, "You entered an invalid date", Toast.LENGTH_LONG).show();
+                                }
+                            }
+                        }
                         dialog.dismiss();
                     }
 
@@ -201,7 +264,6 @@ public class MyLessons extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 lessonsArr.clear();
                 for (DataSnapshot lessons : snapshot.getChildren()) {
-                    System.out.println(lessons.getValue());
                     Lesson currLesson = (Lesson) lessons.getValue(Lesson.class);
                     lessonsArr.add(currLesson);
                 }
@@ -215,5 +277,23 @@ public class MyLessons extends AppCompatActivity {
         });
     }
 
-
+    private boolean checkInfo() {
+        if (lessonDialogStudentMail.getText().toString().isEmpty()) {
+            Toast.makeText(MyLessons.this, "You must specified mail", Toast.LENGTH_LONG).show();
+            return false;
+        }
+        if (lessonDialogDate.getText().toString().isEmpty()) {
+            Toast.makeText(MyLessons.this, "You must specified date", Toast.LENGTH_LONG).show();
+            return false;
+        }
+        if (lessonDialogStudyField.getText().toString().isEmpty()) {
+            Toast.makeText(MyLessons.this, "You must specified study field", Toast.LENGTH_LONG).show();
+            return false;
+        }
+        if (lessonDialogPrice.getText().toString().isEmpty()) {
+            Toast.makeText(MyLessons.this, "You must specified price", Toast.LENGTH_LONG).show();
+            return false;
+        }
+        return true;
+    }
 }

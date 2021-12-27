@@ -234,6 +234,10 @@ public class TeacherEditProfile extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_activity, menu);
+        MenuItem menuItem=menu.getItem(1);
+        if(!isTeacher){
+            menuItem.setVisible(false);
+        }
         return true;
     }
     @Override

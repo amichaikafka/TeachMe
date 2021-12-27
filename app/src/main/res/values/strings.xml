@@ -129,4 +129,5 @@
     <string name="change_language">Change language</string>
     <string name="enter_email">Enter email:</string>
     <string name="confirm">Confirm</string>
+    <string name="search_view">Type the teacher\'s name here...</string>
 </resources>

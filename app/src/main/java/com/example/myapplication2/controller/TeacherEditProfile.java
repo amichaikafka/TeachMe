@@ -155,11 +155,13 @@ public class TeacherEditProfile extends AppCompatActivity {
 
             if (options[item].equals("Take Photo")) {
                 Intent takePicture = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                startActivityForResult(takePicture, 0);
+                if (takePicture.resolveActivity(getPackageManager()) != null) {
+                    startActivityForResult(takePicture, 1);
+                }
+//                Intent takePicture = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+//                startActivityForResult(takePicture, 0);
 
             } else if (options[item].equals("Choose from Gallery")) {
-//                Intent pickPhoto = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-//                startActivityForResult(pickPhoto , 1);
                 Intent pickPhoto = new Intent();
                 pickPhoto.setType("image/*");
                 pickPhoto.setAction(Intent.ACTION_GET_CONTENT);
@@ -178,11 +180,15 @@ public class TeacherEditProfile extends AppCompatActivity {
         if (resultCode != RESULT_CANCELED) {
             switch (requestCode) {
                 case 0:
-                    if (resultCode == RESULT_OK && data != null) {
-                        Bitmap selectedImage = (Bitmap) data.getExtras().get("data");
-                        imageView.setImageBitmap(selectedImage);
+                    if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
+                        Bundle extras = data.getExtras();
+                        Bitmap imageBitmap = (Bitmap) extras.get("data");
+                        imageView.setImageBitmap(imageBitmap);
+                        imageView.setAdjustViewBounds(true);
+                        imageView.setMaxHeight(500);
+                        imageView.setMaxWidth(500);
+                        uploadPhoto(imageBitmap);
                     }
-
                     break;
                 case 1:
                     if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK && data != null && data.getData() != null) {

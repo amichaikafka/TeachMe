@@ -6,10 +6,13 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".controller.HomePageNext">
+
     <SearchView
         android:id="@+id/searchView_search"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:queryHint="@string/search_view"
+        android:iconifiedByDefault="false"
         android:padding="6dp" />
 
     <RadioGroup

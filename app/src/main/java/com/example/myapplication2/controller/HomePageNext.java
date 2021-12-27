@@ -24,6 +24,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RatingBar;
@@ -336,9 +337,12 @@ public class HomePageNext extends AppCompatActivity {
                             holder.profileImageView.setAdjustViewBounds(true);
                             holder.profileImageView.setMaxHeight(90);
                             holder.profileImageView.setMaxWidth(90);
+                            holder.profileImageView.setVisibility(View.VISIBLE);
+                            holder.progressBar.setVisibility(View.GONE);
                         }).addOnFailureListener(exception -> {
-                    System.out.println(exception);
-                });
+                    holder.profileImageView.setVisibility(View.VISIBLE);
+                    holder.progressBar.setVisibility(View.GONE);
+                        });
             }
             catch(Exception e){
                 System.out.println(e);
@@ -359,6 +363,7 @@ public class HomePageNext extends AppCompatActivity {
             public TextView reviewsWord;
             public ImageView profileImageView;
             public TextView priceTextView;
+            public ProgressBar progressBar;
             public TeachersViewHolder(@NonNull View itemView) {
                 super(itemView);
                 nameTextView = itemView.findViewById(R.id.textview_box_teacher_name);
@@ -369,6 +374,7 @@ public class HomePageNext extends AppCompatActivity {
                 numOfReviews = itemView.findViewById(R.id.num_of_reviews);
                 reviewsWord = itemView.findViewById(R.id.review_word);
                 priceTextView = itemView.findViewById(R.id.textview_box_teacher_price);
+                progressBar = itemView.findViewById(R.id.progressBar_teacherbox);
             }
         }
     }

@@ -35,7 +35,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/viewProfileName"
         app:srcCompat="@mipmap/ic_launcher"
-        tools:ignore="ImageContrastCheck" />
+        tools:ignore="ImageContrastCheck"
+        android:visibility="invisible"/>
 
     <TextView
         android:id="@+id/viewProfileName"
@@ -155,6 +156,16 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.945"
         app:srcCompat="@android:drawable/ic_input_add" />
+
+    <ProgressBar
+        android:id="@+id/progressBar_teacherView"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/viewProfilePic"
+        app:layout_constraintEnd_toEndOf="@+id/viewProfilePic"
+        app:layout_constraintStart_toStartOf="@+id/viewProfilePic"
+        app:layout_constraintTop_toTopOf="@+id/viewProfilePic" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

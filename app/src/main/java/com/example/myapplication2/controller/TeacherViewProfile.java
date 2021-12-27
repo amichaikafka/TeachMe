@@ -22,6 +22,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.RatingBar;
 import android.widget.SearchView;
 import android.widget.TextView;
@@ -65,6 +66,7 @@ public class TeacherViewProfile extends AppCompatActivity {
     RatingBar commentDialogRate;
     private EditText   commentDialogSubject, commentDialogReview;
     private TextView   aboutMeTv, priceTv,nameAndFamilyTv,reviewsTv;
+    private ProgressBar progressBar;
     Button phoneBt;
     private String  reviews, phone, aboutMe, price,nameAndFamily;
     private  float rate,rateComment;
@@ -185,6 +187,7 @@ public class TeacherViewProfile extends AppCompatActivity {
         nameAndFamilyTv.setText(nameAndFamily);
         ratingBarRb.setRating(rate);
         picImageView = findViewById(R.id.viewProfilePic);
+        progressBar = findViewById(R.id.progressBar_teacherView);
         loadImage();
     }
     public void onClickPhoneCall(View view){
@@ -213,8 +216,11 @@ public class TeacherViewProfile extends AppCompatActivity {
                     picImageView.setAdjustViewBounds(true);
                     picImageView.setMaxHeight(115);
                     picImageView.setMaxWidth(115);
+                    picImageView.setVisibility(View.VISIBLE);
+                    progressBar.setVisibility(View.GONE);
                 }).addOnFailureListener(exception -> {
-            // Handle any errors
+            picImageView.setVisibility(View.VISIBLE);
+            progressBar.setVisibility(View.GONE);
         });
     }
     //** menu **//

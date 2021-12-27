@@ -1,17 +1,14 @@
 package com.example.myapplication2.model;
-import static androidx.core.content.ContextCompat.startActivity;
 
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.RatingBar;
 import android.widget.TextView;
 import com.example.myapplication2.R;
-import com.example.myapplication2.controller.HomePageNext;
-import com.example.myapplication2.controller.TeacherViewProfile;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -76,6 +73,7 @@ public class TeachersProfilesAdapter2 extends RecyclerView.Adapter<TeachersProfi
         public TextView reviewsWord;
         public ImageView profileImageView;
         public TextView priceTextView;
+        public ProgressBar progressBar;
         public TeachersViewHolder2(@NonNull View itemView) {
             super(itemView);
             nameTextView = itemView.findViewById(R.id.textview_box_teacher_name);
@@ -86,6 +84,7 @@ public class TeachersProfilesAdapter2 extends RecyclerView.Adapter<TeachersProfi
             numOfReviews = itemView.findViewById(R.id.num_of_reviews);
             reviewsWord = itemView.findViewById(R.id.review_word);
             priceTextView = itemView.findViewById(R.id.textview_box_teacher_price);
+            progressBar = itemView.findViewById(R.id.progressBar_teacherbox);
         }
     }
 

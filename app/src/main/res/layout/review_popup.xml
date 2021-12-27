@@ -7,28 +7,15 @@
     android:orientation="vertical">
 
     <EditText
-        android:id="@+id/rating_popup_comment"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="56dp"
-        android:hint="@string/rating_1_5"
-        android:textAlignment="center"
-        app:layout_constraintTop_toBottomOf="@+id/leave_a_comment_popup_comment"
-        app:layout_editor_absoluteX="28dp"
-        app:layout_editor_absoluteY="394dp"
-        tools:layout_editor_absoluteX="0dp" />
-
-    <EditText
 
         android:id="@+id/subject_popup_comment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:hint="@string/subject_comment"
+        android:layout_marginTop="12dp"
 
+        android:hint="@string/subject_comment"
         android:textAlignment="center"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintTop_toBottomOf="@+id/rating_popup_comment"
+        app:layout_constraintTop_toBottomOf="@+id/ratingBar_popup_comment"
         app:layout_editor_absoluteX="28dp"
         app:layout_editor_absoluteY="394dp"
         tools:layout_editor_absoluteX="0dp" />
@@ -39,13 +26,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="56dp"
         android:hint="@string/review"
         android:textAlignment="center"
         app:layout_constraintTop_toBottomOf="@+id/subject_popup_comment"
         app:layout_editor_absoluteX="28dp"
         app:layout_editor_absoluteY="394dp"
-        tools:layout_editor_absoluteX="-16dp" />
+        tools:layout_editor_absoluteX="0dp" />
 
     <TextView
 
@@ -67,30 +54,39 @@
         android:id="@+id/close_popup_comment"
         android:layout_width="76dp"
         android:layout_height="33dp"
-        android:layout_marginBottom="308dp"
         android:scrollbarSize="4dp"
         android:text="@string/cancel"
         android:textSize="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.211"
+        app:layout_constraintHorizontal_bias="0.197"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/review_popup_comment"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.16" />
 
     <Button
 
         android:id="@+id/save_popup_comment"
         android:layout_width="76dp"
         android:layout_height="33dp"
-        android:layout_marginEnd="80dp"
-        android:layout_marginBottom="308dp"
+        android:layout_marginEnd="72dp"
         android:scrollbarSize="4dp"
         android:text="@string/save"
         android:textSize="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/close_popup_comment"
         app:layout_constraintTop_toBottomOf="@+id/review_popup_comment"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.16" />
+
+    <RatingBar
+        android:id="@+id/ratingBar_popup_comment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/leave_a_comment_popup_comment" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -114,8 +114,7 @@
     <string name="my_profile_about_me_title">About Me:</string>
     <string name="my_profile_age_title">Age:</string>
     <string name="My_lessons">My lessons</string>
-    <string name="rating_1_5">Rating(1-5)</string>
-    <string name="subject_comment">Subject_comment</string>
+    <string name="subject_comment">Subject comment</string>
     <string name="review">Review</string>
     <string name="leave_a_comment">Leave a comment</string>
     <string name="settingsPage">Settings</string>
@@ -128,4 +127,6 @@
     <string name="contact_us">Contact Us</string>
     <string name="delete_account">Delete account</string>
     <string name="change_language">Change language</string>
+    <string name="enter_email">Enter email:</string>
+    <string name="confirm">Confirm</string>
 </resources>

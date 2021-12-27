@@ -114,8 +114,9 @@
     <string name="change_language">שינוי שפה</string>
     <string name="settingsPage">הגדרות</string>
     <string name="My_lessons">השיעורים שלי</string>
-    <string name="rating_1_5">Rating(1-5)</string>
-    <string name="subject_comment">Subject_comment</string>
-    <string name="review">Review</string>
-    <string name="leave_a_comment">Leave a comment</string>
+    <string name="subject_comment">נושא</string>
+    <string name="review">תוכן</string>
+    <string name="leave_a_comment">השאר תגובה</string>
+    <string name="enter_email">הכנס אימייל:</string>
+    <string name="confirm">אישור</string>
 </resources>

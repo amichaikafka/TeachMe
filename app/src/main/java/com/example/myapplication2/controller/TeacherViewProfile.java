@@ -62,7 +62,8 @@ public class TeacherViewProfile extends AppCompatActivity {
     private Button phoneNumberBtn;
     private TextView aboutTextView;
     TeacherProfile otherTeacher;
-    private EditText  commentDialogRate, commentDialogSubject, commentDialogReview;
+    RatingBar commentDialogRate;
+    private EditText   commentDialogSubject, commentDialogReview;
     private TextView   aboutMeTv, priceTv,nameAndFamilyTv,reviewsTv;
     Button phoneBt;
     private String  reviews, phone, aboutMe, price,nameAndFamily;
@@ -253,7 +254,7 @@ public class TeacherViewProfile extends AppCompatActivity {
             dialogBuilder = new AlertDialog.Builder(this);
             final View lessonPopupView = getLayoutInflater().inflate(R.layout.review_popup, null);
 
-            commentDialogRate = (EditText) lessonPopupView.findViewById(R.id.rating_popup_comment);
+            commentDialogRate =  lessonPopupView.findViewById(R.id.ratingBar_popup_comment);
             commentDialogSubject = (EditText) lessonPopupView.findViewById(R.id.subject_popup_comment);
             commentDialogReview = (EditText) lessonPopupView.findViewById(R.id.review_popup_comment);
 
@@ -269,14 +270,15 @@ public class TeacherViewProfile extends AppCompatActivity {
             saveBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if(isValid()) {
+//                    if(isValid()) {
                         otherTeacher.setNumOfReviews(otherTeacher.getNumOfReviews()+1);
-                        otherTeacher.setSumOfReviews(otherTeacher.getSumOfReviews()+rateComment);
+                        otherTeacher.setSumOfReviews(otherTeacher.getSumOfReviews()+commentDialogRate.getRating());
                         otherTeacher.setRating(otherTeacher.getSumOfReviews()/otherTeacher.getNumOfReviews());
+                    System.out.println(commentDialogRate.getRating()+"sssssssssss");
                         myRef = database.getReference("Reviews/" + otherUserId).push();
                         Comment comment = new Comment(commentDialogSubject.getText().toString(),
                                 commentDialogReview.getText().toString(),
-                                new Date(), currUser.getFirstName() + " " + currUser.getLastName(), rateComment);
+                                new Date(), currUser.getFirstName() + " " + currUser.getLastName(), commentDialogRate.getRating());
                         myRef.setValue(comment);
                         myRef = database.getReference("Teachers/" + otherUserId + "/numOfReviews");
                         myRef.setValue(otherTeacher.getNumOfReviews());
@@ -285,7 +287,7 @@ public class TeacherViewProfile extends AppCompatActivity {
                         myRef = database.getReference("Teachers/" + otherUserId + "/rating");
                         myRef.setValue((otherTeacher.getRating()));
                         dialog.dismiss();
-                    }
+//                    }
                 }
             });
 
@@ -301,8 +303,8 @@ public class TeacherViewProfile extends AppCompatActivity {
         }
     }
     private boolean isValid(){
-        String rateS = commentDialogRate.getText().toString();
-
+//        String rateS = commentDialogRate.getNumStars();
+        String rateS="";
         try {
             rateComment = Integer.parseInt(rateS);
             if (rateComment > 5 || rate < 0) {

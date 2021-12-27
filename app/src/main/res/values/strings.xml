@@ -86,6 +86,16 @@
     <string name="view_teacher_price">Price</string>
     <string name="view_teacher_reviews"><![CDATA[Ratings & Reviews]]></string>
     <string name="my_details">My Profile</string>
+    <!--<string name="about_us">About Us</string> -->
+    <string name="we_are_teachme_our_goal_is_to_enable_the_determination_of_a_lesson_between_teacher_and_student_in_the_easiest_and_most_convenient_way_for_this_purpose_the_best_minds_in_our_company_have_created_an_accessible_app_that_allows_determining_a_lesson_teacher_rating_and_even_sorting_teachers_by_price_per_hour_to_fit_your_budget">We are TeachMe! Our goal is to unable the most easy and convenient way to make a lesson appointment. For this purpose the best minds in our company have created an accessible app that allows determining a lesson, Teacher rating And even sorting teachers by price per hour to fit your budget.</string>
+    <string name="teachmehelpmee_gmail_com">teachmehelpmee@gmail.com</string>
+    <!--<string name="about_us">About Us</string> -->
+    <string name="absolutely_not_the_service_we_provide_is_completely_free_payment_is_only_for_lesson_session_appointment">Absolutely not! The service we provide is completely free, Payment is only for lesson session appointment.</string>
+    <string name="is_the_usage_of_the_application_requires_payment">Is the usage of the application requires payment?</string>
+    <string name="how_can_i_contact_you">How can I contact you?</string>
+    <string name="where_are_you_located">Where are you located?</string>
+    <string name="hayarkon_16_street_tel_aviv_israel">hayarkon 16 street tel aviv, Israel</string>
+    <!--    <string name="settings">settings</string> -->
     <string name="Date_of_the_lesson">Date of the lesson</string>
     <string name="Field_of_study">Field of study</string>
     <string name="Price">Price</string>
@@ -108,4 +118,14 @@
     <string name="subject_comment">Subject_comment</string>
     <string name="review">Review</string>
     <string name="leave_a_comment">Leave a comment</string>
+    <string name="settingsPage">Settings</string>
+    <!--Adding a ListView -->
+    <string name="about_us">About Us</string>
+    <string name="change_password">Change password</string>
+    <string name="disable_notifications">Disable notifications</string>
+    <string name="deleting_an_account_is_permanent">Deleting an account is permanent</string>
+    <string name="hebrew_english">Hebrew / English</string>
+    <string name="contact_us">Contact Us</string>
+    <string name="delete_account">Delete account</string>
+    <string name="change_language">Change language</string>
 </resources>

@@ -34,6 +34,9 @@
             android:name=".controller.ContactUs"
             android:exported="false" />
         <activity
+            android:name=".controller.AboutUs"
+            android:exported="false" />
+        <activity
             android:name=".controller.Settings"
             android:exported="false" />
         <activity

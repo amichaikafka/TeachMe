@@ -12,6 +12,8 @@ import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -40,6 +42,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -221,6 +225,7 @@ public class HomePageNext extends AppCompatActivity {
             }
         });
     }
+
 //    public void onTeacherClick(View view){
 ////        TextView name=findViewById(R.id.textview_box_teacher_name);
 //        TextView name =(TextView) view;
@@ -276,6 +281,8 @@ public class HomePageNext extends AppCompatActivity {
         }
         return super.onContextItemSelected(item);
     }
+
+
     public class TeachersProfilesAdapter extends RecyclerView.Adapter<TeachersProfilesAdapter2.TeachersViewHolder2> {
 
         private ArrayList<TeacherProfile> teachers;
@@ -315,7 +322,23 @@ public class HomePageNext extends AppCompatActivity {
                     startActivity(new Intent(HomePageNext.this, TeacherViewProfile.class).putExtras(userToMove));
                 }
             });
-
+            FirebaseStorage firebaseStorage = FirebaseStorage.getInstance();
+            StorageReference storageReference = firebaseStorage.getReference();
+            try {
+                storageReference.child("profilePic/" + currentProfile.getUserID() + ".png").getBytes(Long.MAX_VALUE)
+                        .addOnSuccessListener(bytes -> {
+                            Bitmap bitmap = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
+                            holder.profileImageView.setImageBitmap(bitmap);
+                            holder.profileImageView.setAdjustViewBounds(true);
+                            holder.profileImageView.setMaxHeight(90);
+                            holder.profileImageView.setMaxWidth(90);
+                        }).addOnFailureListener(exception -> {
+                    System.out.println(exception);
+                });
+            }
+            catch(Exception e){
+                System.out.println(e);
+            }
         }
 
         @Override
@@ -344,6 +367,5 @@ public class HomePageNext extends AppCompatActivity {
                 priceTextView = itemView.findViewById(R.id.textview_box_teacher_price);
             }
         }
-
     }
 }

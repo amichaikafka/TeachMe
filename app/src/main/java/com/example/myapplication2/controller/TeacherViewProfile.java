@@ -130,8 +130,8 @@ public class TeacherViewProfile extends AppCompatActivity {
         nameAndFamilyTv.setText(nameAndFamily);
 
         ratingBarRb.setRating(rate);
-
-//        loadImage();
+        picImageView = findViewById(R.id.viewProfilePic);
+        loadImage();
     }
     public void onClickPhoneCall(View view){
         final int REQUEST_PHONE_CALL = 1;
@@ -152,7 +152,7 @@ public class TeacherViewProfile extends AppCompatActivity {
     public void loadImage(){
         FirebaseStorage firebaseStorage = FirebaseStorage.getInstance();
         StorageReference storageReference = firebaseStorage.getReference();
-        storageReference.child("profilePic/" + getIntent().getExtras().getString("otherUserId") + ".png").getBytes(Long.MAX_VALUE)
+        storageReference.child("profilePic/" + otherUserId + ".png").getBytes(Long.MAX_VALUE)
                 .addOnSuccessListener(bytes -> {
                     Bitmap bitmap = BitmapFactory.decodeByteArray(bytes,0,bytes.length);
                     picImageView.setImageBitmap(bitmap);

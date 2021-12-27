@@ -1,5 +1,6 @@
 package com.example.myapplication2.model;
 
+import android.graphics.Bitmap;
 import android.graphics.Point;
 
 import java.util.ArrayList;
@@ -16,7 +17,7 @@ public class TeacherProfile extends UserProfile {
     private int rating;
     private int numOfReviews;
     private List<String> reviews;           //TODO class Review
-    private String profilePicture;
+    private Bitmap profilePicture;
 
     public TeacherProfile() {
     }
@@ -28,7 +29,7 @@ public class TeacherProfile extends UserProfile {
     public TeacherProfile(String userId, String firstName, String lastName, Date dateOfBirth,
                           String emailAddress, String gender, String aboutMe, Point location,
                           String fieldsOfTeaching, String phoneNumber,
-                          double price, String iconPath) {
+                          double price, Bitmap pic) {
         super(userId, firstName, lastName, dateOfBirth, emailAddress, gender, aboutMe, location);
         this.fieldsOfTeaching = fieldsOfTeaching;
         this.listOfStudents = new HashSet<String>();
@@ -36,7 +37,7 @@ public class TeacherProfile extends UserProfile {
         this.price = price;
         this.listOfStudents = new HashSet<String>();
         this.rating = 0;
-        this.profilePicture = iconPath;
+        this.profilePicture = pic;
         this.numOfReviews = 0;
         this.reviews = new ArrayList<>();
     }
@@ -91,11 +92,11 @@ public class TeacherProfile extends UserProfile {
         this.phoneNumber = phoneNumber;
     }
 
-    public String getProfilePicture() {
+    public Bitmap getProfilePicture() {
         return profilePicture;
     }
 
-    public void setProfilePicture(String profilePicture) {
+    public void setProfilePicture(Bitmap profilePicture) {
         this.profilePicture = profilePicture;
     }
 

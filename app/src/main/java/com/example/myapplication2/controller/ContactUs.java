@@ -51,7 +51,7 @@ public class ContactUs extends AppCompatActivity {
                 try {
                     startActivity(Intent.createChooser(i, "Send mail..."));
                 } catch (android.content.ActivityNotFoundException ex) {
-                    Toast.makeText(ContactUs.this, "There are no email clients installed.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ContactUs.this, R.string.email_toset_cintact_us, Toast.LENGTH_SHORT).show();
                 }
             }
         });

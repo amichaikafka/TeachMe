@@ -84,7 +84,7 @@ public class HomePage extends AppCompatActivity {
 
                         @Override
                         public void onCancelled(@NonNull DatabaseError error) {
-                            Toast.makeText(HomePage.this, "error reading from firebase", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(HomePage.this, R.string.name_dusplay_home, Toast.LENGTH_SHORT).show();
                         }
                     });
                 }
@@ -93,7 +93,7 @@ public class HomePage extends AppCompatActivity {
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(HomePage.this, "error reading from firebase", Toast.LENGTH_SHORT).show();
+                Toast.makeText(HomePage.this,  R.string.name_dusplay_home, Toast.LENGTH_SHORT).show();
 
             }
         });
@@ -111,7 +111,7 @@ public class HomePage extends AppCompatActivity {
             intent.putExtras(userToMove);
             startActivity(intent);
         }else {
-            Toast.makeText(HomePage.this, "you mast choose subject from the list", Toast.LENGTH_SHORT).show();
+            Toast.makeText(HomePage.this, R.string.subject_choose_home, Toast.LENGTH_SHORT).show();
         }
     }
 

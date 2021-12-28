@@ -17,6 +17,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.myapplication2.R;
 import com.example.myapplication2.model.TeacherProfile;
@@ -119,7 +120,7 @@ public class TeacherEditProfile extends AppCompatActivity {
         loadImage();
     }
 
-    private void updateTeacher(){
+    private boolean updateTeacher(){
         email=emailEt.getText().toString();
         currTeacher.setEmailAddress(email);
         nameAndFamily=nameAndFamilyT.getText().toString();
@@ -128,21 +129,49 @@ public class TeacherEditProfile extends AppCompatActivity {
         subject=subjectEt.getText().toString();
         currTeacher.setFieldsOfTeaching(subject);
         price=priceEt.getText().toString();
-        currTeacher.setPrice(Double.parseDouble(price));
+        double realPrice=0;
+        try {
+            if (!price.isEmpty()) {
+                realPrice = Double.parseDouble(price);
+            }
+        }catch (Exception e){
+            Toast.makeText(this, R.string.price_more_info, Toast.LENGTH_LONG).show();
+            return false ;
+        }
+        currTeacher.setPrice(realPrice);
         age=ageEt.getText().toString();
+        try {
+            if (!(age.isEmpty())) {
+                Integer.parseInt(age);
+            }
+        } catch (Exception e) {
+            Toast.makeText(this, R.string.age_toset_more_info, Toast.LENGTH_LONG).show();
+            return false ;
+        }
         currTeacher.setAge(Integer.parseInt(age));
         phone=phoneEt.getText().toString();
+        try {
+            if (!(phone.isEmpty())) {
+                Double.parseDouble(phone);
+            }
+
+        } catch (Exception e) {
+            Toast.makeText(this, R.string.phone_toset_more_info, Toast.LENGTH_LONG).show();
+            return false ;
+        }
         currTeacher.setPhoneNumber(phone);
         aboutMe=aboutMeEt.getText().toString();
         currTeacher.setAboutMe(aboutMe);
+        return true;
     }
 
 
 
     public void onClickUpdate(View view) {
         Button updateBtn = (Button)view;
-        updateTeacher();
-        myRef.setValue(currTeacher);
+        if(updateTeacher()) {
+            myRef.setValue(currTeacher);
+        }
     }
 
     private void selectImage(Context context) {

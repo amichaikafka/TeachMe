@@ -102,35 +102,35 @@ public class Registration extends AppCompatActivity {
         userEmail= email.getText().toString().trim();
         userPassword=password.getText().toString().trim();
         if(name.isEmpty()){
-            Toast.makeText(Registration.this,"You must to fill the Name field",Toast.LENGTH_LONG).show();
+            Toast.makeText(Registration.this,R.string.name_choose_reg,Toast.LENGTH_LONG).show();
             return false;
         }
         if(lastName.isEmpty()){
-            Toast.makeText(Registration.this,"You must to fill the Family name field",Toast.LENGTH_LONG).show();
+            Toast.makeText(Registration.this,R.string.family_choose_reg,Toast.LENGTH_LONG).show();
             return false;
         }
         if(userEmail.isEmpty()){
-            Toast.makeText(Registration.this,"You must to fill the Email field",Toast.LENGTH_LONG).show();
+            Toast.makeText(Registration.this,R.string.email_choose_reg,Toast.LENGTH_LONG).show();
             return false;
         }
         if(userPassword.isEmpty()){
-            Toast.makeText(Registration.this,"You must to fill the Password field",Toast.LENGTH_LONG).show();
+            Toast.makeText(Registration.this,R.string.password_choose_reg,Toast.LENGTH_LONG).show();
             return false;
         }
         if (userPassword.length()<6) {
-            Toast.makeText(Registration.this, "Passwords must to be at list 6 characters", Toast.LENGTH_LONG).show();
+            Toast.makeText(Registration.this, R.string.password_len_choose_reg, Toast.LENGTH_LONG).show();
             return false;
         }
         if (!userPassword.equals(passwordValid.getText().toString().toString())){
-            Toast.makeText(Registration.this,"Password verification must match the selected password",Toast.LENGTH_LONG).show();
+            Toast.makeText(Registration.this,R.string.password_var_choose_reg,Toast.LENGTH_LONG).show();
             return false;
         }
         if (studentOrTeacher.getCheckedRadioButtonId()==-1){
-            Toast.makeText(Registration.this,"you must to chose Teacher/Student",Toast.LENGTH_LONG).show();
+            Toast.makeText(Registration.this,R.string.teacher_or_student_choose_reg,Toast.LENGTH_LONG).show();
             return false;
         }
         if (gender.getCheckedRadioButtonId()==-1){
-            Toast.makeText(Registration.this,"you must to choose gender type",Toast.LENGTH_LONG).show();
+            Toast.makeText(Registration.this,R.string.gender_choose_reg,Toast.LENGTH_LONG).show();
             return false;
         }
 
@@ -157,7 +157,7 @@ public class Registration extends AppCompatActivity {
                             } else {
 
                                 // If sign in fails
-                                Toast.makeText(Registration.this, "You have entered an invalid username or password", Toast.LENGTH_LONG).show();
+                                Toast.makeText(Registration.this, R.string.password_inval_choose_reg, Toast.LENGTH_LONG).show();
 
                             }
                         }

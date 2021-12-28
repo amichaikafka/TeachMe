@@ -130,4 +130,32 @@
     <string name="enter_email">Enter email:</string>
     <string name="confirm">Confirm</string>
     <string name="search_view">Type the teacher\'s name here...</string>
+    <string name="faild_login">Incorrect email or password</string>
+    <string name="password_reset_login">Password reset sent to email</string>
+    <string name="password_faield_reset_login">Failed to reset sent to email</string>
+    <string name="name_dusplay_home">Error reading from firebase</string>
+    <string name="subject_choose_home">You mast choose subject from the list</string>
+    <string name="name_choose_reg">You must to fill the Name field</string>
+    <string name="family_choose_reg">You must to fill the Family name field</string>
+    <string name="email_choose_reg">You must to fill the Email field</string>
+    <string name="password_choose_reg">You must to fill the Password field</string>
+    <string name="password_len_choose_reg">Passwords must to be at list 6 characters</string>
+    <string name="password_var_choose_reg">Password verification must match the selected password</string>
+    <string name="teacher_or_student_choose_reg">You must to chose Teacher/Student</string>
+    <string name="password_inval_choose_reg">You have entered an invalid email or password</string>
+    <string name="gender_choose_reg">You must to choose gender type</string>
+    <string name="fields_toest_more_info">You must add fields of study</string>
+    <string name="age_toset_more_info">Age must be a number</string>
+    <string name="phone_toset_more_info">Phone must contains only numbers</string>
+    <string name="price_toset_more_info">Price must be a number</string>
+    <string name="skip_toset_more_info">You have to fill fields of study to be display in the teachers list  </string>
+    <string name="email_toset_cintact_us">There are no email clients installed.</string>
+    <string name="date_toset_lesson">You entered an invalid date</string>
+    <string name="email_toset_lesson">You must specified mail</string>
+    <string name="date_less_toset_lesson">You must specified date</string>
+    <string name="study_field_toset_lesson">You must specified study field</string>
+    <string name="price_toset_lesson">You must specified price</string>
+    <string name="student_toset_profile_view">Only student of this teacher can leave a comment</string>
+
+
 </resources>

@@ -84,7 +84,8 @@ public class Login extends AppCompatActivity {
                                 startActivity(intent);
                             } else {
                                 // If sign in fails, display a message to the user.
-                                Toast.makeText(Login.this, "@string/subject_select_home", Toast.LENGTH_LONG).show();
+//                                Toast.makeText(Login.this, "@string/subject_select_home", Toast.LENGTH_LONG).show();
+                                Toast.makeText(Login.this,R.string.faild_login,Toast.LENGTH_LONG).show();
 
                             }
                         }
@@ -156,9 +157,9 @@ public class Login extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if(task.isSuccessful()){
-                            Toast.makeText(Login.this, "Password reset sent to email",Toast.LENGTH_LONG).show();
+                            Toast.makeText(Login.this, R.string.password_reset_login,Toast.LENGTH_LONG).show();
                         }else{
-                            Toast.makeText(Login.this, "faild to reset sent to email",Toast.LENGTH_LONG).show();
+                            Toast.makeText(Login.this, R.string.password_faield_reset_login,Toast.LENGTH_LONG).show();
                         }
                     }
                 });

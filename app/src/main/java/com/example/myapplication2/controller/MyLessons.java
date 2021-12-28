@@ -155,7 +155,7 @@ public class MyLessons extends AppCompatActivity {
                             }
                             if (l1 == null) {
                                 if (flag) {
-                                    Toast.makeText(MyLessons.this, "You entered an invalid date", Toast.LENGTH_LONG).show();
+                                    Toast.makeText(MyLessons.this, R.string.date_toset_lesson, Toast.LENGTH_LONG).show();
                                 }
                             }
                         }
@@ -209,7 +209,7 @@ public class MyLessons extends AppCompatActivity {
                             }
                             if (l1 == null) {
                                 if (flag) {
-                                    Toast.makeText(MyLessons.this, "You entered an invalid date", Toast.LENGTH_LONG).show();
+                                    Toast.makeText(MyLessons.this, R.string.date_toset_lesson, Toast.LENGTH_LONG).show();
                                 }
                             }
                         }
@@ -260,19 +260,19 @@ public class MyLessons extends AppCompatActivity {
 
     private boolean checkInfo() {
         if (lessonDialogStudentMail.getText().toString().isEmpty()) {
-            Toast.makeText(MyLessons.this, "You must specified mail", Toast.LENGTH_LONG).show();
+            Toast.makeText(MyLessons.this, R.string.email_toset_lesson, Toast.LENGTH_LONG).show();
             return false;
         }
         if (lessonDialogDate.getText().toString().isEmpty()) {
-            Toast.makeText(MyLessons.this, "You must specified date", Toast.LENGTH_LONG).show();
+            Toast.makeText(MyLessons.this, R.string.date_less_toset_lesson, Toast.LENGTH_LONG).show();
             return false;
         }
         if (lessonDialogStudyField.getText().toString().isEmpty()) {
-            Toast.makeText(MyLessons.this, "You must specified study field", Toast.LENGTH_LONG).show();
+            Toast.makeText(MyLessons.this,  R.string.study_field_toset_lesson, Toast.LENGTH_LONG).show();
             return false;
         }
         if (lessonDialogPrice.getText().toString().isEmpty()) {
-            Toast.makeText(MyLessons.this, "You must specified price", Toast.LENGTH_LONG).show();
+            Toast.makeText(MyLessons.this, R.string.price_toset_lesson, Toast.LENGTH_LONG).show();
             return false;
         }
         return true;

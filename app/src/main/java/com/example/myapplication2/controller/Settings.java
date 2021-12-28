@@ -178,9 +178,9 @@ public class Settings extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if(task.isSuccessful()){
-                    Toast.makeText(Settings.this, "Password reset sent to email",Toast.LENGTH_LONG).show();
+                    Toast.makeText(Settings.this, R.string.password_reset_login,Toast.LENGTH_LONG).show();
                 }else{
-                    Toast.makeText(Settings.this, "faild to reset sent to email",Toast.LENGTH_LONG).show();
+                    Toast.makeText(Settings.this, R.string.password_faield_reset_login,Toast.LENGTH_LONG).show();
                 }
             }
         });

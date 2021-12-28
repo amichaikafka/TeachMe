@@ -96,7 +96,7 @@ public class TeacherMoreInfo extends AppCompatActivity {
     private boolean checkInfo() {
         subject = subjectEt.getText().toString();
         if(subject.isEmpty()){
-            Toast.makeText(this, "you must add fields of study", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, R.string.fields_toest_more_info, Toast.LENGTH_LONG).show();
             return false;
         }
         age = ageEt.getText().toString();
@@ -105,17 +105,17 @@ public class TeacherMoreInfo extends AppCompatActivity {
                 Integer.parseInt(age);
             }
         } catch (Exception e) {
-            Toast.makeText(this, "age must be a number", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, R.string.age_toset_more_info, Toast.LENGTH_LONG).show();
             return false;
         }
         phone = phoneEt.getText().toString();
         try {
             if (!(phone.isEmpty())) {
-                Integer.parseInt(phone);
+                Double.parseDouble(phone);
             }
 
         } catch (Exception e) {
-            Toast.makeText(this, "phone must contains only numbers", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, R.string.phone_toset_more_info, Toast.LENGTH_LONG).show();
             return false;
         }
         aboutMe = aboutMeEt.getText().toString();
@@ -125,7 +125,7 @@ public class TeacherMoreInfo extends AppCompatActivity {
                 Integer.parseInt(price);
             }
         } catch (Exception e) {
-            Toast.makeText(this, "price must be a number", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, R.string.price_more_info, Toast.LENGTH_LONG).show();
             return false;
         }
 
@@ -134,7 +134,7 @@ public class TeacherMoreInfo extends AppCompatActivity {
     }
 
     public void onClickSkip(View view) {
-        Toast.makeText(TeacherMoreInfo.this, "you wont be shown..", Toast.LENGTH_LONG).show();
+        Toast.makeText(TeacherMoreInfo.this, R.string.skip_toset_more_info, Toast.LENGTH_LONG).show();
         startActivity(new Intent(TeacherMoreInfo.this, Login.class));
 
     }

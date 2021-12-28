@@ -308,7 +308,7 @@ public class TeacherViewProfile extends AppCompatActivity {
                 }
             });
         }else{
-            Toast.makeText(this, "Only student of this teacher can leave a comment", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, R.string.student_toset_profile_view, Toast.LENGTH_LONG).show();
 
         }
     }

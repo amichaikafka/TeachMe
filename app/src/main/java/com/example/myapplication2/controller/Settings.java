@@ -23,6 +23,8 @@ import com.example.myapplication2.model.TeacherProfile;
 import com.example.myapplication2.model.UserProfile;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthCredential;
+import com.google.firebase.auth.EmailAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -131,7 +133,7 @@ public class Settings extends AppCompatActivity {
         actionBar.setTitle(getResources().getString(R.string.app_name));
         final String[] lang = {"Yes", "No"};
         AlertDialog.Builder myBuilder = new AlertDialog.Builder(Settings.this);
-        myBuilder.setTitle("Are you sure?");
+        myBuilder.setTitle("Are you sure you want to delete the account?");
         myBuilder.setSingleChoiceItems(lang, -1, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
@@ -139,13 +141,43 @@ public class Settings extends AppCompatActivity {
                     //FirebaseAuth.getInstance().deleteUser(mAuth.getUid());
                     // System.out.println("Successfully deleted user.");
 
+                    final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
+                    // Get auth credentials from the user for re-authentication. The example below shows
+                    // email and password credentials but there are multiple possible providers,
+                    // such as GoogleAuthProvider or FacebookAuthProvider.
+                    AuthCredential credential = EmailAuthProvider
+                            .getCredential("user@example.com", "password1234");
+
+                    // Prompt the user to re-provide their sign-in credentials
+                    user.reauthenticate(credential)
+                            .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+                                    user.delete()
+                                            .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                @Override
+                                                public void onComplete(@NonNull Task<Void> task) {
+                                                    if (task.isSuccessful()) {
+                                                        System.out.println("Successfully deleted user.");
+                                                    }
+                                                }
+                                            });
+                                }
+                            });
                 }
+
+                Intent intent = new Intent(Settings.this, Login.class);
+                startActivity(intent.putExtras(userToMove));
+
                 dialog.dismiss();
             }
         });
 
         myBuilder.create().show();
+
+
+
 
     }
 

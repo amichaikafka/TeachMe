@@ -11,6 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
         android:text="12.03.2021"
+        android:textColor="#000"
         app:layout_constraintEnd_toEndOf="@+id/lesson_box_study_feild"
         app:layout_constraintStart_toStartOf="@+id/lesson_box_study_feild"
         app:layout_constraintTop_toBottomOf="@+id/lesson_box_study_feild" />
@@ -21,6 +22,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
         android:text="Java"
+        android:textColor="#000"
         app:layout_constraintBottom_toTopOf="@+id/divider_lesson_box"
         app:layout_constraintEnd_toEndOf="@+id/lesson_box_student_name"
         app:layout_constraintHorizontal_bias="0.0"
@@ -33,7 +35,7 @@
         android:layout_width="0dp"
         android:layout_height="2dp"
         android:layout_marginStart="1dp"
-        android:layout_marginTop="164dp"
+        android:layout_marginTop="140dp"
         android:layout_marginEnd="1dp"
         android:background="?android:attr/listDivider"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -51,6 +53,7 @@
         android:layout_marginTop="12dp"
         android:layout_marginEnd="4dp"
         android:text="Teacher name:"
+        android:textColor="#000"
         app:layout_constraintBottom_toTopOf="@+id/lesson_box_student"
         app:layout_constraintEnd_toStartOf="@+id/lesson_box_teacher_name"
         app:layout_constraintStart_toStartOf="parent"
@@ -60,32 +63,32 @@
         android:id="@+id/lesson_box_student"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
         android:layout_marginTop="12dp"
         android:text="Student name:"
+        android:textColor="#000"
         app:layout_constraintBottom_toTopOf="@+id/lesson_box_study"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/lesson_box_teacher"
         app:layout_constraintTop_toBottomOf="@+id/lesson_box_teacher" />
 
     <TextView
         android:id="@+id/lesson_box_study"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
         android:layout_marginTop="12dp"
         android:text="Field of study:"
+        android:textColor="#000"
         app:layout_constraintBottom_toTopOf="@+id/lesson_box_date"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/lesson_box_student"
         app:layout_constraintTop_toBottomOf="@+id/lesson_box_student" />
 
     <TextView
         android:id="@+id/lesson_box_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
         android:layout_marginTop="12dp"
         android:text="Lesson date:"
-        app:layout_constraintStart_toStartOf="parent"
+        android:textColor="#000"
+        app:layout_constraintStart_toStartOf="@+id/lesson_box_study"
         app:layout_constraintTop_toBottomOf="@+id/lesson_box_study" />
 
     <TextView
@@ -93,12 +96,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
-        android:layout_marginEnd="92dp"
         android:text="Price:"
+        android:textColor="#000"
         app:layout_constraintBottom_toTopOf="@+id/divider_lesson_box"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/lesson_box_student_name"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.293" />
 
     <TextView
         android:id="@+id/lesson_box_teacher_name"
@@ -106,9 +110,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
         android:layout_marginTop="12dp"
-        android:layout_marginEnd="4dp"
+        android:layout_marginEnd="160dp"
         android:text="Yossi"
-        app:layout_constraintEnd_toStartOf="@+id/lesson_box_price"
+        android:textColor="#000"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/lesson_box_teacher"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -116,26 +121,24 @@
         android:id="@+id/lesson_box_price_nis"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
         android:layout_marginTop="12dp"
         android:text="112 NIS"
         android:textColor="#228be6"
-        app:layout_constraintBottom_toTopOf="@+id/divider_lesson_box"
-        app:layout_constraintStart_toEndOf="@+id/lesson_box_price"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/lesson_box_study_feild"
+        app:layout_constraintTop_toBottomOf="@+id/lesson_box_price" />
 
     <TextView
         android:id="@+id/lesson_box_student_name"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
         android:layout_marginTop="12dp"
         android:text="Eyal"
+        android:textColor="#000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/lesson_box_teacher_name"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/lesson_box_teacher"
+        app:layout_constraintStart_toStartOf="@+id/lesson_box_teacher_name"
         app:layout_constraintTop_toBottomOf="@+id/lesson_box_teacher_name"
         app:layout_constraintVertical_bias="0.009" />
 </androidx.constraintlayout.widget.ConstraintLayout>

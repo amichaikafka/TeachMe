@@ -119,7 +119,7 @@
     <string name="leave_a_comment">השאר תגובה</string>
     <string name="enter_email">הכנס אימייל:</string>
     <string name="confirm">אישור</string>
-    <string name="search_view">Type the teacher\'s name here...</string>
+    <string name="search_view">הקלד את שם המורה כאן...</string>
     <string name="faild_login">שם משתמש או סיסמא לא נכונים</string>
     <string name="password_reset_login">נשלח מייל לאיפוס סיסמא</string>
     <string name="password_faield_reset_login">נכשלה שליחת מייל לאיפוס סיסמא</string>
@@ -146,4 +146,5 @@
     <string name="study_field_toset_lesson">חייב להכניס מקצוע לימוד</string>
     <string name="price_toset_lesson">חייב להכניס מחיר</string>
     <string name="student_toset_profile_view">רק סטודנטים של מורה זה יכולים להשאיר תגובה</string>
+    <string name="search_for_teacher">חפש מורה</string>
 </resources>

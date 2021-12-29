@@ -156,6 +156,7 @@
     <string name="study_field_toset_lesson">You must specified study field</string>
     <string name="price_toset_lesson">You must specified price</string>
     <string name="student_toset_profile_view">Only student of this teacher can leave a comment</string>
+    <string name="search_for_teacher">Search for teacher</string>
 
 
 </resources>

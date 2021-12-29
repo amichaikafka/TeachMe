@@ -48,6 +48,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="50dp"
             android:text="@string/my_profile_name_title"
+            android:textAlignment="viewStart"
             android:textSize="20sp" />
 
         <EditText
@@ -56,7 +57,8 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="@string/my_profile_name"
-            android:inputType="textPersonName" />
+            android:inputType="textPersonName"
+            android:textAlignment="viewStart" />
     </LinearLayout>
 
     <LinearLayout
@@ -72,6 +74,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="87dp"
             android:text="@string/my_profile_email_title"
+            android:textAlignment="viewStart"
             android:textSize="20sp" />
 
         <EditText
@@ -81,6 +84,7 @@
             android:clickable="false"
             android:ems="10"
             android:hint="@string/my_profile_email"
+            android:textAlignment="viewStart"
             android:inputType="textPersonName" />
     </LinearLayout>
 
@@ -97,6 +101,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="69dp"
             android:text="@string/my_profile_subject_title"
+            android:textAlignment="viewStart"
             android:textSize="20sp" />
 
         <EditText
@@ -105,6 +110,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="@string/my_profile_subject"
+            android:textAlignment="viewStart"
             android:inputType="textPersonName" />
     </LinearLayout>
 
@@ -121,6 +127,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="3dp"
             android:text="@string/my_profile_phone_title"
+            android:textAlignment="viewStart"
             android:textSize="20sp" />
 
         <EditText
@@ -129,6 +136,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="@string/phone_number_more_info"
+            android:textAlignment="viewStart"
             android:inputType="textPersonName"/>
 
     </LinearLayout>
@@ -146,6 +154,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="91dp"
             android:text="@string/my_profile_price"
+            android:textAlignment="viewStart"
             android:textSize="20sp"/>
 
         <EditText
@@ -154,6 +163,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="@string/price_more_info"
+            android:textAlignment="viewStart"
             android:inputType="textPersonName"/>
 
 </LinearLayout>
@@ -171,6 +181,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="101dp"
             android:text="@string/my_profile_age_title"
+            android:textAlignment="viewStart"
             android:textSize="20sp"/>
 
         <EditText
@@ -179,6 +190,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="@string/age_more_info"
+            android:textAlignment="viewStart"
             android:inputType="textPersonName"/>
 </LinearLayout>
 
@@ -195,6 +207,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="50dp"
             android:text="@string/my_profile_about_me_title"
+            android:textAlignment="viewStart"
             android:textSize="20sp"/>
 
         <EditText
@@ -203,6 +216,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="About me"
+            android:textAlignment="viewStart"
             android:inputType="textMultiLine" />
 
     </LinearLayout>

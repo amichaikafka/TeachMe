@@ -20,13 +20,13 @@
         android:theme="@style/Theme.MyApplication2">
 
         <activity
-            android:name=".controller.TeacherMoreInfo"
+            android:name=".controller.TeacherRegistration"
             android:exported="false" />
         <activity
             android:name=".controller.TeacherViewProfile"
             android:exported="false" />
         <activity
-            android:name=".controller.TeacherEditProfile"
+            android:name=".controller.MyProfile"
             android:exported="false" />
         <activity
             android:name=".controller.HomePageNext"

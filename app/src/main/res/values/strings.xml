@@ -114,9 +114,9 @@
     <string name="my_profile_about_me_title">About Me:</string>
     <string name="my_profile_age_title">Age:</string>
     <string name="My_lessons">My lessons</string>
-    <string name="subject_comment">Subject comment</string>
+    <string name="subject_comment">Subject review</string>
     <string name="review">Review</string>
-    <string name="leave_a_comment">Leave a comment</string>
+    <string name="leave_a_comment">Leave a review</string>
     <string name="settingsPage">Settings</string>
     <!--Adding a ListView -->
     <string name="about_us">About Us</string>
@@ -155,7 +155,7 @@
     <string name="date_less_toset_lesson">You must specified date</string>
     <string name="study_field_toset_lesson">You must specified study field</string>
     <string name="price_toset_lesson">You must specified price</string>
-    <string name="student_toset_profile_view">Only student of this teacher can leave a comment</string>
+    <string name="student_toset_profile_view">Only student of this teacher can leave a review</string>
     <string name="search_for_teacher">Search for teacher</string>
 
 

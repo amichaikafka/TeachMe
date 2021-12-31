@@ -60,5 +60,4 @@ public class LessonAdapter extends RecyclerView.Adapter<LessonAdapter.LessonView
             priceTextView = itemView.findViewById(R.id.lesson_box_price_nis);
         }
     }
-
 }

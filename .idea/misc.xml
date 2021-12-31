@@ -57,8 +57,10 @@
         <entry key="app/src/main/res/drawable/border.xml" value="0.2652777777777778" />
         <entry key="app/src/main/res/drawable/custom_input.xml" value="0.4197916666666667" />
         <entry key="app/src/main/res/drawable/email_icon.xml" value="0.4197916666666667" />
+        <entry key="app/src/main/res/drawable/ic_baseline_contact_support_24.xml" value="0.3731481481481482" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.18385416666666668" />
         <entry key="app/src/main/res/drawable/password_icon.xml" value="0.4197916666666667" />
+        <entry key="app/src/main/res/layout/activity_about_us.xml" value="0.3587962962962963" />
         <entry key="app/src/main/res/layout/activity_contact_us.xml" value="0.3145833333333333" />
         <entry key="app/src/main/res/layout/activity_home_page.xml" value="0.29112032154413875" />
         <entry key="app/src/main/res/layout/activity_home_page_next.xml" value="0.44623655913978494" />
@@ -67,7 +69,7 @@
         <entry key="app/src/main/res/layout/activity_my_lessons.xml" value="0.3145833333333333" />
         <entry key="app/src/main/res/layout/activity_registration.xml" value="0.7659759141655686" />
         <entry key="app/src/main/res/layout/activity_setting.xml" value="0.2732066157035665" />
-        <entry key="app/src/main/res/layout/activity_subject_row.xml" value="0.16944444444444445" />
+        <entry key="app/src/main/res/layout/activity_subject_row.xml" value="0.7148546495519331" />
         <entry key="app/src/main/res/layout/activity_teacher_edit_profile.xml" value="0.28961136023916295" />
         <entry key="app/src/main/res/layout/activity_teacher_more_info.xml" value="0.3587962962962963" />
         <entry key="app/src/main/res/layout/activity_teacher_or_student.xml" value="0.42101681867200147" />
@@ -75,9 +77,13 @@
         <entry key="app/src/main/res/layout/fragment_home_omer.xml" value="0.3145833333333333" />
         <entry key="app/src/main/res/layout/fragment_settings.xml" value="0.3701768378286975" />
         <entry key="app/src/main/res/layout/lesson_box.xml" value="0.24096689842147773" />
+        <entry key="app/src/main/res/layout/lesson_popup.xml" value="0.3587962962962963" />
         <entry key="app/src/main/res/layout/open_screen.xml" value="0.375" />
+        <entry key="app/src/main/res/layout/password_popup.xml" value="0.3587962962962963" />
+        <entry key="app/src/main/res/layout/review_popup.xml" value="0.3587962962962963" />
         <entry key="app/src/main/res/layout/teacher_profile_box.xml" value="0.6080910240202275" />
         <entry key="app/src/main/res/layout/teacher_review_box.xml" value="0.3888196537672605" />
+        <entry key="app/src/main/res/menu/menu_activity.xml" value="0.3587962962962963" />
         <entry key="app/src/main/res/xml/root_preferences.xml" value="0.5292745835320584" />
       </map>
     </option>

@@ -34,12 +34,9 @@ import android.widget.Toast;
 
 import com.example.myapplication2.R;
 import com.example.myapplication2.model.TeacherProfile;
-import com.example.myapplication2.model.TeachersProfilesAdapter2;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
@@ -47,12 +44,10 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Locale;
 
 
 public class HomePageNext extends AppCompatActivity {
-    private FirebaseUser mAuth;
     private SearchView searchName;
     private FirebaseDatabase database;
     private Query myQuery = null;
@@ -61,131 +56,69 @@ public class HomePageNext extends AppCompatActivity {
     private RadioButton sortBy;
     private String sortParam = "firstName";
     private String subject;
-    private HashMap<String,String> findId=new HashMap<>();
     private boolean isTeacher;
-    Bundle userToMove=new Bundle();
-
-    DatabaseReference myRef = null;
+    private final Bundle userToMove = new Bundle();
 
     @RequiresApi(api = Build.VERSION_CODES.P)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page_next);
-        savedInstanceState=getIntent().getExtras();
-        subject=savedInstanceState.getString("subject");
-        isTeacher =savedInstanceState.getBoolean("user");
+        savedInstanceState = getIntent().getExtras();
+        subject = savedInstanceState.getString("subject");
+        isTeacher = savedInstanceState.getBoolean("user");
         userToMove.putBoolean("user", isTeacher);
         searchName = findViewById(R.id.searchView_search);
         System.out.println(searchName.toString());
         database = FirebaseDatabase.getInstance("https://teachme-c8637-default-rtdb.firebaseio.com/");
 
         sortGroup = findViewById(R.id.radio_sort);
-        sortGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @SuppressLint("NonConstantResourceId")
-            @Override
-            public void onCheckedChanged(RadioGroup group, int checkedId) {
-//                sortBy();
-                switch (checkedId){
-                    case R.id.radio_sort_name:
-                        sortParam="firstName";
-                        break;
-                    case R.id.radio_sort_price:
-                        sortParam="price";
-                        break;
-                    case R.id.radio_sort_rating:
-                        sortParam="rating";
-                        break;
-                }
-                techersDisplay();
+        sortGroup.setOnCheckedChangeListener((group, checkedId) -> {
+            switch (checkedId) {
+                case R.id.radio_sort_name:
+                    sortParam = "firstName";
+                    break;
+                case R.id.radio_sort_price:
+                    sortParam = "price";
+                    break;
+                case R.id.radio_sort_rating:
+                    sortParam = "rating";
+                    break;
             }
+            teachersDisplay();
         });
         searchName.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
-//                System.out.println(query);
                 searchVal = query;
                 sortBy();
-                techersDisplay();
-
-
+                teachersDisplay();
                 return false;
             }
 
             @Override
             public boolean onQueryTextChange(String newText) {
-//                System.out.println(newText+" _________");
                 searchVal = newText;
                 sortBy();
-                techersDisplay();
+                teachersDisplay();
                 return false;
             }
         });
-
-        techersDisplay();
-
-//        ArrayList<TeacherProfile> teachers= new ArrayList<>();
-//        TeacherProfile itai = new TeacherProfile("111", "Itai","Lashover",
-//                new Date(1,1,1),1+"@gmail.com",
-//                "male", "Private tutur in Java, Python, JavaScript and more...\nPrice:100 NIS per hour ", new Point(0,0), new ArrayList<String>(),
-//                "052-4810824",100, "empty_profile_pic");
-//        itai.setNumOfReviews(52);
-//        itai.setRating(5);
-//        teachers.add(itai);
-//        for(int i=1 ; i<20 ; i++){
-//            teachers.add(new TeacherProfile("111", "first"+i, "last"+i,
-//                    new Date(1,1,i),i+"@gmail.com",
-//                    "male", "nothing", new Point(i,i), new ArrayList<String>(),
-//                    "050-"+i+i+i+i+i+i,100+i, "empty_profile_pic"));
-//        }
-
-
-//        myQuery.addChildEventListener(new ChildEventListener() {
-//            @SuppressLint("NotifyDataSetChanged")
-//            @Override
-//            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-//                TeacherProfile teacherProfile=snapshot.getValue(TeacherProfile.class);
-//                teachers.add(teacherProfile);
-//                teachersProfilesAdapter.notifyDataSetChanged();
-//            }
-//
-//            @SuppressLint("NotifyDataSetChanged")
-//            @Override
-//            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-//                TeacherProfile teacherProfile=snapshot.getValue(TeacherProfile.class);
-//                teachers.add(teacherProfile);
-//                teachersProfilesAdapter.notifyDataSetChanged();
-//            }
-//
-//            @Override
-//            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
-//
-//            }
-//
-//            @Override
-//            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-//
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError error) {
-//
-//            }
-//        });
+        teachersDisplay();
     }
 
     public void sortBy() {
         sortBy = findViewById(sortGroup.getCheckedRadioButtonId());
-        if (sortGroup.getCheckedRadioButtonId()!=-1) {
+        if (sortGroup.getCheckedRadioButtonId() != -1) {
             if (sortBy.getText().toString().trim().equals("Price") || sortBy.getText().toString().trim().equals("Rate")) {
                 sortParam = sortBy.getText().toString().trim().toLowerCase(Locale.ROOT);
-            }else{
-                sortParam="firstName";
+            } else {
+                sortParam = "firstName";
             }
         }
     }
 
-    public void techersDisplay() {
+    public void teachersDisplay() {
         ArrayList<TeacherProfile> teachers = new ArrayList<>();
         RecyclerView recyclerView = findViewById(R.id.teacher_search_results);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
@@ -202,17 +135,16 @@ public class HomePageNext extends AppCompatActivity {
                 for (DataSnapshot teacher : snapshot.getChildren()) {
                     TeacherProfile currTeacher = teacher.getValue(TeacherProfile.class);
 
-//                    System.out.println(currTeacher.getFirstName()+" "+searchVal);
                     searchVal = searchVal.toLowerCase(Locale.ROOT);
-                    subject=subject.toLowerCase(Locale.ROOT);
+                    subject = subject.toLowerCase(Locale.ROOT);
+                    assert currTeacher != null;
                     String nameAndFamily = currTeacher.getFirstName().toLowerCase(Locale.ROOT) + " " + currTeacher.getLastName().toLowerCase(Locale.ROOT);
-                    if (nameAndFamily.contains(searchVal)&&currTeacher.getFieldsOfTeaching().toLowerCase(Locale.ROOT).contains(subject)) {
-//                        findId.put(currTeacher.getEmailAddress(),teacher.getKey());
+                    if (nameAndFamily.contains(searchVal) && currTeacher.getFieldsOfTeaching().toLowerCase(Locale.ROOT).contains(subject)) {
                         currTeacher.setUserID(teacher.getKey());
                         if (sortParam.equals("rating")) {
-                            teachers.add(0,currTeacher);
+                            teachers.add(0, currTeacher);
 
-                        }else {
+                        } else {
                             teachers.add(currTeacher);
                         }
                     }
@@ -227,70 +159,23 @@ public class HomePageNext extends AppCompatActivity {
         });
     }
 
-//    public void onTeacherClick(View view){
-////        TextView name=findViewById(R.id.textview_box_teacher_name);
-//        TextView name =(TextView) view;
-//        System.out.println(name.getText());
-//        String userName=name.getText().toString();
-//        userToMove.putString("otherUserId",findId.get(userName));
-//        startActivity(new Intent(this, TeacherViewProfile.class).putExtras(userToMove));
-//    }
 
-    public void onClickPhoneCall(View view){
+    public void onClickPhoneCall(View view) {
         final int REQUEST_PHONE_CALL = 1;
 
-        Button phoneBtn = (Button)view;
-        Intent callIntent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:"+phoneBtn.getText().toString()));
-//        callIntent.setData(Uri.parse("tel:"+phoneBtn.getText().toString()));
+        Button phoneBtn = (Button) view;
+        Intent callIntent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + phoneBtn.getText().toString()));
         if (ContextCompat.checkSelfPermission(HomePageNext.this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(HomePageNext.this, new String[]{Manifest.permission.CALL_PHONE},REQUEST_PHONE_CALL);
-        }
-        else
-        {
+            ActivityCompat.requestPermissions(HomePageNext.this, new String[]{Manifest.permission.CALL_PHONE}, REQUEST_PHONE_CALL);
+        } else {
             startActivity(callIntent);
         }
         startActivity(callIntent);
     }
 
-    //** menu **//
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_activity, menu);
-        MenuItem menuItem=menu.getItem(1);
-        if(!isTeacher){
-            menuItem.setVisible(false);
-        }
-        return true;
-    }
+    public class TeachersProfilesAdapter extends RecyclerView.Adapter<TeachersProfilesAdapter.TeachersViewHolder> {
 
-    //TODO: need to add case for every items.
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if (item.getItemId() == R.id.menu_home) startActivity(new Intent(this, HomePage.class).putExtras(userToMove));
-        if (item.getItemId() == R.id.menu_myLesson)
-            startActivity(new Intent(this, MyLessons.class).putExtras(userToMove));
-        if (item.getItemId() == R.id.menu_contact) startActivity(new Intent(this, ContactUs.class).putExtras(userToMove));
-        if (item.getItemId() == R.id.menu_setting) startActivity(new Intent(this, Settings.class).putExtras(userToMove));
-        if (item.getItemId() == R.id.menu_logout) {
-            FirebaseAuth.getInstance().signOut();
-            startActivity(new Intent(this, Login.class));
-        }
-        if (item.getItemId() == R.id.menu_myProfile){
-            if(!isTeacher){
-                Toast.makeText(this, "only teacher can edit profile", Toast.LENGTH_LONG).show();
-            }else {
-                Intent intent = new Intent(this, TeacherEditProfile.class);
-                intent.putExtras(userToMove);
-                startActivity(intent);;
-            }
-        }
-        return super.onContextItemSelected(item);
-    }
-
-
-    public class TeachersProfilesAdapter extends RecyclerView.Adapter<TeachersProfilesAdapter2.TeachersViewHolder2> {
-
-        private ArrayList<TeacherProfile> teachers;
+        private final ArrayList<TeacherProfile> teachers;
 
         public TeachersProfilesAdapter(ArrayList<TeacherProfile> teachers) {
             this.teachers = teachers;
@@ -298,34 +183,29 @@ public class HomePageNext extends AppCompatActivity {
 
         @NonNull
         @Override
-        public TeachersProfilesAdapter2.TeachersViewHolder2 onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        public TeachersProfilesAdapter.TeachersViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
             View teachersProfileView = LayoutInflater.from(parent.getContext())
-                    .inflate(R.layout.teacher_profile_box,parent,false);
-            return new TeachersProfilesAdapter2.TeachersViewHolder2(teachersProfileView);
+                    .inflate(R.layout.teacher_profile_box, parent, false);
+            return new TeachersProfilesAdapter.TeachersViewHolder(teachersProfileView);
         }
 
         @Override
-        public void onBindViewHolder(@NonNull TeachersProfilesAdapter2.TeachersViewHolder2 holder, int position) {
+        public void onBindViewHolder(@NonNull TeachersProfilesAdapter.TeachersViewHolder holder, int position) {
             TeacherProfile currentProfile = teachers.get(position);
             holder.nameTextView.setText(currentProfile.getFirstName() + " " + currentProfile.getLastName());
-            if(currentProfile.getAboutMe().length()>100) {
+            if (currentProfile.getAboutMe().length() > 100) {
                 holder.aboutMeTextView.setText(currentProfile.getAboutMe().substring(0, 100) + "...");
-            }
-            else{
+            } else {
                 holder.aboutMeTextView.setText(currentProfile.getAboutMe());
             }
             holder.ratingBar.setRating(currentProfile.getRating());          //TODO: add ratings to teacher profile
             holder.numOfReviews.setText(String.valueOf(currentProfile.getNumOfReviews()));
-            holder.priceTextView.setText(String.valueOf((int)(currentProfile.getPrice())) + " NIS");
+            holder.priceTextView.setText((int) (currentProfile.getPrice()) + " NIS");
             holder.phoneNumberBtn.setText(currentProfile.getPhoneNumber());
-            holder.nameTextView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
+            holder.nameTextView.setOnClickListener(v -> {
 
-                    String email=currentProfile.getEmailAddress();
-                    userToMove.putString("otherUserId",currentProfile.getUserID());
-                    startActivity(new Intent(HomePageNext.this, TeacherViewProfile.class).putExtras(userToMove));
-                }
+                userToMove.putString("otherUserId", currentProfile.getUserID());
+                startActivity(new Intent(HomePageNext.this, TeacherViewProfile.class).putExtras(userToMove));
             });
             FirebaseStorage firebaseStorage = FirebaseStorage.getInstance();
             StorageReference storageReference = firebaseStorage.getReference();
@@ -342,10 +222,8 @@ public class HomePageNext extends AppCompatActivity {
                         }).addOnFailureListener(exception -> {
                     holder.profileImageView.setVisibility(View.VISIBLE);
                     holder.progressBar.setVisibility(View.GONE);
-                        });
-            }
-            catch(Exception e){
-                System.out.println(e);
+                });
+            } catch (Exception ignored) {
             }
         }
 
@@ -354,7 +232,7 @@ public class HomePageNext extends AppCompatActivity {
             return teachers.size();
         }
 
-        public  class TeachersViewHolder extends RecyclerView.ViewHolder{
+        public class TeachersViewHolder extends RecyclerView.ViewHolder {
             public TextView nameTextView;
             public TextView aboutMeTextView;
             public RatingBar ratingBar;
@@ -364,6 +242,7 @@ public class HomePageNext extends AppCompatActivity {
             public ImageView profileImageView;
             public TextView priceTextView;
             public ProgressBar progressBar;
+
             public TeachersViewHolder(@NonNull View itemView) {
                 super(itemView);
                 nameTextView = itemView.findViewById(R.id.textview_box_teacher_name);
@@ -377,5 +256,43 @@ public class HomePageNext extends AppCompatActivity {
                 progressBar = itemView.findViewById(R.id.progressBar_teacherbox);
             }
         }
+    }
+
+    //** menu **//
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_activity, menu);
+        MenuItem menuItem = menu.getItem(1);
+        if (!isTeacher) {
+            menuItem.setVisible(false);
+        }
+        return true;
+    }
+
+    //TODO: need to add case for every items.
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == R.id.menu_home)
+            startActivity(new Intent(this, HomePage.class).putExtras(userToMove));
+        if (item.getItemId() == R.id.menu_myLesson)
+            startActivity(new Intent(this, MyLessons.class).putExtras(userToMove));
+        if (item.getItemId() == R.id.menu_contact)
+            startActivity(new Intent(this, ContactUs.class).putExtras(userToMove));
+        if (item.getItemId() == R.id.menu_setting)
+            startActivity(new Intent(this, Settings.class).putExtras(userToMove));
+        if (item.getItemId() == R.id.menu_logout) {
+            FirebaseAuth.getInstance().signOut();
+            startActivity(new Intent(this, Login.class));
+        }
+        if (item.getItemId() == R.id.menu_myProfile) {
+            if (!isTeacher) {
+                Toast.makeText(this, "only teacher can edit profile", Toast.LENGTH_LONG).show();
+            } else {
+                Intent intent = new Intent(this, MyProfile.class);
+                intent.putExtras(userToMove);
+                startActivity(intent);
+            }
+        }
+        return super.onContextItemSelected(item);
     }
 }

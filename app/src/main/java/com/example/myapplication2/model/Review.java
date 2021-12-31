@@ -2,14 +2,16 @@ package com.example.myapplication2.model;
 
 import java.util.Date;
 
-public class Comment {
+public class Review {
     private String subject;
     private String review;
     private Date date;
     private String reviewerName;
     private float rating;
-    public Comment(){}
-    public Comment(String subject, String review, Date date ,String name, float rating){
+
+    public Review(){}
+
+    public Review(String subject, String review, Date date , String name, float rating){
         this.subject = subject;
         this.review = review;
         this.date = date;

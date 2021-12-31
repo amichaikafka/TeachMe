@@ -25,32 +25,28 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.Arrays;
-import java.util.List;
 
 public class HomePage extends AppCompatActivity {
     private FirebaseUser mAuth;
-    FirebaseDatabase database;
-    DatabaseReference myRef = null;
-    TextView hello;
-    DatabaseReference subjectChecker;
-    List<String> currSubjects;
-    AutoCompleteTextView subjectChoose;
-    String[] suggestions;
-    boolean isTeacher;
-    Bundle userToMove=new Bundle();
-
+    private FirebaseDatabase database;
+    private TextView hello;
+    private AutoCompleteTextView subjectChoose;
+    private String[] suggestions;
+    private boolean isTeacher;
+    private final Bundle userToMove = new Bundle();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
         database = FirebaseDatabase.getInstance("https://teachme-c8637-default-rtdb.firebaseio.com/");
-        subjectChecker = database.getReference("FieldsOfTeaching");
+        DatabaseReference subjectChecker = database.getReference("FieldsOfTeaching");
 
         subjectChecker.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 String curr = snapshot.getValue(String.class);
+                assert curr != null;
                 suggestions = curr.split(",");
                 subjectSearch();
             }
@@ -68,8 +64,8 @@ public class HomePage extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 TeacherProfile userProfile = snapshot.getValue(TeacherProfile.class);
                 if (userProfile != null) {
-                    isTeacher =true;
-                    userToMove.putBoolean("user", isTeacher);
+                    isTeacher = true;
+                    userToMove.putBoolean("user", true);
                     hello.setText(userProfile.getFirstName());
                 } else {
                     DatabaseReference myRef = database.getReference("Students/" + mAuth.getUid());
@@ -77,8 +73,9 @@ public class HomePage extends AppCompatActivity {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
                             StudentProfile userProfile = snapshot.getValue(StudentProfile.class);
-                            isTeacher =false;
-                            userToMove.putBoolean("user", isTeacher);
+                            isTeacher = false;
+                            userToMove.putBoolean("user", false);
+                            assert userProfile != null;
                             hello.setText(userProfile.getFirstName());
                         }
 
@@ -93,35 +90,39 @@ public class HomePage extends AppCompatActivity {
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(HomePage.this,  R.string.name_dusplay_home, Toast.LENGTH_SHORT).show();
+                Toast.makeText(HomePage.this, R.string.name_dusplay_home, Toast.LENGTH_SHORT).show();
 
             }
         });
-//            subjectSearch();
-
     }
 
-
     public void onClickSearchForTeacher(View view) {
-        String subject=subjectChoose.getText().toString().trim();
+        String subject = subjectChoose.getText().toString().trim();
         if (Arrays.asList(suggestions).contains(subject)) {
 
-            userToMove.putString("subject",subject);
-            Intent intent=new Intent(this, HomePageNext.class);
+            userToMove.putString("subject", subject);
+            Intent intent = new Intent(this, HomePageNext.class);
             intent.putExtras(userToMove);
             startActivity(intent);
-        }else {
+        } else {
             Toast.makeText(HomePage.this, R.string.subject_choose_home, Toast.LENGTH_SHORT).show();
         }
     }
 
+    public void subjectSearch() {
+        System.out.println(Arrays.toString(suggestions));
+        subjectChoose = findViewById(R.id.subject_select_home);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
+                android.R.layout.simple_list_item_1, suggestions);
+        subjectChoose.setAdapter(adapter);
+    }
 
     //** menu **//
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_activity, menu);
-        MenuItem menuItem=menu.getItem(1);
-        if(!isTeacher){
+        MenuItem menuItem = menu.getItem(1);
+        if (!isTeacher) {
             menuItem.setVisible(false);
         }
         return true;
@@ -132,33 +133,23 @@ public class HomePage extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (item.getItemId() == R.id.menu_myLesson)
             startActivity(new Intent(this, MyLessons.class).putExtras(userToMove));
-        if (item.getItemId() == R.id.menu_contact) startActivity(new Intent(this, ContactUs.class).putExtras(userToMove));
-        if (item.getItemId() == R.id.menu_setting) startActivity(new Intent(this, Settings.class).putExtras(userToMove));
+        if (item.getItemId() == R.id.menu_contact)
+            startActivity(new Intent(this, ContactUs.class).putExtras(userToMove));
+        if (item.getItemId() == R.id.menu_setting)
+            startActivity(new Intent(this, Settings.class).putExtras(userToMove));
         if (item.getItemId() == R.id.menu_logout) {
             FirebaseAuth.getInstance().signOut();
             startActivity(new Intent(this, Login.class));
         }
-        if (item.getItemId() == R.id.menu_myProfile){
-            if(!isTeacher){
+        if (item.getItemId() == R.id.menu_myProfile) {
+            if (!isTeacher) {
                 Toast.makeText(this, "only teacher can edit profile", Toast.LENGTH_LONG).show();
-            }else {
-                Intent intent = new Intent(this, TeacherEditProfile.class);
+            } else {
+                Intent intent = new Intent(this, MyProfile.class);
                 intent.putExtras(userToMove);
                 startActivity(intent);
             }
         }
         return super.onContextItemSelected(item);
-    }
-
-    public void subjectSearch() {
-        System.out.println(Arrays.toString(suggestions));
-        subjectChoose=findViewById(R.id.subject_select_home);
-        ArrayAdapter<String> adapter=new ArrayAdapter<>(this,
-                android.R.layout.simple_list_item_1,suggestions);
-        subjectChoose.setAdapter(adapter);
-//        subjectChoose = findViewById(R.id.subject_select_home);
-//        System.out.println(currSubjects + "dddddddddd");
-//        AutoCompleteSubjectAdapter adapter = new AutoCompleteSubjectAdapter(this, currSubjects);
-//        subjectChoose.setAdapter(adapter);
     }
 }

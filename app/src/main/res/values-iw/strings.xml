@@ -104,8 +104,7 @@
     <string name="cancel">בטל</string>
     <string name="my_profile_email">אימייל</string>
     <string name="my_profile_about_me_title">קצת עליי:</string>
-    <!--    <string name="settingsPage">הגדרות</string> -->
-    <string name="change_password">שנה שפה</string>
+    <string name="change_password">שנה סיסמה</string>
     <string name="disable_notifications">השבת התראות</string>
     <string name="deleting_an_account_is_permanent">מחיקת חשבון הינה לצמיתות</string>
     <string name="hebrew_english">עברית / אנגלית</string>

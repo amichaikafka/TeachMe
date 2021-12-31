@@ -14,10 +14,10 @@ import com.example.myapplication2.R;
 import java.util.ArrayList;
 
 public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.CommentViewHolder> {
-    private ArrayList<Comment> comments = new ArrayList<>();
+    private ArrayList<Review> reviews = new ArrayList<>();
 
-    public CommentAdapter(ArrayList<Comment> comments) {
-        this.comments = comments;
+    public CommentAdapter(ArrayList<Review> reviews) {
+        this.reviews = reviews;
     }
 
     @NonNull
@@ -29,20 +29,20 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.CommentV
 
     @Override
     public void onBindViewHolder(@NonNull CommentViewHolder holder, int position) {
-        Comment currentComment = comments.get(position);
-        holder.nameTextView.setText(currentComment.getReviewerName());
-        holder.subjectTextView.setText(currentComment.getSubject());
-        holder.contentTextView.setText(currentComment.getReview());
-        String[] date = currentComment.getDate().toString().split(" ");
+        Review currentReview = reviews.get(position);
+        holder.nameTextView.setText(currentReview.getReviewerName());
+        holder.subjectTextView.setText(currentReview.getSubject());
+        holder.contentTextView.setText(currentReview.getReview());
+        String[] date = currentReview.getDate().toString().split(" ");
         String myDate = date[0]+" "+date[1]+" "+date[2];
         holder.dateTextView.setText(myDate);
-        holder.ratingBar.setRating(currentComment.getRating());
+        holder.ratingBar.setRating(currentReview.getRating());
 
     }
 
     @Override
     public int getItemCount() {
-        return comments.size();
+        return reviews.size();
     }
 
     public static class CommentViewHolder extends RecyclerView.ViewHolder{

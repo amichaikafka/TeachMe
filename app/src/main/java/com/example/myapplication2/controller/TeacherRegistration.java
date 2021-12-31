@@ -19,26 +19,25 @@ import android.widget.Toast;
 
 import java.util.Locale;
 
-public class TeacherMoreInfo extends AppCompatActivity {
+public class TeacherRegistration extends AppCompatActivity {
     private EditText subjectEt, ageEt, phoneEt, aboutMeEt, priceEt;
     private String subject, age, phone, aboutMe, price;
-    FirebaseDatabase database = FirebaseDatabase.getInstance();
-    DatabaseReference myRef = null;
+    private final FirebaseDatabase database = FirebaseDatabase.getInstance();
+    private DatabaseReference myRef = null;
     private FirebaseAuth mAuth;
     private DatabaseReference subjectChecker;
-    String currSubject = "";
+    private String currSubject = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_teacher_more_info);
+        setContentView(R.layout.activity_teacher_registration);
         mAuth = FirebaseAuth.getInstance();
         subjectChecker = database.getReference("FieldsOfTeaching");
         subjectChecker.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                String curr = snapshot.getValue(String.class);
-                currSubject = curr;
+                currSubject = snapshot.getValue(String.class);
             }
 
             @Override
@@ -46,7 +45,6 @@ public class TeacherMoreInfo extends AppCompatActivity {
 
             }
         });
-
     }
 
     public void onClickUpdate(View view) {
@@ -88,14 +86,13 @@ public class TeacherMoreInfo extends AppCompatActivity {
                 }
             }
             myRef.setValue(currSubject);
-            startActivity(new Intent(TeacherMoreInfo.this, Login.class));
+            startActivity(new Intent(TeacherRegistration.this, Login.class));
         }
-
     }
 
     private boolean checkInfo() {
         subject = subjectEt.getText().toString();
-        if(subject.isEmpty()){
+        if (subject.isEmpty()) {
             Toast.makeText(this, R.string.fields_toest_more_info, Toast.LENGTH_LONG).show();
             return false;
         }
@@ -128,19 +125,12 @@ public class TeacherMoreInfo extends AppCompatActivity {
             Toast.makeText(this, R.string.price_more_info, Toast.LENGTH_LONG).show();
             return false;
         }
-
         return true;
-
     }
 
     public void onClickSkip(View view) {
-        Toast.makeText(TeacherMoreInfo.this, R.string.skip_toset_more_info, Toast.LENGTH_LONG).show();
-        startActivity(new Intent(TeacherMoreInfo.this, Login.class));
+        Toast.makeText(TeacherRegistration.this, R.string.skip_toset_more_info, Toast.LENGTH_LONG).show();
+        startActivity(new Intent(TeacherRegistration.this, Login.class));
 
     }
-
-
-    // If sign in fails
-
-
 }
